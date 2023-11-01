@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
-import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
 import Photos from './pages/Photos'
 import Contact from './pages/Contact'
+import './App.css'
 
 function App() {
 

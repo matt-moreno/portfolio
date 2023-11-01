@@ -4,6 +4,12 @@
   text-align: center;
 }
 
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  border: solid red 1px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

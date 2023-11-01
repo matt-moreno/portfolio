@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom"
-import './Header.css'
+import './Sidebar.css'
 
-export default function Header() {
+export default function Sidebar() {
     return (
         <header>
             <Link className="site-logo" to="/">#MattMoreno</Link>
