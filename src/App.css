@@ -9,6 +9,10 @@
   margin-left: 250px;
 }
 
+main {
+  padding-left: 20px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

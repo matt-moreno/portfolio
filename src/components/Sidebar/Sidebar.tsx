@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom"
 import Profile from "../Profile/Profile"
-import './Sidebar.css'
+import "./Sidebar.css"
 
 export default function Sidebar() {
     return (
@@ -13,7 +13,7 @@ export default function Sidebar() {
                 <NavLink to="/about">About</NavLink>
                 <NavLink to="/photos">Photos</NavLink>
             </nav>
-            <Link to="/contact">
+            <Link to="/contact" className="contact-button">
                 <button>Contact</button>
             </Link>
         </header>

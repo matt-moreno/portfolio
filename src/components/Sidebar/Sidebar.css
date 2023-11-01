@@ -16,3 +16,7 @@ nav {
     flex-direction: column;
 }
 
+.contact-button {
+    padding-bottom: 40px;
+}
+
