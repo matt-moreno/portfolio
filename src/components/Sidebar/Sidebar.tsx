@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import Profile from "../Profile/Profile"
 import { FiHome, FiUser, FiCamera, FiMail } from "react-icons/fi"
 import "./Sidebar.css"
@@ -6,9 +6,7 @@ import "./Sidebar.css"
 export default function Sidebar() {
     return (
         <header>
-            <Link className="site-logo" to="/">
-                <Profile />
-            </Link>
+            <Profile />
             <nav>
                 <div>
                     <FiHome />
@@ -21,6 +19,12 @@ export default function Sidebar() {
                 <div>
                     <FiCamera />
                     <NavLink to="/photos">Photos</NavLink>
+                </div>
+                <div>
+                    <NavLink to="/runs">Runs</NavLink>
+                </div>
+                <div>
+                    <NavLink to="/recommendations">Recommendations</NavLink>
                 </div>
                 <div>
                     <FiMail />

@@ -25,3 +25,8 @@
       animation: logo-spin infinite 20s linear;
     }
   }
+
+  .icon-row {
+    display: flex;
+    justify-content: space-evenly;
+  }
