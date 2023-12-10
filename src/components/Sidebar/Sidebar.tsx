@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import Profile from "../Profile/Profile"
 import { FiHome, FiUser, FiCamera, FiMail } from "react-icons/fi"
+import { FaRunning, FaRegLightbulb } from "react-icons/fa"
 import "./Sidebar.css"
 
 export default function Sidebar() {
@@ -21,9 +22,11 @@ export default function Sidebar() {
                     <NavLink to="/photos">Photos</NavLink>
                 </div>
                 <div>
+                    <FaRunning />
                     <NavLink to="/runs">Runs</NavLink>
                 </div>
                 <div>
+                    <FaRegLightbulb />
                     <NavLink to="/recommendations">Recommendations</NavLink>
                 </div>
                 <div>
