@@ -10,13 +10,13 @@ export default function Profile() {
             </Link>
             <h3>Matt Moreno</h3>
             <div className="icon-row">
-                <Link to="https://www.linkedin.com/in/matthew-moreno-76b58880/">
+                <Link to="https://www.linkedin.com/in/matthew-moreno-76b58880/" target="_blank">
                     <BsLinkedin onClick={() => console.log("linkedin")} />
                 </Link>
-                <Link to="https://github.com/matt-moreno">
+                <Link to="https://github.com/matt-moreno" target="_blank">
                     <BsGithub onClick={() => console.log("github")}/>
                 </Link>
-                <Link to="https://www.instagram.com/matt_moreno64/">
+                <Link to="https://www.instagram.com/matt_moreno64/" target="_blank">
                     <BsInstagram onClick={() => console.log("instagram")} />
                 </Link>
             </div>
