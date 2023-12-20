@@ -19,13 +19,13 @@ export default function Home() {
     
 
     return (
-        <div>
+        <div className="home-wrapper">
             <div>
                 <h1>Matt Moreno</h1>
                 <h2>I am a <span ref={textSpan}></span></h2>
             </div>
             <div>
-                <img />
+                <img className="main-photo" src="src/assets/main-photo.jpeg" />
             </div>
         </div>
     )
