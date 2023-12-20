@@ -1,5 +1,6 @@
 import "./Footer.css"
 
+// TEMPORARY UNTIL CONTACT PAGE
 export default function Footer() {
     return (
         <p className="email">
