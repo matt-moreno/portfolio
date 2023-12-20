@@ -1,0 +1,11 @@
+/* HOME STYLES */
+.home-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  .main-photo {
+    width: 400px;
+    border: solid red 1px;
+  }

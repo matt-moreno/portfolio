@@ -7,24 +7,3 @@
   flex-direction: column;
   margin-left: 300px;
 }
-
-/* HOME STYLES */
-.home-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-
-.main-photo {
-  width: 400px;
-  border: solid red 1px;
-}
-
-/* CONTACT STYLES */
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: solid red 1px;
-}

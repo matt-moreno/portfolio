@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
-import Home from './pages/Home'
-import About from './pages/About'
-import Photos from './pages/Photos'
-import Contact from './pages/Contact'
-import Runs from "./pages/Runs"
-import Recommendations from './pages/Recommendations'
-import NotFound from './pages/NotFound'
+import Home from './pages/Home/Home'
+import About from './pages/About/About'
+import Photos from './pages/Photos/Photos'
+import Contact from './pages/Contact/Contact'
+import Runs from "./pages/Runs/Runs"
+import Recommendations from './pages/Recommendations/Recommendations'
+import NotFound from './pages/NotFound/NotFound'
 import './App.css'
 
 function App() {

@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react"
 import Typed from "typed.js"
+import "./Home.css"
 
 export default function Home() {
     const textSpan = useRef(null)
