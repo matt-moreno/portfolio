@@ -1,23 +1,60 @@
 /* HOME STYLES */
 .home-wrapper {
     display: flex;
-    justify-content: space-between;
-    margin: 0;
-  }
-  
-  .home-top {
-    padding-left: 50px;
+    flex-direction: column;
   }
 
-  .home-top > h2 > span {
+/* HOME CONTENT TOP OF PAGE */
+  .hero {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .home-content {
+    margin: auto;
+  }
+
+  .home-content > h1 {
+    font-size: 60px;
+  }
+
+  .home-content > h2 {
+    font-size: 26px;
+  }
+
+  .home-content > h2 > span {
     text-decoration: underline;
   }
   
   .home-photo {
     width: 600px;
     height: 600px;
-    border-top-left-radius: 30%; /* Adjust the radius to control the curve */
-    border-bottom-left-radius: 30%; /* Adjust the radius to control the curve */
+    border-top-left-radius: 30%;
+    border-bottom-left-radius: 30%; 
     overflow: hidden;
     object-fit: cover;
+  }
+
+  /* EXPERIENCE */
+
+  .experience > h3 {
+    font-size: 36px;
+  }
+
+  .experience > h4 {
+    font-size: 24px;
+  }
+
+  .experience > h5 {
+    font-size: 18px;
+  }
+
+  .experience > p {
+    font-style: italic;
+  }
+
+  /* EDUCATION */
+
+  .education > h3 {
+    font-size: 36px;
   }
