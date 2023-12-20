@@ -2,10 +2,22 @@
 .home-wrapper {
     display: flex;
     justify-content: space-between;
+    margin: 0;
   }
   
+  .home-top {
+    padding-left: 50px;
+  }
+
+  .home-top > h2 > span {
+    text-decoration: underline;
+  }
   
-  .main-photo {
-    width: 400px;
-    border: solid red 1px;
+  .home-photo {
+    width: 600px;
+    height: 600px;
+    border-top-left-radius: 30%; /* Adjust the radius to control the curve */
+    border-bottom-left-radius: 30%; /* Adjust the radius to control the curve */
+    overflow: hidden;
+    object-fit: cover;
   }
