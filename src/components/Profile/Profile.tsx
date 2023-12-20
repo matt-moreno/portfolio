@@ -8,16 +8,16 @@ export default function Profile() {
             <Link to="/">
                 <img className="profile-photo" src="src/assets/matt-profile.jpg" />
             </Link>
-            <h3>Matt Moreno</h3>
+            <h2 className="name">Matt Moreno</h2>
             <div className="icon-row">
                 <Link to="https://www.linkedin.com/in/matthew-moreno-76b58880/" target="_blank">
-                    <BsLinkedin onClick={() => console.log("linkedin")} />
+                    <BsLinkedin className="icon-btn" />
                 </Link>
                 <Link to="https://github.com/matt-moreno" target="_blank">
-                    <BsGithub onClick={() => console.log("github")}/>
+                    <BsGithub className="icon-btn"/>
                 </Link>
                 <Link to="https://www.instagram.com/matt_moreno64/" target="_blank">
-                    <BsInstagram onClick={() => console.log("instagram")} />
+                    <BsInstagram className="icon-btn" />
                 </Link>
             </div>
         </div>

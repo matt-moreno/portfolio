@@ -1,5 +1,5 @@
 .profile-photo {
-    margin-top: 40px;
+    margin-top: 16px;
     border-radius: 50%;
     width: 140px;
     padding: 1.5em;
@@ -26,7 +26,33 @@
     }
   }
 
+  /* NAME HEADER */
+
+  .name {
+    margin-top: 0;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .name:hover {
+    color: #61dafbaa /* #646cffaa)*/;
+  }
+
+  /* WEBSITE ICON STYLES */
+
   .icon-row {
     display: flex;
     justify-content: space-evenly;
+  }
+
+  .icon-row > a {
+    color: white;
+  }
+
+  .icon-row > a:hover {
+    color: #61dafbaa /* #646cffaa)*/;
+  }
+
+  .icon-btn {
+    font-size: 24px;
   }
