@@ -1,9 +1,16 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
 const express = require("express")
+const cors = require("cors")
 const app = express()
 const port = 3000
 require('dotenv').config()
+
+const corsOptions = {
+  origin: "http://localhost:5173"
+}
+
+app.use(cors(corsOptions))
 
 app.get("/api/stravaData", (req, res) => {
   const refreshAccessToken = async () => {
@@ -43,5 +50,5 @@ app.get("/api/stravaData", (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(process.env.STRAVA_CLIENT_ID);
+  console.log(`Server is running on http://localhost:${port}`);
 });
