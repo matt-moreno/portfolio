@@ -7,3 +7,8 @@
   flex-direction: column;
   margin-left: 300px;
 }
+
+main {
+  max-height: 100vh;
+  overflow: auto;
+}
