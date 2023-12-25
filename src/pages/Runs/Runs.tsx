@@ -1,21 +1,34 @@
 import { useState, useEffect } from "react"
 import { MapContainer, Popup, TileLayer, Polyline } from 'react-leaflet'
+import { ActivityTypes } from "./RunTypes"
 import polyline from "@mapbox/polyline"
 import Loading from "../../components/Loading/Loading"
 import "./Runs.css"
 
+interface StravaTypes {
+  id: number;
+  title: string;
+  exercise: string;
+  elevHigh: number;
+  elevLow: number;
+  startLat: number[];
+  endLat: number[];
+  polyline: [number, number][];
+}
+
 export default function Runs() {
     const [loading, setLoading] = useState(true)
-    const [strava, setStrava] = useState()
+    const [activities, setActivities] = useState<StravaTypes[]>([])
 
     useEffect(() => {
       const getStravaData = async () => {
         try {
           const response = await fetch("http://localhost:3000/api/stravaData")
           const result = await response.json()
-          const stravaArr = []
-          result.map((data: any) => {
+          const stravaArr: StravaTypes[] = []
+          result.map((data: ActivityTypes) => {
             stravaArr.push({
+              id: data.id,
               title: data.name,
               exercise: data.type,
               elevHigh: data.elev_high,
@@ -25,7 +38,7 @@ export default function Runs() {
               polyline: polyline.decode(data.map.summary_polyline)
             })
           })
-          setStrava(stravaArr)
+          setActivities(stravaArr)
       } catch (error) {
           console.error('Error fetching data:', error)
         } finally {
@@ -49,11 +62,11 @@ export default function Runs() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              {strava.map((data, index) => (
-                <Polyline key={index} positions={data.polyline}>
+              {activities.map((activity) => (
+                <Polyline key={activity.id} positions={activity.polyline}>
                   <Popup>
                     <div>
-                      <h2>{data.exercise + ": " + data.title}</h2>
+                      <h2>{activity.exercise + ": " + activity.title}</h2>
                     </div>
                   </Popup>
                 </Polyline>
