@@ -57,7 +57,7 @@ export default function Runs() {
     return (
       <div>
         <h1>This is my Strava Activity!</h1>
-          <MapContainer center={[34.0522, -118.2437]} zoom={10} scrollWheelZoom={false} id="map">
+          <MapContainer center={[34.0522, -118.2437]} zoom={12} scrollWheelZoom={false} id="map">
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
