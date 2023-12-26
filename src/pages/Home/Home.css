@@ -1,118 +1,123 @@
-/* HOME STYLES */
+/* === HOME LAYOUR === */
 .home-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
+}
 
-/* HOME CONTENT TOP OF PAGE */
-  .hero {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .home-content {
-    margin: auto;
-  }
+/* === HERO SECTION === */
+.hero {
+  display: flex;
+  justify-content: space-between;
+}
 
-  .home-content > h1 {
-    font-size: 64px;
-  }
+.home-content {
+  margin: auto;
+}
 
-  .home-content > h2 {
-    font-size: 26px;
-  }
+.home-content > h1 {
+  font-size: 64px;
+}
 
-  .home-content > h2 > span {
-    text-decoration: underline;
-  }
-  
-  .home-photo {
-    width: 600px;
-    height: 600px;
-    border-top-left-radius: 30%;
-    border-bottom-left-radius: 30%; 
-    overflow: hidden;
-    object-fit: cover;
-  }
+.home-content > h2 {
+  font-size: 26px;
+}
 
-  /* EXPERIENCE */
-  .experience {
-    background: white;
-    color: black;
-  }
+.home-content > h2 > span {
+  text-decoration: underline;
+}
 
-  .experience-item > h3 {
-    font-size: 36px;
-  }
+.home-photo {
+  width: 600px;
+  height: 600px;
+  border-top-left-radius: 30%;
+  border-bottom-left-radius: 30%;
+  overflow: hidden;
+  object-fit: cover;
+}
 
-  .experience-item > h4 {
-    font-size: 24px;
-  }
+/* === EXPERIENCE === */
+.experience {
+  background: white;
+  color: black;
+}
 
-  .experience-item > h5 {
-    font-size: 18px;
-    margin-top: 0;
-  }
+.experience-item > h3 {
+  font-size: 36px;
+}
 
-  .experience-item > p {
-    font-style: italic;
-  }
+.experience-item > h4 {
+  font-size: 24px;
+}
 
-  /* === EXPERIENCE JOINTED BULLETS === */
+.experience-item > h5 {
+  font-size: 18px;
+  margin-top: 0;
+}
 
-  .experience > ul {
-    list-style-type: none;
-  }
+.experience-item > p {
+  font-style: italic;
+}
 
-  /* <li> */
-  .experience-item {
-    position: relative;
-    margin: 0;
-    padding-bottom: 1em;
-    padding-left: 20px;
-  }
+/* === EXPERIENCE JOINTED BULLETS === */
+.experience > ul {
+  list-style-type: none;
+}
 
-  /* Line styles */
-  .experience-item::before {
-    background-color: #c00;
-    width: 2px;
-    content: '';
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 5px;
-  }
+/* <li> */
+.experience-item {
+  position: relative;
+  margin: 0;
+  padding-bottom: 1em;
+  padding-left: 20px;
+}
 
-  /* Start the line further down on the first list item */
-  .experience-item:first-child::before { 
-    top: 15px;  
-  }
+/* Line styles */
+.experience-item::before {
+  background-color: #c00;
+  width: 2px;
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 5px;
+}
 
-  /* Stop the line short on the final list item */
-  .experience-item:last-child::before {
-    bottom: 10px;
-  }
+/* Starts the line further down on the first list item */
+.experience-item:first-child::before {
+  top: 15px;
+}
 
+/* Stops the line short on the final list item */
+.experience-item:last-child::before {
+  bottom: 10px;
+}
 
-  .marker-lg {
-    width: 16px; 
-    margin-left: -22px; 
-    padding-right: 8px;
-    fill: red;
-    float: left; 
+.marker-lg {
+  width: 16px;
+  margin-left: -22px;
+  padding-right: 8px;
+  fill: red;
+  float: left;
+}
 
-  }
+.marker-sm {
+  margin-left: -20px;
+  width: 12px;
+  fill: red;
+  float: left;
+  padding-right: 10px;
+}
 
-  .marker-sm { 
-    margin-left: -20px; 
-    width: 12px; 
-    fill: red; 
-    float: left; 
-    padding-right: 10px 
-  }
+/* === EDUCATION === */
+.education > h3 {
+  font-size: 36px;
+}
 
-  /* EDUCATION */
+.education-container {
+  display: flex;
+  gap: 100px;
+}
 
-  .education > h3 {
-    font-size: 36px;
-  }
+.badge {
+  width: 200px;
+}
