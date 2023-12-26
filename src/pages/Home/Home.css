@@ -15,7 +15,7 @@
   }
 
   .home-content > h1 {
-    font-size: 60px;
+    font-size: 64px;
   }
 
   .home-content > h2 {
@@ -36,21 +36,79 @@
   }
 
   /* EXPERIENCE */
+  .experience {
+    background: white;
+    color: black;
+  }
 
-  .experience > h3 {
+  .experience-item > h3 {
     font-size: 36px;
   }
 
-  .experience > h4 {
+  .experience-item > h4 {
     font-size: 24px;
   }
 
-  .experience > h5 {
+  .experience-item > h5 {
     font-size: 18px;
+    margin-top: 0;
   }
 
-  .experience > p {
+  .experience-item > p {
     font-style: italic;
+  }
+
+  /* === EXPERIENCE JOINTED BULLETS === */
+
+  .experience > ul {
+    list-style-type: none;
+  }
+
+  /* <li> */
+  .experience-item {
+    position: relative;
+    margin: 0;
+    padding-bottom: 1em;
+    padding-left: 20px;
+  }
+
+  /* Line styles */
+  .experience-item::before {
+    background-color: #c00;
+    width: 2px;
+    content: '';
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 5px;
+  }
+
+  /* Start the line further down on the first list item */
+  .experience-item:first-child::before { 
+    top: 15px;  
+  }
+
+  /* Stop the line short on the final list item */
+  .experience-item:last-child::before {
+    bottom: 10px;
+  }
+
+
+  .marker-lg {
+    width: 16px; 
+    margin-left: -22px; 
+    padding-right: 8px;
+    fill: red;
+    float: left; 
+
+  }
+
+  .marker-sm { 
+    margin-left: -20px; 
+    width: 12px; 
+    fill: red; 
+    float: left; 
+    padding-right: 10px 
   }
 
   /* EDUCATION */
