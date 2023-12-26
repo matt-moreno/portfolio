@@ -35,13 +35,13 @@
   object-fit: cover;
 }
 
-/* === EXPERIENCE === */
+/* === EXPERIENCE SECTION === */
 .experience {
   background: white;
   color: black;
 }
 
-.experience-item > h3 {
+.experience > h3 {
   font-size: 36px;
 }
 
@@ -108,7 +108,7 @@
   padding-right: 10px;
 }
 
-/* === EDUCATION === */
+/* === EDUCATION SECTION === */
 .education > h3 {
   font-size: 36px;
 }
@@ -120,4 +120,12 @@
 
 .badge {
   width: 200px;
+}
+
+.badge-scrimba {
+  border-radius: 50%;
+}
+
+.education-item {
+  display: flex;
 }

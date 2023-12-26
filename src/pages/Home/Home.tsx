@@ -57,7 +57,6 @@ export default function Home() {
               <li>experience bullet point</li>
             </ul>
           </li>
-
           <li className="experience-item">
             <div className="marker-sm">
               <svg aria-hidden="true" viewBox="0 0 32 32" focusable="false">
@@ -74,7 +73,6 @@ export default function Home() {
               <li>experience bullet point</li>
             </ul>
           </li>
-
           <li className="experience-item">
             <div className="marker-sm">
               <svg aria-hidden="true" viewBox="0 0 32 32" focusable="false">
@@ -98,28 +96,44 @@ export default function Home() {
         <h3>Education</h3>
         <div className="education-container">
           <div>
-            <img className="badge" src="src/assets/UCR.png" alt="UCR seal" />
-            <p>University of California, Riverside</p>
-            <img
-              className="badge"
-              src="src/assets/CSPO.webp"
-              alt="CSPO badge"
-            />
-            <p>Certified Scrum Product Owner</p>
+            <div className="education-item">
+              <img
+                className="badge"
+                src="src/assets/UCR.svg.png"
+                alt="UCR seal"
+              />
+              <p>
+                University of California, Riverside
+                <br />
+                This is where a summary will go!
+              </p>
+            </div>
+            <div className="education-item">
+              <img
+                className="badge"
+                src="src/assets/CSPO.webp"
+                alt="CSPO badge"
+              />
+              <p>Certified Scrum Product Owner</p>
+            </div>
           </div>
           <div>
-            <img
-              className="badge"
-              src="src/assets/scrimba.png"
-              alt="Scrimba logo"
-            />
-            <p>Scrimba certificate</p>
-            <img
-              className="badge"
-              src="src/assets/UCI.svg.png"
-              alt="UCI seal"
-            />
-            <p>Cybersecurity certificate</p>
+            <div className="education-item">
+              <img
+                className="badge badge-scrimba"
+                src="src/assets/scrimba.png"
+                alt="Scrimba logo"
+              />
+              <p>Scrimba certificate</p>
+            </div>
+            <div className="education-item">
+              <img
+                className="badge"
+                src="src/assets/UCI.svg.png"
+                alt="UCI seal"
+              />
+              <p>Cybersecurity certificate</p>
+            </div>
           </div>
         </div>
       </div>
