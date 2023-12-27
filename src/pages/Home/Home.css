@@ -1,23 +1,133 @@
-/* HOME STYLES */
+/* === HOME LAYOUR === */
 .home-wrapper {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-  }
-  
-  .home-top {
-    padding-left: 50px;
-  }
+  display: flex;
+  flex-direction: column;
+}
 
-  .home-top > h2 > span {
-    text-decoration: underline;
-  }
-  
-  .home-photo {
-    width: 600px;
-    height: 600px;
-    border-top-left-radius: 30%; /* Adjust the radius to control the curve */
-    border-bottom-left-radius: 30%; /* Adjust the radius to control the curve */
-    overflow: hidden;
-    object-fit: cover;
-  }
+/* === HERO SECTION === */
+.hero {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-content {
+  margin: auto;
+}
+
+.home-content > h1 {
+  font-size: 64px;
+}
+
+.home-content > h2 {
+  font-size: 26px;
+}
+
+.home-content > h2 > span {
+  text-decoration: underline;
+}
+
+.home-photo {
+  width: 600px;
+  height: 600px;
+  border-top-left-radius: 30%;
+  border-bottom-left-radius: 30%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+/* === EXPERIENCE SECTION === */
+.experience {
+  background: white;
+  color: black;
+}
+
+.experience > h3 {
+  font-size: 36px;
+}
+
+.experience-item > h4 {
+  font-size: 24px;
+}
+
+.experience-item > h5 {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.experience-item > p {
+  font-style: italic;
+}
+
+/* === EXPERIENCE JOINTED BULLETS === */
+.experience > ul {
+  list-style-type: none;
+}
+
+/* <li> */
+.experience-item {
+  position: relative;
+  margin: 0;
+  padding-bottom: 1em;
+  padding-left: 20px;
+}
+
+/* Line styles */
+.experience-item::before {
+  background-color: #61dafbaa;
+  width: 2px;
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 5px;
+}
+
+/* Starts the line further down on the first list item */
+.experience-item:first-child::before {
+  top: 15px;
+}
+
+/* Stops the line short on the final list item */
+.experience-item:last-child::before {
+  bottom: 10px;
+}
+
+.marker-lg {
+  width: 16px;
+  margin-left: -22px;
+  padding-right: 8px;
+  fill: #61dafbaa;
+  float: left;
+}
+
+.marker-sm {
+  margin-left: -20px;
+  width: 12px;
+  fill: #61dafbaa;
+  float: left;
+  padding-right: 10px;
+}
+
+/* === EDUCATION SECTION === */
+.education > h3 {
+  font-size: 36px;
+}
+
+/* TODO: Change to use CSS Grid */
+
+.education-container {
+  display: flex;
+  gap: 100px;
+}
+
+.badge {
+  width: 200px;
+}
+
+.badge-scrimba {
+  border-radius: 50%;
+}
+
+.education-item {
+  display: flex;
+}
