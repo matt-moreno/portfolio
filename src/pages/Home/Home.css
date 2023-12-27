@@ -113,6 +113,8 @@
   font-size: 36px;
 }
 
+/* TODO: Change to use CSS Grid */
+
 .education-container {
   display: flex;
   gap: 100px;
