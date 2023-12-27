@@ -73,7 +73,7 @@
 
 /* Line styles */
 .experience-item::before {
-  background-color: #c00;
+  background-color: #61dafbaa;
   width: 2px;
   content: "";
   position: absolute;
@@ -96,14 +96,14 @@
   width: 16px;
   margin-left: -22px;
   padding-right: 8px;
-  fill: red;
+  fill: #61dafbaa;
   float: left;
 }
 
 .marker-sm {
   margin-left: -20px;
   width: 12px;
-  fill: red;
+  fill: #61dafbaa;
   float: left;
   padding-right: 10px;
 }
