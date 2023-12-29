@@ -1,7 +1,7 @@
 .email > a {
-    color: white;
+  color: white;
 }
 
 .email > a:hover {
-    color: #61dafbaa /* #646cffaa)*/;
+  color: #61dafbaa /* #646cffaa)*/;
 }
