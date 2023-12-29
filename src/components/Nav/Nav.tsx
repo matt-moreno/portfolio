@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { FiHome, FiUser, FiCamera, FiMail } from "react-icons/fi";
+// Temporarily removing FiCamera from React Icons import
+import { FiHome, FiUser, FiMail } from "react-icons/fi";
 import { FaRunning, FaRegLightbulb } from "react-icons/fa";
 import "./Nav.css";
+// Will not be doing Photo section at this time
 
 export default function Nav() {
   return (
@@ -14,10 +16,10 @@ export default function Nav() {
         <FiUser className="icon-style" />
         <NavLink to="/about">About</NavLink>
       </div>
-      <div className="nav-container">
+      {/* <div className="nav-container">
         <FiCamera className="icon-style" />
         <NavLink to="/photos">Photos</NavLink>
-      </div>
+      </div> */}
       <div className="nav-container">
         <FaRunning className="icon-style" />
         <NavLink to="/runs">Runs</NavLink>
