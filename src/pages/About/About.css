@@ -2,3 +2,41 @@
 .about-top {
   display: flex;
 }
+
+/* === ABOUT ME MIDDLE === */
+.about-middle {
+  text-align: center;
+  background-color: white;
+  color: black;
+  padding: 40px 0;
+}
+
+.about-middle > h2 {
+  margin-top: 0;
+}
+
+.development-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.development-container {
+  border: solid #61dafbaa 2px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+}
+
+/* === ABOUT ME BOTTOM === */
+.about-bottom > h2 {
+  text-align: center;
+}
+
+.studying-container {
+  display: flex;
+}
+
+.studying-container > img {
+  width: 200px;
+}

@@ -1,4 +1,5 @@
 import "./About.css";
+import AboutMiddle from "./components/AboutMiddle";
 
 export default function About() {
   return (
@@ -19,13 +20,16 @@ export default function About() {
           </p>
         </div>
       </div>
-      <div className="about-middle">
-        <h2>Development</h2>
-        <div>HTML, CSS, Javascript, React, Typescript</div>
-      </div>
+      <AboutMiddle />
       <div className="about-bottom">
-        <h2>Google Course Era Data Analytics</h2>
-        <p>Why? Because I want to be a data driven Product Owner</p>
+        <h2>Currently Studying</h2>
+        <div className="studying-container">
+          <img src="src/assets/coursera.png" alt="Google Coursera Logo" />
+          <p>
+            I'm studying this because I want to be a data driven Product Owner
+            that brings value (AKA $$$) to your company!
+          </p>
+        </div>
       </div>
     </div>
   );
