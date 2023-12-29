@@ -7,7 +7,7 @@ export default function Education() {
           <div className="education-item">
             <img
               className="badge"
-              src="src/assets/UCR.svg.png"
+              src="/src/assets/UCR.svg.png"
               alt="UCR seal"
             />
             <p>
@@ -23,7 +23,7 @@ export default function Education() {
           <div className="education-item">
             <img
               className="badge"
-              src="src/assets/CSPO.webp"
+              src="/src/assets/CSPO.webp"
               alt="CSPO badge"
             />
             <p>
@@ -46,7 +46,7 @@ export default function Education() {
           <div className="education-item">
             <img
               className="badge badge-scrimba"
-              src="src/assets/scrimba.png"
+              src="/src/assets/scrimba.png"
               alt="Scrimba logo"
             />
             <p>
@@ -66,7 +66,7 @@ export default function Education() {
           <div className="education-item">
             <img
               className="badge"
-              src="src/assets/UCI.svg.png"
+              src="/src/assets/UCI.svg.png"
               alt="UCI seal"
             />
             <p>

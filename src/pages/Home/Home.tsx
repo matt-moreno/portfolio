@@ -35,7 +35,7 @@ export default function Home() {
             I am a <span ref={textSpan}></span>
           </h2>
         </div>
-        <img className="home-photo" src="src/assets/laptop.jpg" />
+        <img className="home-photo" src="/src/assets/laptop.jpg" />
       </div>
       <Experience />
       <Education />
