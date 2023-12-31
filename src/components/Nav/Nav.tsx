@@ -5,14 +5,14 @@ import { FaRunning, FaRegLightbulb } from "react-icons/fa";
 import "./Nav.css";
 // Will not be doing Photo section at this time
 
-// TODO: ADD AN ACTIVE STATE TO THE NAVLINKS
-
 export default function Nav() {
   return (
     <nav className="nav-sidebar">
       <div className="nav-container">
         <FiHome className="icon-style" />
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/" end>
+          Home
+        </NavLink>
       </div>
       <div className="nav-container">
         <FiUser className="icon-style" />

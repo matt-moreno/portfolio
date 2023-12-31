@@ -25,7 +25,8 @@
   padding-left: 8px;
 }
 
-.nav-container > a:hover {
+.nav-container > a:hover,
+.nav-container > a.active {
   color: #61dafbaa /* #646cffaa)*/;
 }
 
