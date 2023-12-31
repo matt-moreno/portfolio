@@ -7,7 +7,7 @@ import "./Nav.css";
 
 export default function Nav() {
   return (
-    <nav>
+    <nav className="nav-sidebar">
       <div className="nav-container">
         <FiHome className="icon-style" />
         <NavLink to="/">Home</NavLink>

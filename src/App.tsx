@@ -8,6 +8,7 @@ import Runs from "./pages/Runs/Runs";
 import Resources from "./pages/Resources/Resources";
 import Websites from "./pages/Resources/components/Websites";
 import Videos from "./pages/Resources/components/Videos";
+import Books from "./pages/Resources/components/Books";
 import NotFound from "./pages/NotFound/NotFound";
 import "./App.css";
 
@@ -21,8 +22,9 @@ export default function App() {
           <Route path="/photos" element={<Photos />} />
           <Route path="/runs" element={<Runs />} />
           <Route path="/resources" element={<Resources />}>
-            <Route path="/resources/websites" element={<Websites />} />
+            <Route index element={<Websites />} />
             <Route path="/resources/videos" element={<Videos />} />
+            <Route path="/resources/books" element={<Books />} />
           </Route>
           <Route path="/contact" element={<Contact />} />
         </Route>

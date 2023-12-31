@@ -1,0 +1,5 @@
+/* === RESOURCES HEADER === */
+.resources-nav {
+  display: flex;
+  gap: 20px;
+}
