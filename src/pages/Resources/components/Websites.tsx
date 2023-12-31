@@ -1,5 +1,5 @@
-import Cards from "../../../components/Cards/cards";
+import Card from "../../../components/Card/Card";
 
 export default function Websites() {
-  return <Cards />;
+  return <Card />;
 }
