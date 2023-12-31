@@ -8,27 +8,26 @@
 }
 
 /* NAV ICON STYLES */
-
-.nav-container {
-  display: flex;
-  align-items: center;
-}
-
-.icon-container:hover {
-  color: #61dafbaa !important /* #646cffaa)*/;
+.nav-container:hover a,
+.nav-container:hover .icon-style,
+.nav-container a.active,
+a.active .icon-style {
+  color: #61dafbaa /* #646cffaa)*/;
 }
 
 .nav-container > a {
+  display: flex;
+  align-items: center;
   font-size: 20px;
   color: white;
   text-decoration: none;
-  padding-left: 8px;
+  gap: 8px;
 }
 
-.nav-container > a:hover,
+/* .nav-container > a:hover,
 .nav-container > a.active {
-  color: #61dafbaa /* #646cffaa)*/;
-}
+  color: #61dafbaa;
+} */
 
 .icon-style {
   font-size: 20px;

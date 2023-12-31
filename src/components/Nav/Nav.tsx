@@ -5,34 +5,43 @@ import { FaRunning, FaRegLightbulb } from "react-icons/fa";
 import "./Nav.css";
 // Will not be doing Photo section at this time
 
+// TODO: CONVERT NAVLINK INTO PARENT CONTAINER
 export default function Nav() {
   return (
     <nav className="nav-sidebar">
       <div className="nav-container">
-        <FiHome className="icon-style" />
         <NavLink to="/" end>
+          <FiHome className="icon-style" />
           Home
         </NavLink>
       </div>
       <div className="nav-container">
-        <FiUser className="icon-style" />
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/about">
+          <FiUser className="icon-style" />
+          About
+        </NavLink>
       </div>
       {/* <div className="nav-container">
         <FiCamera className="icon-style" />
         <NavLink to="/photos">Photos</NavLink>
       </div> */}
       <div className="nav-container">
-        <FaRunning className="icon-style" />
-        <NavLink to="/runs">Runs</NavLink>
+        <NavLink to="/runs">
+          <FaRunning className="icon-style" />
+          Runs
+        </NavLink>
       </div>
       <div className="nav-container">
-        <FaRegLightbulb className="icon-style" />
-        <NavLink to="/resources">Resources</NavLink>
+        <NavLink to="/resources">
+          <FaRegLightbulb className="icon-style" />
+          Resources
+        </NavLink>
       </div>
       <div className="nav-container">
-        <FiMail className="icon-style" />
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/contact">
+          <FiMail className="icon-style" />
+          Contact
+        </NavLink>
       </div>
     </nav>
   );
