@@ -1,5 +1,38 @@
+/* === TEMPORARY. THIS SHOULD BE ADDED TO MAIN === */
+.resources-wrapper {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.resources-wrapper > h1 {
+  margin-left: 24px;
+}
+
 /* === RESOURCES HEADER === */
 .resources-nav {
   display: flex;
   gap: 20px;
+  margin-bottom: 20px;
+  margin-left: 24px;
+}
+
+.resources-nav > a {
+  color: white;
+  text-decoration: none;
+}
+
+.resources-nav > a:hover,
+.resources-nav > a.active {
+  color: #61dafbaa;
+  text-decoration: underline;
+}
+
+/* === CARD GRID LAYOUT === */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  margin-left: 24px;
 }
