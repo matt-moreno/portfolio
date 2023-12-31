@@ -5,6 +5,8 @@ import { FaRunning, FaRegLightbulb } from "react-icons/fa";
 import "./Nav.css";
 // Will not be doing Photo section at this time
 
+// TODO: ADD AN ACTIVE STATE TO THE NAVLINKS
+
 export default function Nav() {
   return (
     <nav className="nav-sidebar">
