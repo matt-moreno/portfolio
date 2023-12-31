@@ -1,8 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import "./Resources.css";
 
-// TODO: CREATE A FILE THAT WILL HOLD ALL THE RESOURCE DATA, THEN MAP OVER IT IN THE COMPONENTS
-
 export default function Resources() {
   return (
     <div className="resources-wrapper">
