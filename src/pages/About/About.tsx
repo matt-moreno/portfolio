@@ -24,7 +24,7 @@ export default function About() {
       <div className="about-bottom">
         <h2>Currently Studying</h2>
         <div className="studying-container">
-          <img src="src/assets/coursera.png" alt="Google Coursera Logo" />
+          <img src="/src/assets/coursera.png" alt="Google Coursera Logo" />
           <p>
             I'm studying this because I want to be a data driven Product Owner
             that brings value (AKA $$$) to your company!

@@ -1,0 +1,52 @@
+.card-container {
+  width: 300px;
+  border: solid #ddd 1px;
+  border-radius: 10px;
+  display: grid;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out; */
+}
+
+.card-container:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa /* #646cffaa)*/);
+  cursor: pointer;
+}
+
+.card-container > img {
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-content {
+  background: white;
+  color: black;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 6px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* === CARD TAG COMPONENT === */
+/* TODO: Create a color var for the card components */
+.card-tag {
+  border: solid #74ee15;
+  background-color: #74ee15;
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+.card-tag > span {
+  font-size: 14px;
+  font-weight: bold;
+}
