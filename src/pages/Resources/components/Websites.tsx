@@ -25,22 +25,6 @@ const websiteData = [
       "Website design inspiration gallery. Find the best hand-picked website design inspiration. We’re a curated web design gallery for Creatives, updated daily.",
     tag: "design",
   },
-  {
-    title: "curated.design",
-    image: "src/assets/placeholder.jpg",
-    link: "https://www.curated.design/",
-    description:
-      "Web design inspiration catalog. Unleash your creativity with out-of-this-world web design inspiration from across the web",
-    tag: "design",
-  },
-  {
-    title: "curated.design",
-    image: "src/assets/placeholder.jpg",
-    link: "https://www.curated.design/",
-    description:
-      "Web design inspiration catalog. Unleash your creativity with out-of-this-world web design inspiration from across the web",
-    tag: "design",
-  },
 ];
 
 export default function Websites() {
