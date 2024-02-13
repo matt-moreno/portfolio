@@ -1,0 +1,16 @@
+.article-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 24px;
+  margin-right: 24px;
+  padding: 24px 0px;
+  border-bottom: 2px solid #bbb;
+}
+
+.article-container > img {
+  width: 200px;
+}
+
+.article-content {
+  padding-left: 10px;
+}
