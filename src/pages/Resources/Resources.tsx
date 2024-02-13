@@ -15,7 +15,7 @@ export default function Resources() {
         <NavLink to="/resources/videos">Videos</NavLink>
         <NavLink to="/resources/books">Books</NavLink>
       </nav>
-      <div className="card-grid">
+      <div>
         <Outlet />
       </div>
     </div>
