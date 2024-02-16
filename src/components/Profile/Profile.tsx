@@ -1,11 +1,12 @@
 import "./Profile.css";
 import { Link } from "react-router-dom";
 import { BsLinkedin, BsGithub, BsInstagram } from "react-icons/bs";
+import { SidebarTypes } from "../../layouts/MainLayout";
 
-export default function Profile() {
+export default function Profile({ toggleSidebar }: SidebarTypes) {
   return (
     <div>
-      <Link to="/">
+      <Link to="/" onClick={toggleSidebar}>
         <img className="profile-photo" src="/src/assets/matt-profile.jpg" />
       </Link>
       <h2 className="name">Matt Moreno</h2>
