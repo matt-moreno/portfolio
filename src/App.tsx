@@ -6,9 +6,9 @@ import Photos from "./pages/Photos/Photos";
 import Contact from "./pages/Contact/Contact";
 import Runs from "./pages/Runs/Runs";
 import Resources from "./pages/Resources/Resources";
-import Websites from "./pages/Resources/components/Websites";
-import Videos from "./pages/Resources/components/Videos";
-import Books from "./pages/Resources/components/Books";
+import Websites from "./pages/Resources/views/Websites";
+import Videos from "./pages/Resources/views/Videos";
+import Books from "./pages/Resources/views/Books";
 import NotFound from "./pages/NotFound/NotFound";
 import "./App.css";
 
