@@ -12,3 +12,9 @@ main {
   max-height: 100vh;
   overflow: auto;
 }
+
+@media (max-width: 768px) {
+  .site-wrapper {
+    margin-left: 0px;
+  }
+}
