@@ -1,13 +1,22 @@
 header {
-    background: #040b14;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 300px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+  background: #040b14;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+  z-index: 1;
 }
 
+@media (max-width: 768px) {
+  header.closed {
+    /* transition: opacity 0.3s ease, visibility 0.3s ease; */
+    width: 0;
+    overflow: hidden;
+  }
+}
