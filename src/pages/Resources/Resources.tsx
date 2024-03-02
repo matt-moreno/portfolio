@@ -3,7 +3,7 @@ import "./Resources.css";
 
 export default function Resources() {
   return (
-    <div className="resources-wrapper">
+    <div className="main-wrapper">
       <h1>
         Book Recommendations, Movie Recommendations, Website References, YouTube
         Videos

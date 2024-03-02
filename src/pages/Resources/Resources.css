@@ -1,11 +1,4 @@
-/* === TEMPORARY. THIS SHOULD BE ADDED TO MAIN === */
-.resources-wrapper {
-  width: 100vw;
-  height: 100vh;
-  max-width: 100%;
-}
-
-.resources-wrapper > h1 {
+.main-wrapper > h1 {
   margin-left: 24px;
 }
 

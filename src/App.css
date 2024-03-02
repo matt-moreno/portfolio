@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Titillium+Web:wght@700&display=swap");
+
 #root {
   margin: 0 auto;
+  font-family: "Titillium Web", sans-serif;
 }
 
+/* Wraps the layout */
 .site-wrapper {
   display: flex;
   flex-direction: column;
@@ -11,6 +15,12 @@
 main {
   max-height: 100vh;
   overflow: auto;
+}
+
+/* Wraps the main content */
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 768px) {
