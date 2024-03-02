@@ -1,25 +1,39 @@
-/* === HOME LAYOUR === */
-.home-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
 /* === HERO SECTION === */
 .hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::before {
+  content: "";
+  background-image: url("src/assets/LAbyMatt.jpeg");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
 }
 
 .home-content {
   margin: auto;
+  position: relative;
+  color: #ffffff;
 }
 
 .home-content > h1 {
   font-size: 64px;
+  margin-bottom: 0;
 }
 
 .home-content > h2 {
   font-size: 26px;
+  margin-top: 0;
 }
 
 .home-content > h2 > span {
@@ -42,10 +56,13 @@
 }
 
 .experience > h3 {
-  font-size: 36px;
+  font-size: 40px;
+  padding-left: 40px;
+  margin-bottom: 0;
 }
 
 .experience-item > h4 {
+  margin-top: 0;
   font-size: 24px;
 }
 
@@ -84,7 +101,7 @@
 
 /* Starts the line further down on the first list item */
 .experience-item:first-child::before {
-  top: 15px;
+  top: 24px;
 }
 
 /* Stops the line short on the final list item */
@@ -94,6 +111,7 @@
 
 .marker-lg {
   width: 16px;
+  padding-top: 8px;
   margin-left: -22px;
   padding-right: 8px;
   fill: #61dafbaa;
@@ -102,6 +120,7 @@
 
 .marker-sm {
   margin-left: -20px;
+  padding-top: 2px;
   width: 12px;
   fill: #61dafbaa;
   float: left;
@@ -109,6 +128,10 @@
 }
 
 /* === EDUCATION SECTION === */
+.education {
+  padding-left: 40px;
+}
+
 .education > h3 {
   font-size: 36px;
 }

@@ -5,7 +5,7 @@ import AboutTop from "./components/AboutTop";
 
 export default function About() {
   return (
-    <div className="about-wrapper">
+    <div className="main-wrapper">
       <AboutTop />
       <AboutMiddle />
       <AboutBottom />
