@@ -1,41 +1,25 @@
-/* === ABOUT ME TOP === */
-.about-top {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
+.top-content {
+  background-color: #333; /* Will need to change color */
+  height: 400px;
 }
 
-.about-top::before {
-  content: "";
-  background-image: url("src/assets/MattUCR.jpg");
-  background-size: cover;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  opacity: 0.5;
-}
-
-.about-top-content {
-  position: relative;
-}
-
-/* === ABOUT ME MIDDLE === */
-.about-middle {
+.image-container {
   text-align: center;
-  background-color: white;
-  color: black;
-  padding: 40px 0;
+  align-items: center;
 }
 
-.about-middle > h2 {
-  margin-top: 0;
+.image-container > img {
+  width: 800px;
+  opacity: 0.75;
+  margin-top: -250px;
+  border-radius: 10px;
 }
 
-.development-wrapper {
+.about-container {
+  text-align: center;
+}
+
+.skills-container {
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -46,11 +30,6 @@
   padding: 10px;
   border-radius: 10px;
   width: 200px;
-}
-
-/* === ABOUT ME BOTTOM === */
-.about-bottom > h2 {
-  text-align: center;
 }
 
 .studying-container {
