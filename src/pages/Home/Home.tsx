@@ -13,6 +13,7 @@ export default function Home() {
         "Product Owner",
         "Web Developer",
         "QA Analyst",
+        "Data Analyst",
         "Marathon Runner",
         "Life Long Learner",
       ],
