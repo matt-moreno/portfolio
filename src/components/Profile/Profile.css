@@ -1,58 +1,43 @@
 .profile-photo {
-    margin-top: 16px;
-    border-radius: 50%;
-    width: 140px;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
+  margin-top: 16px;
+  border-radius: 50%;
+  width: 140px;
+  margin: 2em;
+}
 
-  .profile-photo:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa /* #646cffaa)*/ );
-  }
-  
-  @keyframes logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-      animation: logo-spin infinite 20s linear;
-    }
-  }
+.profile-photo:hover {
+  box-shadow: 0 0 40px 5px #61dafbaa;
+  transition: box-shadow 0.3s ease;
+}
 
-  /* NAME HEADER */
+/* NAME HEADER */
 
-  .name {
-    margin-top: 0;
-    font-size: 30px;
-    text-align: center;
-  }
+.name {
+  margin-top: 0;
+  font-size: 30px;
+  text-align: center;
+  color: #ffffff;
+}
 
-  .name:hover {
-    color: #61dafbaa /* #646cffaa)*/;
-  }
+.name:hover {
+  color: #61dafbaa /* #646cffaa)*/;
+}
 
-  /* WEBSITE ICON STYLES */
+/* WEBSITE ICON STYLES */
 
-  .icon-row {
-    display: flex;
-    justify-content: space-evenly;
-  }
+.icon-row {
+  display: flex;
+  justify-content: space-evenly;
+}
 
-  .icon-row > a {
-    color: white;
-  }
+.icon-row > a {
+  color: white;
+}
 
-  .icon-row > a:hover {
-    color: #61dafbaa /* #646cffaa)*/;
-  }
+.icon-row > a:hover {
+  color: #61dafbaa /* #646cffaa)*/;
+}
 
-  .icon-btn {
-    font-size: 24px;
-  }
+.icon-btn {
+  font-size: 24px;
+}

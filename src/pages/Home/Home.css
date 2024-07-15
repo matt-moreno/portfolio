@@ -1,29 +1,42 @@
-/* === HOME LAYOUR === */
-.home-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
 /* === HERO SECTION === */
 .hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::before {
+  content: "";
+  background-image: url("src/assets/LAbyMatt.jpeg");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
 }
 
 .home-content {
-  margin: auto;
+  position: relative;
+  color: #ffffff;
 }
 
 .home-content > h1 {
-  font-size: 64px;
+  font-size: 74px;
+  margin-bottom: 0;
 }
 
 .home-content > h2 {
-  font-size: 26px;
+  font-size: 36px;
+  margin-top: 0;
 }
 
 .home-content > h2 > span {
-  text-decoration: underline;
+  text-decoration: underline #61dafbaa;
 }
 
 .home-photo {
@@ -39,19 +52,24 @@
 .experience {
   background: white;
   color: black;
+  padding-bottom: 20px;
 }
 
 .experience > h3 {
   font-size: 36px;
+  padding-left: 40px;
+  margin-bottom: 0;
 }
 
 .experience-item > h4 {
+  margin-top: 0;
   font-size: 24px;
 }
 
 .experience-item > h5 {
   font-size: 18px;
   margin-top: 0;
+  margin-bottom: 16px;
 }
 
 .experience-item > p {
@@ -84,7 +102,7 @@
 
 /* Starts the line further down on the first list item */
 .experience-item:first-child::before {
-  top: 15px;
+  top: 24px;
 }
 
 /* Stops the line short on the final list item */
@@ -94,6 +112,7 @@
 
 .marker-lg {
   width: 16px;
+  padding-top: 8px;
   margin-left: -22px;
   padding-right: 8px;
   fill: #61dafbaa;
@@ -102,6 +121,7 @@
 
 .marker-sm {
   margin-left: -20px;
+  padding-top: 2px;
   width: 12px;
   fill: #61dafbaa;
   float: left;
@@ -109,15 +129,23 @@
 }
 
 /* === EDUCATION SECTION === */
+.education {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 .education > h3 {
   font-size: 36px;
+  color: #ffffff;
 }
 
 /* TODO: Change to use CSS Grid */
 
 .education-container {
-  display: flex;
-  gap: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
 .badge {
@@ -130,4 +158,26 @@
 
 .education-item {
   display: flex;
+  background-color: #333;
+  align-items: center;
+  border-radius: 10px;
+  gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
+
+.education-item:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Glow effect on hover */
+}
+
+/* Gunmetal (#2a3439):
+Charcoal (#333333):
+Onyx (#353839):
+
+
+
+
+*/

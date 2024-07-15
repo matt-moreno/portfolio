@@ -4,6 +4,7 @@
 
 @media (max-width: 768px) {
   .mobile-menu {
+    z-index: 1;
     display: flex;
     position: fixed;
     font-size: 24px;

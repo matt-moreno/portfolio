@@ -3,11 +3,8 @@ import "./Resources.css";
 
 export default function Resources() {
   return (
-    <div className="resources-wrapper">
-      <h1>
-        Book Recommendations, Movie Recommendations, Website References, YouTube
-        Videos
-      </h1>
+    <div className="main-wrapper">
+      <h1>Recommendations</h1>
       <nav className="resources-nav">
         <NavLink to="." end>
           Websites

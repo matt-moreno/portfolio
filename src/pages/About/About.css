@@ -1,6 +1,26 @@
 /* === ABOUT ME TOP === */
 .about-top {
-  display: flex;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-top::before {
+  content: "";
+  background-image: url("src/assets/MattUCR.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+}
+
+.about-top-content {
+  position: relative;
 }
 
 /* === ABOUT ME MIDDLE === */

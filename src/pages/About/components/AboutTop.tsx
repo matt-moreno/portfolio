@@ -1,11 +1,7 @@
 export default function AboutTop() {
   return (
     <div className="about-top">
-      <img
-        // src="/src/assets/matt-profile.jpg"
-        alt="Profile photo of Matt Moreno"
-      />
-      <div>
+      <div className="about-top-content">
         <p>About me</p>
         <h1>Product Owner</h1>
         <p>

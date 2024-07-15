@@ -12,7 +12,8 @@ export default function Home() {
       strings: [
         "Product Owner",
         "Web Developer",
-        "QA Tester",
+        "QA Analyst",
+        "Data Analyst",
         "Marathon Runner",
         "Life Long Learner",
       ],
@@ -27,7 +28,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="home-wrapper">
+    <div className="main-wrapper">
       <div className="hero">
         <div className="home-content">
           <h1>Matt Moreno</h1>
@@ -35,7 +36,6 @@ export default function Home() {
             I am a <span ref={textSpan}></span>
           </h2>
         </div>
-        <img className="home-photo" src="/src/assets/laptop.jpg" />
       </div>
       <Experience />
       <Education />
