@@ -24,10 +24,11 @@ export default function Card({
         <div className="card-content">
           <div className="card-header">
             <h3>{title}</h3>
-            {/* MAKE TAG CONDITIONAL???? */}
-            <div className="card-tag">
-              <span>{tag}</span>
-            </div>
+            {tag && (
+              <div className="card-tag">
+                <span>{tag}</span>
+              </div>
+            )}
           </div>
           <p>{description}</p>
         </div>
