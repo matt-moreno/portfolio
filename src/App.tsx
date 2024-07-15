@@ -5,6 +5,7 @@ import About from "./pages/About/About";
 import Photos from "./pages/Photos/Photos";
 import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
+import Bellabeat from "./pages/Projects/views/Bellabeat";
 import Runs from "./pages/Runs/Runs";
 import Resources from "./pages/Resources/Resources";
 import Websites from "./pages/Resources/views/Websites";
@@ -21,7 +22,12 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/photos" element={<Photos />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects" element={<Projects />}>
+            <Route
+              path="/projects/bellabeat-case-study"
+              element={<Bellabeat />}
+            />
+          </Route>
           <Route path="/runs" element={<Runs />} />
           <Route path="/resources" element={<Resources />}>
             <Route index element={<Websites />} />
