@@ -26,16 +26,16 @@ export default function Nav({ toggleSidebar }: SidebarTypes) {
         <FiCamera className="icon-style" />
         <NavLink to="/photos">Photos</NavLink>
       </div> */}
-      {/* <div className="nav-container" onClick={toggleSidebar}>
-        <NavLink to="/projects">
-          <FaRegLightbulb className="icon-style" />
-          Projects
-        </NavLink>
-      </div> */}
       <div className="nav-container" onClick={toggleSidebar}>
         <NavLink to="/runs">
           <FaRunning className="icon-style" />
           Runs
+        </NavLink>
+      </div>
+      <div className="nav-container" onClick={toggleSidebar}>
+        <NavLink to="/projects">
+          <FaRegLightbulb className="icon-style" />
+          Projects
         </NavLink>
       </div>
       <div className="nav-container" onClick={toggleSidebar}>
