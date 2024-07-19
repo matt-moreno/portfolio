@@ -12,21 +12,26 @@ export default function Projects() {
     setIsOutletActive(location.pathname !== "/projects");
   }, [location]);
 
+  // TODO: Create constants file when more projects are completed.
+
   return (
     <div className="main-wrapper">
       <h1>Projects</h1>
-      {isOutletActive ? (
-        <NavLink to="/projects">
-          <p>Go back</p>
-        </NavLink>
-      ) : (
-        <NavLink to="/projects/bellabeat-case-study">
-          <Card
-            title="Bellabeat Case Study"
-            description="Google Coursera Capstone Project"
-          />
-        </NavLink>
-      )}
+      <div className="projects-container">
+        {isOutletActive ? (
+          <NavLink to="/projects">
+            <p>Back to projects</p>
+          </NavLink>
+        ) : (
+          <NavLink to="/projects/bellabeat-case-study">
+            <Card
+              title="Bellabeat Case Study"
+              description="Google Coursera Capstone Project"
+              image="/src/assets/Bellabeat.png"
+            />
+          </NavLink>
+        )}
+      </div>
       <div>
         <Outlet />
       </div>
