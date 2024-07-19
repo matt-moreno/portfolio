@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
 // Temporarily removing FiCamera from React Icons import
 import { FiHome, FiUser, FiMail } from "react-icons/fi";
-import { FaRunning, FaRegLightbulb } from "react-icons/fa";
+import { FaRunning, FaRegLightbulb, FaProjectDiagram } from "react-icons/fa";
 import { SidebarTypes } from "../../layouts/MainLayout";
 import "./Nav.css";
 // Will not be doing Photo section at this time
 
 // TODO: CONVERT NAVLINK INTO PARENT CONTAINER
+// TODO: CREATE CONSTANTS FILE WITH ALL THE DATA
 export default function Nav({ toggleSidebar }: SidebarTypes) {
   return (
     <nav className="nav-sidebar" onClick={toggleSidebar}>
@@ -26,16 +27,16 @@ export default function Nav({ toggleSidebar }: SidebarTypes) {
         <FiCamera className="icon-style" />
         <NavLink to="/photos">Photos</NavLink>
       </div> */}
-      {/* <div className="nav-container" onClick={toggleSidebar}>
-        <NavLink to="/projects">
-          <FaRegLightbulb className="icon-style" />
-          Projects
-        </NavLink>
-      </div> */}
       <div className="nav-container" onClick={toggleSidebar}>
         <NavLink to="/runs">
           <FaRunning className="icon-style" />
           Runs
+        </NavLink>
+      </div>
+      <div className="nav-container" onClick={toggleSidebar}>
+        <NavLink to="/projects">
+          <FaProjectDiagram className="icon-style" />
+          Projects
         </NavLink>
       </div>
       <div className="nav-container" onClick={toggleSidebar}>
