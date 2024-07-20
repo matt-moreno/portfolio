@@ -1,7 +1,8 @@
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Card, CardTypes } from "../../components/Card/Card";
+import projectData from "./constants";
 import "./Projects.css";
-import Card from "../../components/Card/Card";
 
 export default function Projects() {
   const [isOutletActive, setIsOutletActive] = useState(false);
@@ -12,7 +13,19 @@ export default function Projects() {
     setIsOutletActive(location.pathname !== "/projects");
   }, [location]);
 
-  // TODO: Create constants file when more projects are completed.
+  const projectCards = projectData.map((project: CardTypes, index) => {
+    const { link, isWebsite, title, description, image } = project;
+    return (
+      <Card
+        key={index}
+        isWebsite={isWebsite}
+        link={link}
+        title={title}
+        description={description}
+        image={image}
+      />
+    );
+  });
 
   return (
     <div className="main-wrapper">
@@ -23,13 +36,7 @@ export default function Projects() {
             <p>Back to projects</p>
           </NavLink>
         ) : (
-          <NavLink to="/projects/bellabeat-case-study">
-            <Card
-              title="Bellabeat Case Study"
-              description="Google Coursera Capstone Project"
-              image="/src/assets/Bellabeat.png"
-            />
-          </NavLink>
+          <div className="projects-grid">{projectCards}</div>
         )}
       </div>
       <div>
