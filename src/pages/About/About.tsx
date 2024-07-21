@@ -4,10 +4,8 @@ export default function About() {
   return (
     <div className="main-wrapper">
       {/* <div className="top-content" /> */}
-      <div className="image-container">
-        {/* Make this an image carousel */}
-        <img src="src/assets/MattUCR.jpg" />
-      </div>
+      {/* Make this an image carousel */}
+      <img src="src/assets/MattUCR.jpg" className="about-image" />
       <div className="about-container">
         <h1>About me</h1>
         <p>
