@@ -3,7 +3,7 @@ import "./About.css";
 export default function About() {
   return (
     <div className="main-wrapper">
-      <div className="top-content" />
+      {/* <div className="top-content" /> */}
       <div className="image-container">
         {/* Make this an image carousel */}
         <img src="src/assets/MattUCR.jpg" />
