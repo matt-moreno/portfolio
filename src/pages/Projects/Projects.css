@@ -1,12 +1,11 @@
 .projects-container {
-  margin-left: 24px;
   margin-bottom: 40px;
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto);
-  gap: 20px;
+  display: flex; /* Will eventually change to CSS Grid */
+  flex-direction: row;
+  gap: 40px;
   margin-top: 20px;
   justify-items: start;
 }
@@ -21,4 +20,10 @@
   width: 100%;
   max-width: 1000px;
   height: 800px;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    flex-direction: column;
+  }
 }
