@@ -1,6 +1,6 @@
 export default function Experience() {
   return (
-    <div className="experience">
+    <section className="experience">
       <h3>Experience</h3>
       <ul>
         <li className="experience-item">
@@ -113,6 +113,6 @@ export default function Experience() {
           </ul>
         </li>
       </ul>
-    </div>
+    </section>
   );
 }
