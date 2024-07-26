@@ -1,62 +1,112 @@
-/* === ABOUT ME TOP === */
-.about-top {
-  position: relative;
+.about-me {
+  padding: 0 40px 0 40px;
+}
+
+.about-me > h2,
+.studying > h2,
+.countries > h2,
+.call-to-action > h2 {
+  font-size: 36px;
+}
+
+/* === ABOUT ME SECTION === */
+.about-me {
   height: 100vh;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
 }
 
-.about-top::before {
-  content: "";
-  background-image: url("src/assets/MattUCR.jpg");
-  background-size: cover;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  opacity: 0.5;
-}
-
-.about-top-content {
-  position: relative;
-}
-
-/* === ABOUT ME MIDDLE === */
-.about-middle {
-  text-align: center;
-  background-color: white;
-  color: black;
-  padding: 40px 0;
-}
-
-.about-middle > h2 {
-  margin-top: 0;
-}
-
-.development-wrapper {
+.about-container {
   display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.about-content > p {
+  margin-bottom: 40px;
+}
+
+.about-image {
+  height: 75vh;
+  border-radius: 10px;
+}
+
+/* === SKILLS SECTION === */
+
+.skills {
+  display: grid;
   justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
-.development-container {
+.skills-card {
   border: solid #61dafbaa 2px;
+  background-color: #333;
   padding: 10px;
   border-radius: 10px;
   width: 200px;
+  min-height: 160px;
 }
 
-/* === ABOUT ME BOTTOM === */
-.about-bottom > h2 {
-  text-align: center;
-}
-
-.studying-container {
+/* === STUDYING SECTION === */
+/* .studying-container {
   display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 .studying-container > img {
   width: 200px;
+} */
+
+/* === COUNTRIES SECTION === */
+/* .countries {
+  background-color: #f5f8fd;
+  padding: 40px;
+  color: black;
+} */
+
+/* CALL TO ACTION */
+
+.call-to-action {
+  background-color: #333;
+}
+
+@media (max-width: 768px) {
+  .skills {
+    margin-bottom: 40px;
+  }
+
+  .skills-card {
+    width: 90%;
+    min-height: 140px;
+  }
+
+  .about-image {
+    max-width: 100%;
+    height: 50vh;
+  }
+
+  .about-container {
+    width: 100%;
+    border-radius: 0%;
+  }
+}
+@media (max-width: 1390px) {
+  .skills {
+    margin-bottom: 40px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-me {
+    height: auto;
+  }
+
+  /* STUDYING MOBILE */
+  /* .studying-container {
+    flex-direction: column;
+  } */
 }

@@ -50,7 +50,7 @@
 
 /* === EXPERIENCE SECTION === */
 .experience {
-  background: white;
+  background: #f5f8fd;
   color: black;
   padding-bottom: 20px;
 }
@@ -160,6 +160,7 @@
   display: flex;
   background-color: #333;
   align-items: center;
+  border: solid #61dafbaa 2px;
   border-radius: 10px;
   gap: 20px;
   padding-top: 20px;
@@ -169,15 +170,7 @@
   transition: box-shadow 0.3s ease;
 }
 
-.education-item:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Glow effect on hover */
-}
-
 /* Gunmetal (#2a3439):
 Charcoal (#333333):
 Onyx (#353839):
-
-
-
-
 */

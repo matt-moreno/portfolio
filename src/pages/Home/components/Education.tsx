@@ -1,6 +1,6 @@
 export default function Education() {
   return (
-    <div className="education">
+    <section className="education">
       <h3>Education</h3>
       <div className="education-container">
         <div className="education-item">
@@ -78,6 +78,6 @@ export default function Education() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

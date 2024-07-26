@@ -29,14 +29,14 @@ export default function Home() {
 
   return (
     <div className="main-wrapper">
-      <div className="hero">
+      <section className="hero">
         <div className="home-content">
           <h1>Matt Moreno</h1>
           <h2>
             I am a <span ref={textSpan}></span>
           </h2>
         </div>
-      </div>
+      </section>
       <Experience />
       <Education />
     </div>
