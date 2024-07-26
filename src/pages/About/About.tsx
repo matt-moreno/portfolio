@@ -3,7 +3,6 @@ import "./About.css";
 export default function About() {
   return (
     <div className="main-wrapper">
-      {/* <div className="top-content" /> */}
       {/* Make this an image carousel */}
       <section className="about-me">
         <h2>About me</h2>
