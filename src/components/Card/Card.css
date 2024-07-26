@@ -1,7 +1,7 @@
 .card-container {
   width: 300px;
   height: 310px;
-  border: solid #ddd 1px;
+  border: solid #61dafbaa 2px;
   border-radius: 10px;
   display: grid;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@
   box-sizing: border-box;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #61dafbaa;
 }
 
 .card-container p {
@@ -33,12 +33,12 @@
 }
 
 .card-content {
-  background: #cfe3ff;
+  background: #333;
+  color: white;
   /* 
   Muted blue: #a0c4ff & #cfe3ff
   Warm beige: #f5f5dc & #fbfbf2
   */
-  color: black;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   padding: 6px;
