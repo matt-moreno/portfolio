@@ -83,11 +83,11 @@ export default function About() {
         </div>
       </section> */}
 
-      <section className="countries">
+      {/* <section className="countries">
         <h2 className="about-header">Countries I've been to</h2>
         <div> put a world map here with the countries I've been to </div>
         <div>Put a count of the total countries </div>
-      </section>
+      </section> */}
 
       <section className="call-to-action">
         <h2 className="about-header">Let's Connect!</h2>
