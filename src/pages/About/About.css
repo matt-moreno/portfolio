@@ -1,47 +1,56 @@
-.about-header {
+.about-me,
+.countries,
+.call-to-action {
+  padding: 0 0 40px 40px;
+}
+
+.about-me > h2,
+.studying > h2,
+.countries > h2,
+.call-to-action > h2 {
   font-size: 36px;
 }
 
-.about-me,
-.skills,
-.studying,
-.countries,
-.call-to-action {
-  padding: 0 40px 40px 40px;
+/* === ABOUT ME SECTION === */
+.about-me {
+  height: 100vh;
 }
 
-/* TOP ABOUT ME SECTION */
 .about-container {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 40px;
+}
+
+.about-content > p {
+  margin-bottom: 40px;
 }
 
 .about-image {
-  height: 500px;
+  height: 75vh;
+  border-radius: 10px;
 }
 
-/* SKILLS SECTION */
+/* === SKILLS SECTION === */
+
 .skills {
-  background-color: #f5f8fd;
-  color: black;
-}
-
-.skills-container {
-  display: flex;
+  display: grid;
   justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
-.development-container {
+.skills-card {
   border: solid #61dafbaa 2px;
+  background-color: #333;
   padding: 10px;
   border-radius: 10px;
   width: 200px;
+  min-height: 160px;
 }
 
-/* STUDYING SECTION */
-.studying-container {
+/* === STUDYING SECTION === */
+/* .studying-container {
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -49,27 +58,29 @@
 
 .studying-container > img {
   width: 200px;
-}
+} */
 
-/* COUNTRIES SECTION */
-.countries {
+/* === COUNTRIES SECTION === */
+/* .countries {
   background-color: #f5f8fd;
   padding: 40px;
   color: black;
-}
+} */
 
 /* CALL TO ACTION */
 
+.call-to-action {
+  background-color: #333;
+}
+
 @media (max-width: 768px) {
-  /* ABOUT MOBILE */
-  .about-container {
-    flex-direction: column;
-    align-items: center;
+  .development-container {
+    width: 90%;
   }
 
   .about-image {
-    width: fit-content;
-    margin: 0;
+    max-width: 100%;
+    height: 50vh;
   }
 
   .about-container {
@@ -77,10 +88,16 @@
     padding: 30px 0;
     border-radius: 0%;
   }
-
-  /* SKILLS MOBILE */
-  .skills-container {
+}
+@media (max-width: 1390px) {
+  /* ABOUT MOBILE */
+  .about-container {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .about-me {
+    height: auto;
   }
 
   /* STUDYING MOBILE */

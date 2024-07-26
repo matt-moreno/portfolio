@@ -6,57 +6,57 @@ export default function About() {
       {/* <div className="top-content" /> */}
       {/* Make this an image carousel */}
       <section className="about-me">
-        <h2 className="about-header">About me</h2>
+        <h2>About me</h2>
         <div className="about-container">
           <img src="src/assets/MattPortrait.jpeg" className="about-image" />
-          <p>
-            As a Product Owner II at Dubsado, I lead the development and
-            delivery of the Form Builder and Scheduler features, which enable
-            users to create and manage customized forms and appointments for
-            their clients. I collaborate with the engineering, design, and
-            marketing teams to define the product vision, roadmap, and backlog,
-            and to ensure the quality and usability of the features.
-            <br />
-            <br />
-            I have a BA in Political Science Administrative Studies: Management
-            Information Systems from the University of California, Riverside,
-            where I learned the fundamentals of database management, web
-            development, and business administration. I also have a strong
-            background in customer success, having worked as a customer success
-            professional at Dubsado for a year before becoming a product owner.
-            <br />
-            <br />I am passionate about creating positive customer experiences
-            and solving complex problems with innovative solutions.
-          </p>
-        </div>
-      </section>
-
-      {/* Make this header appear on the left with content on the right*/}
-      <section className="skills">
-        <h2 className="about-header">Skills</h2>
-        <div className="skills-container">
-          <div className="development-container">
-            <h3>Web Development</h3>
-            <p>HTML, CSS, Javascript, React, Typescript</p>
-          </div>
-          <div className="development-container">
-            <h3>Data</h3>
+          <div className="about-content">
             <p>
-              I kinda know MongoDB, how to query, and how to write aggregates
+              As a Product Owner II at Dubsado, I lead the development and
+              delivery of the Form Builder and Scheduler features, which enable
+              users to create and manage customized forms and appointments for
+              their clients. I collaborate with the engineering, design, and
+              marketing teams to define the product vision, roadmap, and
+              backlog, and to ensure the quality and usability of the features.
+              I am passionate about creating positive customer experiences and
+              solving complex problems with innovative solutions.
             </p>
-          </div>
-          <div className="development-container">
-            <h3>IDK</h3>
-            <p>What should I put here that showcases the stuff I know</p>
+            <div className="skills">
+              <div className="skills-card">
+                <h3>Web Development</h3>
+                <p>HTML, CSS, Javascript, React, Typescript</p>
+              </div>
+              <div className="skills-card">
+                <h3>Data</h3>
+                <p>
+                  I kinda know MongoDB, how to query, and how to write
+                  aggregates
+                </p>
+              </div>
+              <div className="skills-card">
+                <h3>IDK</h3>
+                <p>What should I put here that showcases the stuff I know</p>
+              </div>
+              <div className="skills-card">
+                <h3>IDK</h3>
+                <p>What should I put here that showcases the stuff I know</p>
+              </div>
+              <div className="skills-card">
+                <h3>IDK</h3>
+                <p>What should I put here that showcases the stuff I know</p>
+              </div>
+              <div className="skills-card">
+                <h3>IDK</h3>
+                <p>What should I put here that showcases the stuff I know</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Make this header appear on the right with content on the left*/}
-      <section className="studying">
+      {/* Make this header appear on the right with content on the left */}
+      {/* <section className="studying">
         <h2 className="about-header">Currently studying</h2>
         <div className="studying-container">
-          {/* Update to University of Arizona MIS */}
           <img src="/src/assets/coursera.png" alt="Google Coursera Logo" />
           <p>
             In my role as a Product Owner, I understand the pivotal role data
@@ -81,7 +81,7 @@ export default function About() {
             stakeholders.
           </p>
         </div>
-      </section>
+      </section> */}
 
       <section className="countries">
         <h2 className="about-header">Countries I've been to</h2>
