@@ -29,7 +29,7 @@ export default function Projects() {
 
   return (
     <div className="main-wrapper">
-      <h1>Projects</h1>
+      <h1 className="projects-title">Projects</h1>
       <div className="projects-container">
         {isOutletActive ? (
           <NavLink to="/projects">
