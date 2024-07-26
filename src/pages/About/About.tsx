@@ -88,7 +88,7 @@ export default function About() {
         <div> put a world map here with the countries I've been to </div>
         <div>Put a count of the total countries </div>
       </section> */}
-
+      {/* 
       <section className="call-to-action">
         <h2 className="about-header">Let's Connect!</h2>
         <p>
@@ -96,7 +96,7 @@ export default function About() {
           collaborations, feel free to <a href="/contact">contact me</a>. I'm
           always open to new opportunities and exciting projects.
         </p>
-      </section>
+      </section> */}
     </div>
   );
 }
