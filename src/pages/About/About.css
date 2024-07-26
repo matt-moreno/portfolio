@@ -1,7 +1,5 @@
-.about-me,
-.countries,
-.call-to-action {
-  padding: 0 0 40px 40px;
+.about-me {
+  padding: 0 40px 0 40px;
 }
 
 .about-me > h2,
