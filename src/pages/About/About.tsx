@@ -5,7 +5,7 @@ export default function About() {
     <div className="main-wrapper">
       {/* Make this an image carousel */}
       <section className="about-me">
-        <h2>About me</h2>
+        <h1>About me</h1>
         <div className="about-container">
           <img src="src/assets/MattPortrait.jpeg" className="about-image" />
           <div className="about-content">
