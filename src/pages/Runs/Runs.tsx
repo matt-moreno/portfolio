@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { MapContainer, Popup, TileLayer, Polyline } from "react-leaflet";
+import { BarChart, Bar, ResponsiveContainer, XAxis, Tooltip } from "recharts";
 import { CardInfo } from "../../components/Card/CardInfo";
 import { ActivityTypes } from "./RunTypes";
 import polyline from "@mapbox/polyline";
@@ -51,6 +52,37 @@ export default function Runs() {
     getStravaData();
   }, []);
 
+  const data = [
+    {
+      name: "M",
+      miles: 5,
+    },
+    {
+      name: "T",
+      miles: 5,
+    },
+    {
+      name: "W",
+      miles: 10,
+    },
+    {
+      name: "T",
+      miles: 5,
+    },
+    {
+      name: "F",
+      miles: 10,
+    },
+    {
+      name: "S",
+      miles: 14,
+    },
+    {
+      name: "S",
+      miles: 5,
+    },
+  ];
+
   // TODO: CREATE LOADING COMPONENT
   if (loading) {
     return <Loading />;
@@ -84,7 +116,17 @@ export default function Runs() {
             ))}
           </MapContainer>
           <div className="dashboard-top-right">
-            <CardInfo className="weekly-tracker">Weekly Tracker Chart</CardInfo>
+            <CardInfo className="weekly-tracker">
+              <p>Weekly tracker</p>
+              {/* TODO: Make height in ResponsiveContainer responsive  */}
+              <ResponsiveContainer width="100%" height="80%">
+                <BarChart data={data}>
+                  <Tooltip />
+                  <XAxis dataKey="name" tick={{ fill: "white" }} />
+                  <Bar dataKey="miles" fill="#fc4c02" />
+                </BarChart>
+              </ResponsiveContainer>
+            </CardInfo>
             <CardInfo className="marathons">Marathon Stars</CardInfo>
           </div>
         </div>

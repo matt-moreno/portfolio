@@ -19,6 +19,7 @@
     "react-leaflet": "^4.2.1",
     "react-loading": "^2.0.3",
     "react-router-dom": "^6.17.0",
+    "recharts": "^2.12.7",
     "typed.js": "^2.1.0"
   },
   "devDependencies": {

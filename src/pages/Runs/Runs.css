@@ -45,6 +45,11 @@
   width: 40%;
 }
 
+.weekly-tracker > p {
+  margin-top: 0;
+  text-align: center;
+}
+
 /* === DASHBOARD BOTTOM === */
 .dashboard-bottom {
   display: flex;
