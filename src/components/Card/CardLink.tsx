@@ -1,7 +1,7 @@
 import "./Card.css";
 import { NavLink } from "react-router-dom";
 
-export interface CardTypes {
+export interface CardLinkTypes {
   title: string;
   image?: string;
   link: string;
@@ -12,14 +12,14 @@ export interface CardTypes {
 
 // IMG, TITLE, LINK, DESCRIPTION, TAG
 // TO GET THE THUMBNAIL IMAGE OF WEBSITE, TRY USING THIS https://stackoverflow.com/questions/7907170/get-thumbnails-of-a-website-from-their-urls
-export function Card({
+export function CardLink({
   title,
   image,
   link,
   isWebsite,
   description,
   tag,
-}: CardTypes) {
+}: CardLinkTypes) {
   return (
     <NavLink to={link} target={isWebsite ? "_blank" : ""} className="card-link">
       <div className="card-container">
