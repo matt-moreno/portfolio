@@ -1,18 +1,25 @@
 @import "leaflet/dist/leaflet.css";
 
-.runs-activity {
+.runs-container {
   padding: 0 40px 0 40px;
   min-height: 100vh;
 }
 
-.runs-activity > h1 {
+.runs-container > h1 {
   font-size: 36px;
   margin-bottom: 0;
 }
 
-.runs-activity > p {
+.runs-container > p {
   margin-top: 0;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+.weekly-tracker,
+.marathons,
+.month-recap,
+.recent-activity {
+  height: 100%;
 }
 
 /* === DASHBOARD TOP === */
@@ -28,6 +35,7 @@
   width: 60%;
   overflow: hidden;
   border: solid #61dafbaa;
+  border-radius: 10px;
 }
 
 .dashboard-top-right {
@@ -35,14 +43,6 @@
   flex-direction: column;
   gap: 20px;
   width: 40%;
-}
-
-.runs-card {
-  border: solid #61dafbaa 2px;
-  background-color: #333;
-  height: 100%;
-  padding: 10px;
-  border-radius: 10px;
 }
 
 /* === DASHBOARD BOTTOM === */

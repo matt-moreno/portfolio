@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { MapContainer, Popup, TileLayer, Polyline } from "react-leaflet";
+import { CardInfo } from "../../components/Card/CardInfo";
 import { ActivityTypes } from "./RunTypes";
 import polyline from "@mapbox/polyline";
 import Loading from "../../components/Loading/Loading";
@@ -57,7 +58,7 @@ export default function Runs() {
 
   return (
     <div className="main-wrapper">
-      <section className="runs-activity">
+      <section className="runs-container">
         <h1>Activity Dashboard</h1>
         <p>My run data provided by the Strava API</p>
 
@@ -83,14 +84,14 @@ export default function Runs() {
             ))}
           </MapContainer>
           <div className="dashboard-top-right">
-            <div className="runs-card">card</div>
-            <div className="runs-card">card</div>
+            <CardInfo className="weekly-tracker">Weekly Tracker Chart</CardInfo>
+            <CardInfo className="marathons">Marathon Stars</CardInfo>
           </div>
         </div>
 
         <div className="dashboard-bottom">
-          <div className="runs-card month-recap">card</div>
-          <div className="runs-card recent-activity">card</div>
+          <CardInfo className="month-recap">Monthly Recap</CardInfo>
+          <CardInfo className="recent-activity">Recent Activity</CardInfo>
         </div>
       </section>
     </div>
