@@ -56,28 +56,43 @@ export default function Runs() {
   }
 
   return (
-    <div>
-      <h1>This is my Strava Activity!</h1>
-      <MapContainer
-        center={[34.0522, -118.2437]}
-        zoom={12}
-        scrollWheelZoom={false}
-        id="map"
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {activities.map((activity) => (
-          <Polyline key={activity.id} positions={activity.polyline}>
-            <Popup>
-              <div>
-                <h2>{activity.exercise + ": " + activity.title}</h2>
-              </div>
-            </Popup>
-          </Polyline>
-        ))}
-      </MapContainer>
+    <div className="main-wrapper">
+      <section className="runs-activity">
+        <h1>Activity Dashboard</h1>
+        <p>My run data provided by the Strava API</p>
+
+        <div className="dashboard-top">
+          <MapContainer
+            center={[34.0522, -118.2437]}
+            zoom={12}
+            scrollWheelZoom={false}
+            id="map"
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {activities.map((activity) => (
+              <Polyline key={activity.id} positions={activity.polyline}>
+                <Popup>
+                  <div>
+                    <h2>{activity.exercise + ": " + activity.title}</h2>
+                  </div>
+                </Popup>
+              </Polyline>
+            ))}
+          </MapContainer>
+          <div className="dashboard-top-right">
+            <div className="runs-card">card</div>
+            <div className="runs-card">card</div>
+          </div>
+        </div>
+
+        <div className="dashboard-bottom">
+          <div className="runs-card month-recap">card</div>
+          <div className="runs-card recent-activity">card</div>
+        </div>
+      </section>
     </div>
   );
 }

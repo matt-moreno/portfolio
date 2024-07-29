@@ -1,7 +1,64 @@
-@import 'leaflet/dist/leaflet.css';
+@import "leaflet/dist/leaflet.css";
+
+.runs-activity {
+  padding: 0 40px 0 40px;
+  min-height: 100vh;
+}
+
+.runs-activity > h1 {
+  font-size: 36px;
+  margin-bottom: 0;
+}
+
+.runs-activity > p {
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+/* === DASHBOARD TOP === */
+.dashboard-top {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 40px;
+}
 
 #map {
-    height: 100vw;
-    width: 100%;
-    overflow: hidden;
-}    
+  height: 40vh;
+  width: 60%;
+  overflow: hidden;
+  border: solid #61dafbaa;
+}
+
+.dashboard-top-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 40%;
+}
+
+.runs-card {
+  border: solid #61dafbaa 2px;
+  background-color: #333;
+  height: 100%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* === DASHBOARD BOTTOM === */
+.dashboard-bottom {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  width: 100%;
+  margin-top: 40px;
+  height: 25vh;
+}
+
+.month-recap {
+  width: 40%;
+}
+
+.recent-activity {
+  width: 60%;
+}
