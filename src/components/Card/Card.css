@@ -1,3 +1,4 @@
+/* === CARD LINK STYLES === */
 .card-container {
   width: 300px;
   height: 310px;
@@ -62,4 +63,12 @@
 .card-tag > span {
   font-size: 14px;
   font-weight: bold;
+}
+
+/* === CARD INFO STYLES === */
+.card-info {
+  border: solid #61dafbaa 2px;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 10px;
 }
