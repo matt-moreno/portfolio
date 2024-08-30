@@ -16,6 +16,7 @@ import "./Runs.css";
 export default function Runs() {
   const [loading, setLoading] = useState(true);
   const [geoData, setGeoData] = useState<GeoTypes[]>([]);
+  // const [weeklyData, setWeeklyData] = useState()
   const [recentActivity, setRecentActivity] = useState<RecentActivityTypes[]>(
     []
   );
@@ -28,6 +29,7 @@ export default function Runs() {
         const geoArr: GeoTypes[] = [];
         const activityArr: RecentActivityTypes[] = [];
         result.map((data: ActivityTypes, index: number) => {
+          console.log(data);
           geoArr.push({
             id: data.id,
             title: data.name,
@@ -44,12 +46,11 @@ export default function Runs() {
               distance: convertMetersToMiles(data.distance),
               pace: convertMetersPerSecondToMilesPerHour(data.average_speed),
               time: convertSecondsToFormattedTime(data.moving_time),
-              heartRate: Math.round(data.average_heartrate),
+              heartRate: data.average_heartrate,
             });
           }
         });
         setGeoData(geoArr);
-        console.log(activityArr);
         setRecentActivity(activityArr);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -126,7 +127,9 @@ export default function Runs() {
                 <p>Distance: {activity.distance}/mi</p>
                 <p>Avg Pace: {activity.pace}/mi</p>
                 <p>Time: {activity.time}</p>
-                <p>Avg Heart Rate: {activity.heartRate} bpm</p>
+                {activity.heartRate && (
+                  <p>Avg Heart Rate: {activity.heartRate} bpm</p>
+                )}
               </div>
             ))}
           </CardInfo>
