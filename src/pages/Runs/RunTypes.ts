@@ -19,7 +19,7 @@ export interface RecentActivityTypes {
   distance: number;
   pace: string;
   time: string;
-  heartRate: number;
+  heartRate?: number;
 }
 
 export interface ActivityTypes {
