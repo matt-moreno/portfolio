@@ -12,7 +12,6 @@ export default function Home() {
       strings: [
         "Product Owner",
         "Web Developer",
-        "QA Analyst",
         "Data Analyst",
         "Marathon Runner",
         "Life Long Learner",
