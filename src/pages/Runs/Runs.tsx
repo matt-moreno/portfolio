@@ -7,7 +7,7 @@ import {
   convertSecondsToFormattedTime,
 } from "./utils";
 import { CardInfo } from "../../components/Card/CardInfo";
-import { weeklyTrackerData } from "./constants";
+import { weeklyTrackerData, marathonMajors } from "./constants";
 import { GeoTypes, RecentActivityTypes, ActivityTypes } from "./RunTypes";
 import polyline from "@mapbox/polyline";
 import Loading from "../../components/Loading/Loading";
@@ -62,6 +62,16 @@ export default function Runs() {
     getStravaData();
   }, []);
 
+  const marathonStars = marathonMajors.map((marathon) => {
+    return (
+      <div className="star-container">
+        <span className={marathon.completed ? "star-filled" : "star"}>★</span>
+        <p>{marathon.city + " " + marathon.flag}</p>
+        {marathon.completed && <p>{marathon.time}</p>}
+      </div>
+    );
+  });
+
   if (loading) {
     return <Loading />;
   }
@@ -70,11 +80,24 @@ export default function Runs() {
     <div className="main-wrapper">
       <section className="runs-container">
         <h1>Activity Dashboard</h1>
-        <p>My run data provided by the Strava API</p>
+        <div className="strava-info">
+          <p>My run data provided by the Strava API</p>
+          <a
+            href="https://developers.strava.com/docs/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/src/assets/strava-logo.png"
+              alt="Strava Logo"
+              className="strava-logo"
+            />
+          </a>
+        </div>
 
         <div className="dashboard-top">
           <MapContainer
-            center={[34.0522, -118.2437]}
+            center={[33.8775, -117.9623]}
             zoom={12}
             scrollWheelZoom={false}
             id="map"
@@ -105,8 +128,8 @@ export default function Runs() {
               </ResponsiveContainer>
             </CardInfo>
             <CardInfo className="marathons">
-              <h2>Marathon Stars</h2>
-              <p>Star of different majors??</p>
+              <h2>World Marathon Majors</h2>
+              <div className="marathon-stars">{marathonStars}</div>
             </CardInfo>
           </div>
         </div>

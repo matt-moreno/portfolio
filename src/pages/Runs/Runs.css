@@ -34,6 +34,17 @@
   font-size: 20px;
 }
 
+.strava-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.strava-logo {
+  height: 24px;
+  width: auto;
+}
+
 /* === DASHBOARD TOP === */
 .dashboard-top {
   display: flex;
@@ -94,6 +105,37 @@
 .activity-container > p {
   margin-top: 4px;
   margin-bottom: 4px;
+}
+
+/* === MARATHON STARS === */
+
+.marathon-stars {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 4px;
+}
+
+.star-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.star-container > p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.star {
+  font-size: 30px;
+  color: white; /* Default (unfilled) color */
+}
+
+.star-filled {
+  font-size: 30px;
+  color: #fc4c02; /* Color for filled stars */
 }
 
 @media (max-width: 1000px) {
