@@ -83,7 +83,7 @@ export default function Runs() {
         <div className="strava-info">
           <p>My run data provided by the Strava API</p>
           <a
-            href="https://developers.strava.com/docs/"
+            href="https://developers.strava.com/docs/reference/"
             target="_blank"
             rel="noopener noreferrer"
           >
