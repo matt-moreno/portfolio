@@ -15,29 +15,40 @@ export default function Experience() {
           <p>Since 2022</p>
           <ul>
             <li>
-              Own and manage sprint for a site wide redesign. Including
-              determining sprint items, balancing bugs, technical debt work, and
-              feature stories.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              nec ultrices libero, et bibendum massa. Nulla facilisi. Proin vel
+              mauris felis. Integer vehicula lorem non sapien facilisis, a
+              faucibus nisi blandit.
             </li>
             <li>
-              Collaborate with other Product Owners and managers to forecast
-              when new features on the Pipeline can be started.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              nec ultrices libero, et bibendum massa. Nulla facilisi. Proin vel
+              mauris felis. Integer vehicula lorem non sapien facilisis, a
+              faucibus nisi blandit.
             </li>
             <li>
-              Gather, manage, and prioritize the product backlog in JIRA for the
-              team.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              nec ultrices libero, et bibendum massa. Nulla facilisi. Proin vel
+              mauris felis. Integer vehicula lorem non sapien facilisis, a
+              faucibus nisi blandit.
             </li>
             <li>
-              Own Features, ensuring they are "ready" for development with
-              complete feature briefs, acceptance criteria, user stories and MVP
-              expectations.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              nec ultrices libero, et bibendum massa. Nulla facilisi. Proin vel
+              mauris felis. Integer vehicula lorem non sapien facilisis, a
+              faucibus nisi blandit.
             </li>
             <li>
-              Collaborate with UX/UI and development teams to prepare for work
-              and present proposed work to the product team.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              nec ultrices libero, et bibendum massa. Nulla facilisi. Proin vel
+              mauris felis. Integer vehicula lorem non sapien facilisis, a
+              faucibus nisi blandit.
             </li>
             <li>
-              Attend team stand-ups, retrospectives, and sprint plannings.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              nec ultrices libero, et bibendum massa. Nulla facilisi. Proin vel
+              mauris felis. Integer vehicula lorem non sapien facilisis, a
+              faucibus nisi blandit.
             </li>
           </ul>
         </li>

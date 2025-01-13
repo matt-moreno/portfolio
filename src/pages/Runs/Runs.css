@@ -1,7 +1,161 @@
-@import 'leaflet/dist/leaflet.css';
+@import "leaflet/dist/leaflet.css";
+
+/* === GENERAL STYLES === */
+.runs-container {
+  padding: 0 40px 0 40px;
+  min-height: 100vh;
+}
+
+.runs-container > h1 {
+  font-size: 36px;
+  margin-bottom: 0;
+}
+
+.runs-container > p {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.weekly-tracker,
+.marathons,
+.recap,
+.recent-activity {
+  height: 100%;
+  border: solid #fc4c02;
+}
+
+.weekly-tracker > h2,
+.marathons > h2,
+.recap > h2,
+.recent-activity > h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 20px;
+}
+
+.strava-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.strava-logo {
+  height: 24px;
+  width: auto;
+}
+
+/* === DASHBOARD TOP === */
+.dashboard-top {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 40px;
+}
 
 #map {
-    height: 100vw;
+  height: 40vh;
+  width: 60%;
+  overflow: hidden;
+  border: solid #fc4c02 2px;
+  border-radius: 10px;
+  z-index: 0;
+}
+
+.dashboard-top-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 40%;
+}
+
+/* === DASHBOARD BOTTOM === */
+.dashboard-bottom {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  width: 100%;
+  margin-top: 40px;
+  height: 25vh;
+}
+
+.recap {
+  width: 40%;
+}
+
+.recent-activity {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  gap: 24px;
+}
+
+.activity-container {
+  display: flex;
+  flex: row;
+  gap: 10px;
+  justify-content: center;
+  background: #fc4c02;
+  border-radius: 5px;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflowed text */
+  text-overflow: ellipsis;
+}
+
+.activity-container > p {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+/* === MARATHON STARS === */
+
+.marathon-stars {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 4px;
+}
+
+.star-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.star-container > p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.star {
+  font-size: 30px;
+  color: white; /* Default (unfilled) color */
+}
+
+.star-filled {
+  font-size: 30px;
+  color: #fc4c02; /* Color for filled stars */
+}
+
+@media (max-width: 1000px) {
+  .dashboard-top,
+  .dashboard-bottom {
+    flex-direction: column;
     width: 100%;
-    overflow: hidden;
-}    
+  }
+
+  .weekly-tracker,
+  #map,
+  .dashboard-top-right,
+  .marathons,
+  .recap,
+  .recent-activity {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .runs-container {
+    margin-bottom: 140px;
+  }
+}

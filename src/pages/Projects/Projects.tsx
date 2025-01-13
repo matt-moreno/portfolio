@@ -1,6 +1,6 @@
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Card, CardTypes } from "../../components/Card/Card";
+import { CardLink, CardLinkTypes } from "../../components/Card/CardLink";
 import projectData from "./constants";
 import "./Projects.css";
 
@@ -13,10 +13,10 @@ export default function Projects() {
     setIsOutletActive(location.pathname !== "/projects");
   }, [location]);
 
-  const projectCards = projectData.map((project: CardTypes, index) => {
+  const projectCards = projectData.map((project: CardLinkTypes, index) => {
     const { link, isWebsite, title, description, image } = project;
     return (
-      <Card
+      <CardLink
         key={index}
         isWebsite={isWebsite}
         link={link}
@@ -29,19 +29,21 @@ export default function Projects() {
 
   return (
     <div className="main-wrapper">
-      <h1 className="projects-title">Projects</h1>
-      <div className="projects-container">
-        {isOutletActive ? (
-          <NavLink to="/projects">
-            <p>Back to projects</p>
-          </NavLink>
-        ) : (
-          <div className="projects-grid">{projectCards}</div>
-        )}
-      </div>
-      <div>
-        <Outlet />
-      </div>
+      <section className="projects">
+        <h1>Projects</h1>
+        <div className="projects-container">
+          {isOutletActive ? (
+            <NavLink to="/projects">
+              <p>Back to projects</p>
+            </NavLink>
+          ) : (
+            <div className="projects-grid">{projectCards}</div>
+          )}
+        </div>
+        <div>
+          <Outlet />
+        </div>
+      </section>
     </div>
   );
 }
