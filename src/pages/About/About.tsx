@@ -10,42 +10,73 @@ export default function About() {
           <img src="src/assets/MattPortrait.jpeg" className="about-image" />
           <div className="about-content">
             <p>
-              As a Product Owner II at Dubsado, I lead the development and
-              delivery of the Form Builder and Scheduler features, which enable
-              users to create and manage customized forms and appointments for
-              their clients. I collaborate with the engineering, design, and
-              marketing teams to define the product vision, roadmap, and
-              backlog, and to ensure the quality and usability of the features.
-              I am passionate about creating positive customer experiences and
-              solving complex problems with innovative solutions.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              nec ultrices libero, et bibendum massa. Nulla facilisi. Proin vel
+              mauris felis. Integer vehicula lorem non sapien facilisis, a
+              faucibus nisi blandit. Vivamus in ultricies ipsum, at malesuada
+              lorem. Sed pharetra lorem non risus volutpat, in venenatis ligula
+              vulputate. Nulla id sem at nisi vehicula tristique. Aliquam erat
+              volutpat. Ut sit amet turpis sed arcu tincidunt posuere. Mauris
+              interdum arcu vitae orci varius tincidunt. Suspendisse potenti.
+              Nam vestibulum, turpis in condimentum pharetra, sapien risus
+              interdum ipsum, non volutpat urna ligula non enim. Cras sit amet
+              justo nec libero vestibulum ultricies. Nullam facilisis, odio vel
+              tempor pretium, arcu ligula convallis sapien, in porttitor velit
+              felis a erat. Duis nec elit a eros rhoncus fermentum ut vitae
+              urna. Integer tincidunt, nunc vel venenatis malesuada, erat risus
+              suscipit ligula, eget laoreet velit tortor vitae quam. Morbi a
+              lorem sit amet dolor elementum condimentum. Curabitur at augue
+              nisl. Vivamus tristique nisi in orci tincidunt, vitae ultrices
+              lectus interdum.
             </p>
             <div className="skills">
               <div className="skills-card">
-                <h3>Web Development</h3>
-                <p>HTML, CSS, Javascript, React, Typescript</p>
-              </div>
-              <div className="skills-card">
-                <h3>Data</h3>
+                <h3>IDK</h3>
                 <p>
-                  I kinda know MongoDB, how to query, and how to write
-                  aggregates
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Quisque nec ultrices libero, et bibendum massa. Nulla
+                  facilisi. Proin vel mauris felis.
                 </p>
               </div>
               <div className="skills-card">
                 <h3>IDK</h3>
-                <p>What should I put here that showcases the stuff I know</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Quisque nec ultrices libero, et bibendum massa. Nulla
+                  facilisi. Proin vel mauris felis.
+                </p>
               </div>
               <div className="skills-card">
                 <h3>IDK</h3>
-                <p>What should I put here that showcases the stuff I know</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Quisque nec ultrices libero, et bibendum massa. Nulla
+                  facilisi. Proin vel mauris felis.
+                </p>
               </div>
               <div className="skills-card">
                 <h3>IDK</h3>
-                <p>What should I put here that showcases the stuff I know</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Quisque nec ultrices libero, et bibendum massa. Nulla
+                  facilisi. Proin vel mauris felis.
+                </p>
               </div>
               <div className="skills-card">
                 <h3>IDK</h3>
-                <p>What should I put here that showcases the stuff I know</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Quisque nec ultrices libero, et bibendum massa. Nulla
+                  facilisi. Proin vel mauris felis.
+                </p>
+              </div>
+              <div className="skills-card">
+                <h3>IDK</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Quisque nec ultrices libero, et bibendum massa. Nulla
+                  facilisi. Proin vel mauris felis.
+                </p>
               </div>
             </div>
           </div>
