@@ -11,33 +11,9 @@ export default function Experience() {
             </svg>
           </div>
           <h4>Dubsado</h4>
-          <h5>Product Owner II</h5>
-          <p>Since 2022</p>
+          <h5>Product Manager</h5>
+          <p>Since 2025</p>
           <ul>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              nec ultrices libero, et bibendum massa. Nulla facilisi. Proin vel
-              mauris felis. Integer vehicula lorem non sapien facilisis, a
-              faucibus nisi blandit.
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              nec ultrices libero, et bibendum massa. Nulla facilisi. Proin vel
-              mauris felis. Integer vehicula lorem non sapien facilisis, a
-              faucibus nisi blandit.
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              nec ultrices libero, et bibendum massa. Nulla facilisi. Proin vel
-              mauris felis. Integer vehicula lorem non sapien facilisis, a
-              faucibus nisi blandit.
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              nec ultrices libero, et bibendum massa. Nulla facilisi. Proin vel
-              mauris felis. Integer vehicula lorem non sapien facilisis, a
-              faucibus nisi blandit.
-            </li>
             <li>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
               nec ultrices libero, et bibendum massa. Nulla facilisi. Proin vel
@@ -58,8 +34,8 @@ export default function Experience() {
               <circle stroke="none" cx="16" cy="16" r="10"></circle>
             </svg>
           </div>
-          <h5>Product Owner I</h5>
-          <p>2021-2022</p>
+          <h5>Product Owner</h5>
+          <p>2021-2024</p>
           <ul>
             <li>
               Own the product roadmap for the Form Builder feature.{" "}
