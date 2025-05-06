@@ -14,6 +14,7 @@
 .contact-container > form {
   align-self: center;
   width: 80%;
+  margin-top: 60px;
 }
 
 form {
