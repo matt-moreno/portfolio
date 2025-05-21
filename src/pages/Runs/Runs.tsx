@@ -24,7 +24,9 @@ export default function Runs() {
   useEffect(() => {
     const getStravaData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/stravaData");
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/stravaData`
+        );
         const result = await response.json();
         const geoArr: GeoTypes[] = [];
         const activityArr: RecentActivityTypes[] = [];
