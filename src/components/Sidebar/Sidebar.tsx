@@ -1,4 +1,3 @@
-import "./Sidebar.css";
 import { SidebarTypes } from "../../layouts/MainLayout";
 import Profile from "./components/Profile";
 import Nav from "./components/Nav";
@@ -10,17 +9,14 @@ export default function Sidebar({
   return (
     <header
       className={`
-        fixed top-0 left-0 h-full z-10
+        fixed top-0 left-0 h-full z-[9999]
         bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900
         border-r border-slate-700/50
         flex flex-col justify-between items-center
         transition-all duration-300 ease-in-out
         shadow-2xl
-        ${
-          isSidebarOpen
-            ? "w-300"
-            : "w-0 md:w-300 overflow-hidden md:overflow-visible"
-        }
+        ${isSidebarOpen ? "w-300" : "w-0 md:w-300"}
+        ${!isSidebarOpen ? "overflow-hidden md:overflow-visible" : ""}
       `}
     >
       <Profile toggleSidebar={toggleSidebar} />

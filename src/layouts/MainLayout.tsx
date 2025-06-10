@@ -9,6 +9,7 @@ export interface SidebarTypes {
 }
 
 export default function MainLayout() {
+  // Start with sidebar closed on mobile, but responsive CSS will handle desktop visibility
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
