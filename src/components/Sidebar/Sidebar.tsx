@@ -8,10 +8,10 @@ export default function Sidebar({
 }: SidebarTypes) {
   return (
     <header
+      // Edit this to change the sidebar color
       className={`
         fixed top-0 left-0 h-full z-[9999]
-        bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900
-        border-r border-slate-700/50
+        bg-slate-800 border-r border-slate-600/30 text-slate-100 
         flex flex-col justify-between items-center
         transition-all duration-300 ease-in-out
         shadow-2xl

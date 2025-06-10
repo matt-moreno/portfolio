@@ -24,7 +24,7 @@ export default function Profile({ toggleSidebar }: SidebarTypes) {
         <Link
           to="https://www.linkedin.com/in/matthew-moreno-76b58880/"
           target="_blank"
-          className="text-slate-300 hover:text-white transition-all duration-300 transform hover:scale-125 hover:bg-white hover:text-slate-900 p-3 rounded-full border-2 border-slate-600 hover:border-white shadow-lg hover:shadow-xl"
+          className="text-slate-300 hover:text-blue-400 transition-all duration-300 transform hover:scale-125 hover:bg-slate-700 p-3 rounded-full border-2 border-slate-600 hover:border-blue-400 shadow-lg hover:shadow-xl"
           aria-label="LinkedIn Profile"
         >
           <BsLinkedin className="text-xl" />
@@ -32,7 +32,7 @@ export default function Profile({ toggleSidebar }: SidebarTypes) {
         <Link
           to="https://github.com/matt-moreno"
           target="_blank"
-          className="text-slate-300 hover:text-white transition-all duration-300 transform hover:scale-125 hover:bg-white hover:text-slate-900 p-3 rounded-full border-2 border-slate-600 hover:border-white shadow-lg hover:shadow-xl"
+          className="text-slate-300 hover:text-white transition-all duration-300 transform hover:scale-125 hover:bg-slate-700 p-3 rounded-full border-2 border-slate-600 hover:border-white shadow-lg hover:shadow-xl"
           aria-label="GitHub Profile"
         >
           <BsGithub className="text-xl" />
@@ -40,7 +40,7 @@ export default function Profile({ toggleSidebar }: SidebarTypes) {
         <Link
           to="https://www.instagram.com/matt_moreno64/"
           target="_blank"
-          className="text-slate-300 hover:text-white transition-all duration-300 transform hover:scale-125 hover:bg-white hover:text-slate-900 p-3 rounded-full border-2 border-slate-600 hover:border-white shadow-lg hover:shadow-xl"
+          className="text-slate-300 hover:text-pink-400 transition-all duration-300 transform hover:scale-125 hover:bg-slate-700 p-3 rounded-full border-2 border-slate-600 hover:border-pink-400 shadow-lg hover:shadow-xl"
           aria-label="Instagram Profile"
         >
           <BsInstagram className="text-xl" />
