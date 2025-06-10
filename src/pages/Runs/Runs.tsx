@@ -26,10 +26,10 @@ const WeeklyTracker = () => {
   const dayProgress = [1, 0, 0, 0, 0, 0, 0]; // Example: Monday completed
 
   return (
-    <Card className="border-orange-500 bg-slate-800 border-2 p-6">
+    <Card className="border-orange-500 bg-white/80 dark:bg-slate-800 border-2 p-6 backdrop-blur-sm">
       <div className="flex items-center justify-center gap-2 mb-6">
         <span className="text-orange-500 text-lg font-semibold">📊</span>
-        <h3 className="text-white text-lg font-semibold">
+        <h3 className="text-slate-900 dark:text-white text-lg font-semibold">
           Weekly goal: {weeklyGoal} mi
         </h3>
         <span className="text-orange-400 text-sm">🔥</span>
@@ -63,10 +63,12 @@ const WeeklyTracker = () => {
             />
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-white text-2xl font-bold">
+            <span className="text-slate-900 dark:text-white text-2xl font-bold">
               {currentWeekMiles}
             </span>
-            <span className="text-slate-400 text-sm">mi</span>
+            <span className="text-slate-600 dark:text-slate-400 text-sm">
+              mi
+            </span>
           </div>
         </div>
 
@@ -77,10 +79,14 @@ const WeeklyTracker = () => {
               <div key={index} className="flex flex-col items-center gap-1">
                 <div
                   className={`w-2 h-8 rounded-full ${
-                    dayProgress[index] ? "bg-green-500" : "bg-slate-600"
+                    dayProgress[index]
+                      ? "bg-green-500"
+                      : "bg-slate-300 dark:bg-slate-600"
                   }`}
                 />
-                <span className="text-slate-400 text-xs">{day}</span>
+                <span className="text-slate-600 dark:text-slate-400 text-xs">
+                  {day}
+                </span>
               </div>
             ))}
           </div>
@@ -166,7 +172,9 @@ export default function Runs() {
         >
           ★
         </span>
-        <p className="text-xs text-center text-slate-300">{marathon.city}</p>
+        <p className="text-xs text-center text-slate-600 dark:text-slate-300">
+          {marathon.city}
+        </p>
         <p className="text-xs text-center">{marathon.flag}</p>
         {marathon.completed && (
           <p className="text-xs text-green-400 text-center">{marathon.time}</p>
@@ -180,16 +188,18 @@ export default function Runs() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <section className="container mx-auto px-6 py-16 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4">
+          <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4">
             Activity Dashboard
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto rounded-full mb-8"></div>
           <div className="flex items-center justify-center gap-3">
-            <p className="text-slate-400">Powered by the Strava API</p>
+            <p className="text-slate-600 dark:text-slate-400">
+              Powered by the Strava API
+            </p>
             <a
               href="https://developers.strava.com/docs/reference/"
               target="_blank"
@@ -209,9 +219,9 @@ export default function Runs() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8 max-w-7xl mx-auto">
           {/* Map - Takes up 3 columns */}
           <div className="lg:col-span-3">
-            <Card className="border-orange-500 bg-slate-800/50 border-2 h-full">
+            <Card className="border-orange-500 bg-white/80 dark:bg-slate-800/50 border-2 h-full backdrop-blur-sm">
               <CardHeader className="pb-2">
-                <CardTitle className="text-white text-xl flex items-center gap-2">
+                <CardTitle className="text-slate-900 dark:text-white text-xl flex items-center gap-2">
                   🗺️ Route Map
                 </CardTitle>
               </CardHeader>
@@ -260,9 +270,9 @@ export default function Runs() {
             <WeeklyTracker />
 
             {/* World Marathon Majors */}
-            <Card className="border-orange-500 bg-slate-800/50 border-2 flex-1">
+            <Card className="border-orange-500 bg-white/80 dark:bg-slate-800/50 border-2 flex-1 backdrop-blur-sm">
               <CardHeader className="pb-3">
-                <CardTitle className="text-white text-lg flex items-center gap-2 justify-center">
+                <CardTitle className="text-slate-900 dark:text-white text-lg flex items-center gap-2 justify-center">
                   🏃‍♂️ Marathon Majors
                 </CardTitle>
               </CardHeader>
@@ -276,29 +286,35 @@ export default function Runs() {
         {/* Bottom Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {/* Recap Stats */}
-          <Card className="border-orange-500 bg-slate-800/50 border-2">
+          <Card className="border-orange-500 bg-white/80 dark:bg-slate-800/50 border-2 backdrop-blur-sm">
             <CardHeader className="pb-3">
-              <CardTitle className="text-white text-xl flex items-center gap-2">
+              <CardTitle className="text-slate-900 dark:text-white text-xl flex items-center gap-2">
                 📈 Running Recap
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="flex justify-between items-center p-3 bg-slate-700/50 rounded-lg">
-                  <span className="text-slate-300">Total Miles (Year)</span>
-                  <span className="text-orange-400 font-bold text-lg">
+                <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
+                  <span className="text-slate-700 dark:text-slate-300">
+                    Total Miles (Year)
+                  </span>
+                  <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
                     {totalStats.yearMiles.toFixed(1)} mi
                   </span>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-slate-700/50 rounded-lg">
-                  <span className="text-slate-300">Total Miles (Month)</span>
-                  <span className="text-orange-400 font-bold text-lg">
+                <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
+                  <span className="text-slate-700 dark:text-slate-300">
+                    Total Miles (Month)
+                  </span>
+                  <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
                     {totalStats.monthMiles.toFixed(1)} mi
                   </span>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-slate-700/50 rounded-lg">
-                  <span className="text-slate-300">Total Miles (Week)</span>
-                  <span className="text-orange-400 font-bold text-lg">
+                <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
+                  <span className="text-slate-700 dark:text-slate-300">
+                    Total Miles (Week)
+                  </span>
+                  <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
                     {totalStats.weekMiles} mi
                   </span>
                 </div>
@@ -307,9 +323,9 @@ export default function Runs() {
           </Card>
 
           {/* Recent Activity */}
-          <Card className="lg:col-span-2 border-orange-500 bg-slate-800/50 border-2">
+          <Card className="lg:col-span-2 border-orange-500 bg-white/80 dark:bg-slate-800/50 border-2 backdrop-blur-sm">
             <CardHeader className="pb-3">
-              <CardTitle className="text-white text-xl flex items-center gap-2">
+              <CardTitle className="text-slate-900 dark:text-white text-xl flex items-center gap-2">
                 ⚡ Recent Activity
               </CardTitle>
             </CardHeader>
