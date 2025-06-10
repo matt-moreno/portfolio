@@ -15,7 +15,7 @@ export default function Profile({ toggleSidebar }: SidebarTypes) {
       </Link>
 
       {/* Name */}
-      <h2 className="text-3xl font-bold text-white mb-6 text-center transition-all duration-300 hover:text-gray-200 hover:scale-105 cursor-default">
+      <h2 className="text-3xl font-bold text-white mb-6 text-center transition-all duration-300 hover:text-white hover:bg-slate-700 cursor-default py-2 px-4 rounded-lg">
         Matt Moreno
       </h2>
 

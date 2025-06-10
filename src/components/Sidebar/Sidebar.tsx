@@ -25,7 +25,7 @@ export default function Sidebar({
       {/* Email Footer */}
       <div className="p-6 border-t border-slate-700/30 w-full">
         <a
-          className="block text-center text-slate-300 hover:[color:#61dafbaa] transition-colors duration-300 text-sm"
+          className="block text-center text-slate-300 hover:text-white hover:bg-slate-700 transition-all duration-300 text-sm py-2 px-4 rounded-lg"
           href="mailto:morenomatthew83@gmail.com"
         >
           morenomatthew83@gmail.com
