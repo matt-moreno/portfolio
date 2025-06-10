@@ -1,9 +1,8 @@
 import ReactLoading from "react-loading";
-import "./Loading.css";
 
 export default function Loading() {
   return (
-    <div className="loading">
+    <div className="absolute inset-0 flex flex-col items-center justify-center md:left-[300px]">
       <ReactLoading type="bars" />
       <h1>Loading</h1>
     </div>
