@@ -17,12 +17,12 @@ export default function MainLayout() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <Menu isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
       {/* Main content area - add left margin to account for fixed sidebar */}
-      <main className="flex-1 ml-0 md:ml-[300px] transition-all duration-300">
+      <main className="flex-1 ml-0 md:ml-[300px] transition-all duration-300 text-gray-900 dark:text-gray-100">
         <Outlet />
       </main>
     </div>

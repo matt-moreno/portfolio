@@ -1,6 +1,7 @@
 import { SidebarTypes } from "../../layouts/MainLayout";
 import Profile from "./components/Profile";
 import Nav from "./components/Nav";
+// import ThemeToggle from "./components/ThemeToggle";
 
 export default function Sidebar({
   isSidebarOpen,
@@ -22,8 +23,13 @@ export default function Sidebar({
       <Profile toggleSidebar={toggleSidebar} />
       <Nav toggleSidebar={toggleSidebar} />
 
+      {/* Theme Toggle */}
+      {/* <div className="px-6 pb-4">
+        <ThemeToggle />
+      </div> */}
+
       {/* Email Footer */}
-      <div className="p-6 border-t border-slate-700/30 w-full">
+      <div className="p-6 border-t border-slate-700/30 w-full flex flex-row items-center">
         <a
           className="block text-center text-slate-300 hover:text-white hover:bg-slate-700 transition-all duration-300 text-sm py-2 px-4 rounded-lg"
           href="mailto:morenomatthew83@gmail.com"
