@@ -11,6 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Mail, Send, User, MessageSquare } from "lucide-react";
+import { supabase } from "@/lib/supabaseClient"; // adjust path as needed
+import { useToast } from "@/components/ui/use-toast";
 
 interface FormData {
   firstName: string;
@@ -28,6 +30,7 @@ export default function Contact() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -43,8 +46,29 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Insert into Supabase
+    const { error } = await supabase.from("contacts").insert([
+      {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        message: formData.message,
+      },
+    ]);
+
+    setIsSubmitting(false);
+
+    if (error) {
+      // Handle error (show a message, etc.)
+      console.error("Supabase insert error:", error);
+      toast({
+        title: "Error sending message",
+        description:
+          "Something went wrong. Please try again or contact me directly.",
+        variant: "destructive",
+      });
+      return;
+    }
 
     // Reset form
     setFormData({
@@ -54,10 +78,14 @@ export default function Contact() {
       message: "",
     });
 
-    setIsSubmitting(false);
-
-    // You can add actual form submission logic here
+    // Optionally show a success message
     console.log("Form submitted:", formData);
+
+    toast({
+      title: "Message sent!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+      variant: "success",
+    });
   };
 
   return (
