@@ -6,6 +6,36 @@ interface CardTypes {
   tag?: string;
 }
 
+// Function to get tag colors based on tag type
+const getTagColors = (tag: string) => {
+  switch (tag.toLowerCase()) {
+    case "design":
+      return {
+        bg: "bg-purple-100 dark:bg-purple-900/30",
+        text: "text-purple-800 dark:text-purple-300",
+        border: "border-purple-200 dark:border-purple-800",
+      };
+    case "productivity":
+      return {
+        bg: "bg-green-100 dark:bg-green-900/30",
+        text: "text-green-800 dark:text-green-300",
+        border: "border-green-200 dark:border-green-800",
+      };
+    case "education":
+      return {
+        bg: "bg-blue-100 dark:bg-blue-900/30",
+        text: "text-blue-800 dark:text-blue-300",
+        border: "border-blue-200 dark:border-blue-800",
+      };
+    default:
+      return {
+        bg: "bg-gray-100 dark:bg-gray-900/30",
+        text: "text-gray-800 dark:text-gray-300",
+        border: "border-gray-200 dark:border-gray-800",
+      };
+  }
+};
+
 export default function Article({
   title,
   image,
@@ -13,6 +43,8 @@ export default function Article({
   description,
   tag,
 }: CardTypes) {
+  const tagColors = tag ? getTagColors(tag) : null;
+
   return (
     <article className="flex flex-row mx-6 py-6 border-b border-slate-300 dark:border-slate-700 group hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors duration-200 rounded-lg px-4">
       {image && (
@@ -43,8 +75,10 @@ export default function Article({
             </h3>
           )}
 
-          {tag && (
-            <span className="inline-block px-3 py-1 mb-3 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full border border-blue-200 dark:border-blue-800">
+          {tag && tagColors && (
+            <span
+              className={`inline-block px-3 py-1 mb-3 text-xs font-medium rounded-full ${tagColors.bg} ${tagColors.text} ${tagColors.border} border`}
+            >
               {tag}
             </span>
           )}
@@ -59,7 +93,7 @@ export default function Article({
         {link && (
           <div className="mt-3 pt-2">
             <span className="inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              Read more
+              Learn more
               <svg
                 className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
                 fill="none"

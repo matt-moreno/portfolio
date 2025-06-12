@@ -45,7 +45,7 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Submit to backend API
+    // Submit to Supabase backend
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API_BASE_URL}/api/contact`,
