@@ -13,6 +13,7 @@ import Websites from "./pages/Resources/views/Websites";
 import Videos from "./pages/Resources/views/Videos";
 import Books from "./pages/Resources/views/Books";
 import NotFound from "./pages/NotFound/NotFound";
+import { Toaster } from "@/components/ui/toaster";
 import "./App.css";
 
 export default function App() {
@@ -40,6 +41,7 @@ export default function App() {
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Toaster />
       </BrowserRouter>
     </ThemeProvider>
   );
