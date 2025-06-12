@@ -45,8 +45,8 @@ export default function Article({
 }: CardTypes) {
   const tagColors = tag ? getTagColors(tag) : null;
 
-  return (
-    <article className="flex flex-row mx-6 py-6 border-b border-slate-300 dark:border-slate-700 group hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors duration-200 rounded-lg px-4">
+  const articleContent = (
+    <article className="flex flex-row mx-6 py-4 border-b border-slate-300 dark:border-slate-700 group hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors duration-200 rounded-lg px-4 cursor-pointer">
       {image && (
         <div className="flex-shrink-0 w-48 h-32 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
           <img
@@ -58,30 +58,38 @@ export default function Article({
       )}
       <div className="flex-1 pl-4 flex flex-col justify-between">
         <div>
-          {link ? (
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200"
-            >
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 line-clamp-2 hover:underline">
-                {title}
-              </h3>
-            </a>
-          ) : (
-            <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2 line-clamp-2">
-              {title}
-            </h3>
-          )}
+          <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+            {title}
+          </h3>
 
-          {tag && tagColors && (
-            <span
-              className={`inline-block px-3 py-1 mb-3 text-xs font-medium rounded-full ${tagColors.bg} ${tagColors.text} ${tagColors.border} border`}
-            >
-              {tag}
-            </span>
-          )}
+          <div className="flex items-center justify-between mb-3">
+            {tag && tagColors && (
+              <span
+                className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${tagColors.bg} ${tagColors.text} ${tagColors.border} border`}
+              >
+                {tag}
+              </span>
+            )}
+
+            {link && (
+              <span className="inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                Visit website
+                <svg
+                  className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </span>
+            )}
+          </div>
 
           {description && (
             <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed line-clamp-3">
@@ -89,28 +97,22 @@ export default function Article({
             </p>
           )}
         </div>
-
-        {link && (
-          <div className="mt-3 pt-2">
-            <span className="inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              Learn more
-              <svg
-                className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </span>
-          </div>
-        )}
       </div>
     </article>
   );
+
+  if (link) {
+    return (
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        {articleContent}
+      </a>
+    );
+  }
+
+  return articleContent;
 }

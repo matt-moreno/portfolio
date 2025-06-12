@@ -19,6 +19,14 @@ const generateScreenshotUrl = (url: string) => {
 
 export const websiteData = [
   {
+    title: "Scrimba",
+    image: generateScreenshotUrl("https://scrimba.com/"),
+    link: "https://scrimba.com/",
+    description:
+      "An interactive platform to learn frontend development through hands-on screencasts and projects. You’ll learn by doing in a uniquely immersive code environment.",
+    tag: "education",
+  },
+  {
     title: "Curated Design",
     image: generateScreenshotUrl("https://www.curated.design/"),
     link: "https://www.curated.design/",
@@ -72,14 +80,6 @@ export const websiteData = [
     link: "https://www.maven.com/",
     description:
       "A learning platform offering live, expert-led courses on product management and career development. It’s ideal for leveling up with practical, cohort-based learning.",
-    tag: "education",
-  },
-  {
-    title: "Scrimba",
-    image: generateScreenshotUrl("https://scrimba.com/"),
-    link: "https://scrimba.com/",
-    description:
-      "An interactive platform to learn frontend development through hands-on screencasts and projects. You’ll learn by doing in a uniquely immersive code environment.",
     tag: "education",
   },
 ];
