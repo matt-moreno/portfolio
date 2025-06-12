@@ -15,7 +15,7 @@ export default function About() {
             <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
             <div className="relative">
               <img
-                src="src/assets/MattPortrait.jpeg"
+                src="/assets/MattPortrait.jpeg"
                 alt="Matt Portrait"
                 className="w-full h-[600px] lg:h-[700px] object-cover rounded-2xl shadow-2xl"
               />

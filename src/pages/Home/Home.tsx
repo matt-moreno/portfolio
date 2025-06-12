@@ -32,7 +32,7 @@ export default function Home() {
         {/* Background image with overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-50"
-          style={{ backgroundImage: "url('src/assets/LAbyMatt.jpeg')" }}
+          style={{ backgroundImage: "url('/assets/LAbyMatt.jpeg')" }}
         ></div>
 
         {/* Content */}
