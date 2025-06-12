@@ -11,7 +11,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Mail, Send, User, MessageSquare } from "lucide-react";
-import { supabase } from "@/lib/supabaseClient"; // adjust path as needed
 import { useToast } from "@/components/ui/use-toast";
 
 interface FormData {
@@ -46,21 +45,32 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Insert into Supabase
-    const { error } = await supabase.from("contacts").insert([
-      {
-        first_name: formData.firstName,
-        last_name: formData.lastName,
-        email: formData.email,
-        message: formData.message,
-      },
-    ]);
+    // Submit to backend API
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            message: formData.message,
+          }),
+        }
+      );
 
-    setIsSubmitting(false);
+      const result = await response.json();
+      setIsSubmitting(false);
 
-    if (error) {
-      // Handle error (show a message, etc.)
-      console.error("Supabase insert error:", error);
+      if (!response.ok || result.error) {
+        throw new Error(result.error || "Failed to submit message");
+      }
+    } catch (error) {
+      console.error("API submission error:", error);
       toast({
         title: "Error sending message",
         description:
