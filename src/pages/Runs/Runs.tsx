@@ -191,10 +191,10 @@ export default function Runs() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      <section className="container mx-auto px-6 py-16 lg:px-8">
+      <section className="container mx-auto px-6 py-8 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-3">
             Activity Dashboard
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto rounded-full mb-8"></div>

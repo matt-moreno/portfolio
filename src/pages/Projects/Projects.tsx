@@ -106,9 +106,9 @@ export default function Projects() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-      <section className="container mx-auto px-6 py-16 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-slate-100 mb-4">
+      <section className="container mx-auto px-6 py-8 lg:px-8">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-3">
             Projects
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
