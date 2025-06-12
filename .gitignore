@@ -14,6 +14,8 @@ dist-ssr
 
 # Editor directories and files
 .env
+.env.local
+.env.production
 .maintenance.html
 .vscode/*
 !.vscode/extensions.json
