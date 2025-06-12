@@ -9,7 +9,7 @@ export default function Profile({ toggleSidebar }: SidebarTypes) {
       <Link to="/" onClick={toggleSidebar} className="mb-6 group">
         <img
           className="w-36 h-36 rounded-full border-4 border-slate-600 shadow-xl transition-all duration-300 group-hover:border-white group-hover:shadow-2xl group-hover:scale-105"
-          src="/src/assets/matt-profile.jpg"
+          src="/assets/matt-profile.jpg"
           alt="Matt Moreno Profile"
         />
       </Link>

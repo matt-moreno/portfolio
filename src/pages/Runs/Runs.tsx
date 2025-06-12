@@ -207,7 +207,7 @@ export default function Runs() {
               className="hover:opacity-80 transition-opacity"
             >
               <img
-                src="/src/assets/strava-logo.png"
+                src="/assets/strava-logo.png"
                 alt="Strava Logo"
                 className="h-6 w-auto"
               />
