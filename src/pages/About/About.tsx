@@ -26,17 +26,19 @@ export default function About() {
           <div className="space-y-6 flex flex-col flex-1 lg:flex-1 justify-start">
             <div className="prose prose-lg dark:prose-invert max-w-none">
               <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                nec ultrices libero, et bibendum massa. Nulla facilisi. Proin
-                vel mauris felis. Integer vehicula lorem non sapien facilisis, a
-                faucibus nisi blandit. Vivamus in ultricies ipsum, at malesuada
-                lorem. Sed pharetra lorem non risus volutpat, in venenatis
-                ligula vulputate. Nulla id sem at nisi vehicula tristique.
-                Aliquam erat volutpat. Ut sit amet turpis sed arcu tincidunt
-                posuere. Mauris interdum arcu vitae orci varius tincidunt.
-                Suspendisse potenti. Nam vestibulum, turpis in condimentum
-                pharetra, sapien risus interdum ipsum, non volutpat urna ligula
-                non enim.
+                Hey there! I’m Matt, a Southern California native, marathon
+                runner, and tech enthusiast with a passion for building great
+                products. I currently work as a Product Manager at Dubsado,
+                where I’ve grown from Customer Success to leading
+                cross-functional initiatives, including the full redesign of our
+                platform. I’m also pursuing a Master’s in Management Information
+                Systems at the University of Arizona, continuously leveling up
+                through hands-on learning and group projects. My background
+                blends frontend development, data analytics, and product
+                strategy, and I’m especially interested in solving complex
+                problems at the intersection of UX and business operations.
+                Outside of work, I’m usually out on a run, catching up on tech
+                trends, or planning my next trip.
               </p>
             </div>
 

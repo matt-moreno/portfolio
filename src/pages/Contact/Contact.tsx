@@ -111,7 +111,7 @@ export default function Contact() {
           </h1>
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Have a project in mind or want to collaborate? I'd love to hear from
-            you. Let's create something amazing together.
+            you. Let's build something together.
           </p>
         </div>
 
