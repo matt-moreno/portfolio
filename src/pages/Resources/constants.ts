@@ -199,4 +199,13 @@ export const bookData = [
   },
 ];
 
-export const videoData = [{}];
+export const videoData = [
+  {
+    title: "Steve Jobs' 2005 Stanford Commencement Address",
+    image: "https://img.youtube.com/vi/UF8uR6Z6KLc/hqdefault.jpg",
+    link: "https://youtu.be/UF8uR6Z6KLc?si=CKUNfBC3OKBx0rfj",
+    description:
+      "Inspirational speech by Steve Jobs on the importance of following your heart and passion.",
+    tag: "motivation",
+  },
+];

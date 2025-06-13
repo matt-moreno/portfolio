@@ -51,6 +51,12 @@ const getTagColors = (tag: string) => {
         text: "text-gray-800 dark:text-gray-300",
         border: "border-gray-200 dark:border-gray-800",
       };
+    case "motivation":
+      return {
+        bg: "bg-orange-100 dark:bg-orange-900/30",
+        text: "text-orange-800 dark:text-orange-300",
+        border: "border-orange-200 dark:border-orange-800",
+      };
   }
 };
 
@@ -91,7 +97,7 @@ export default function Article({
 
             {link && (
               <span className="inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                Visit website
+                Visit link
                 <svg
                   className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
                   fill="none"
