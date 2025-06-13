@@ -27,6 +27,24 @@ const getTagColors = (tag: string) => {
         text: "text-blue-800 dark:text-blue-300",
         border: "border-blue-200 dark:border-blue-800",
       };
+    case "fiction":
+      return {
+        bg: "bg-red-100 dark:bg-red-900/30",
+        text: "text-red-800 dark:text-red-300",
+        border: "border-red-200 dark:border-red-800",
+      };
+    case "non-fiction":
+      return {
+        bg: "bg-teal-100 dark:bg-teal-900/30",
+        text: "text-teal-800 dark:text-teal-300",
+        border: "border-teal-200 dark:border-teal-800",
+      };
+    case "self-help":
+      return {
+        bg: "bg-yellow-100 dark:bg-yellow-900/30",
+        text: "text-yellow-800 dark:text-yellow-300",
+        border: "border-yellow-200 dark:border-yellow-800",
+      };
     default:
       return {
         bg: "bg-gray-100 dark:bg-gray-900/30",
