@@ -11,7 +11,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Mail, Send, User, MessageSquare } from "lucide-react";
-import { supabase } from "@/lib/supabaseClient"; // adjust path as needed
 import { useToast } from "@/components/ui/use-toast";
 
 interface FormData {
@@ -46,21 +45,32 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Insert into Supabase
-    const { error } = await supabase.from("contacts").insert([
-      {
-        first_name: formData.firstName,
-        last_name: formData.lastName,
-        email: formData.email,
-        message: formData.message,
-      },
-    ]);
+    // Submit to Supabase backend
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            message: formData.message,
+          }),
+        }
+      );
 
-    setIsSubmitting(false);
+      const result = await response.json();
+      setIsSubmitting(false);
 
-    if (error) {
-      // Handle error (show a message, etc.)
-      console.error("Supabase insert error:", error);
+      if (!response.ok || result.error) {
+        throw new Error(result.error || "Failed to submit message");
+      }
+    } catch (error) {
+      console.error("API submission error:", error);
       toast({
         title: "Error sending message",
         description:
@@ -92,16 +102,16 @@ export default function Contact() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 px-4 py-8 md:px-8 lg:px-12">
       <div className="mx-auto max-w-4xl">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mb-6">
-            <Mail className="w-8 h-8 text-white" />
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mb-3">
+            <Mail className="w-6 h-6 text-white" />
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
+          <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
             Get In Touch
           </h1>
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Have a project in mind or want to collaborate? I'd love to hear from
-            you. Let's create something amazing together.
+            you. Let's build something together.
           </p>
         </div>
 

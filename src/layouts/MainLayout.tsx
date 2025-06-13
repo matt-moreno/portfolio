@@ -17,7 +17,7 @@ export default function MainLayout() {
   };
 
   return (
-    <div className="flex min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div>
       <Menu isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 

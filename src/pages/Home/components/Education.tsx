@@ -9,6 +9,8 @@ export default function Education() {
       imageAlt: "University of Arizona logo",
       type: "Master's Degree",
       inProgress: true,
+      description:
+        "Currently pursuing a Master’s in MIS to strengthen my foundation in systems analysis, data-driven decision making, and IT strategy. Focused on real-world applications through team-based projects.",
     },
     {
       id: 2,
@@ -19,6 +21,8 @@ export default function Education() {
       image: "/assets/UCR.seal.png",
       imageAlt: "UCR seal",
       type: "Degree",
+      description:
+        "Studied Political Science with a focus on Administrative Studies and a minor in MIS. Built an interdisciplinary base combining business, technology, and organizational operations.",
     },
     {
       id: 3,
@@ -30,15 +34,20 @@ export default function Education() {
       imageAlt: "CSPO badge",
       certificateUrl: "https://bcert.me/sfxwtxody",
       type: "Certification",
+      description:
+        "Earned certification as a Scrum Product Owner, validating my ability to drive agile product development and manage stakeholder priorities effectively.",
     },
     {
       id: 4,
       institution: "Scrimba",
       program: "The Frontend Developer Bootcamp",
+      period: "Issued: December 3rd 2023",
       image: "/assets/scrimba.png",
       imageAlt: "Scrimba logo",
       certificateUrl: "https://scrimba.com/certificate/uZRRZxHv/gfrontend",
       type: "Bootcamp",
+      description:
+        "Completed a project-based frontend development bootcamp covering HTML, CSS, JavaScript, React, and version control. Focused on building interactive user interfaces.",
     },
     {
       id: 5,
@@ -51,6 +60,8 @@ export default function Education() {
       certificateUrl:
         "https://www.parchment.com/u/award/d65a9b98572dcc7d4471f624b70cc265",
       type: "Bootcamp",
+      description:
+        "Attended an intensive Cybersecurity bootcamp to gain hands-on experience in network security, ethical hacking, and cybersecurity frameworks.",
     },
   ];
 
@@ -163,6 +174,10 @@ export default function Education() {
 
                   {item.expires && (
                     <p className="text-sm text-gray-400">{item.expires}</p>
+                  )}
+
+                  {item.description && (
+                    <p className="text-sm text-gray-300">{item.description}</p>
                   )}
 
                   {item.certificateUrl && (
