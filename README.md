@@ -5,7 +5,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0.2-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-4.4.5-646CFF?logo=vite)](https://vitejs.dev/)
 
-A modern, responsive portfolio website showcasing my work as a Product Manager, Web Developer, Data Analyst, and Marathon Runner. Built with React, TypeScript, and Vite, featuring an elegant design with dark/light theme support.
+A modern, responsive portfolio website showcasing my work as a Product Manager, Web Developer, Data Analyst, and Marathon Runner. Built with React, TypeScript, Vite, and Tailwind.
 
 🌐 **Live Site**: [www.mattmoreno.tech](https://www.mattmoreno.tech)
 
