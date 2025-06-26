@@ -4,6 +4,8 @@ import {
   convertMetersToMiles,
   convertMetersPerSecondToMilesPerHour,
   convertSecondsToFormattedTime,
+  calculateCurrentWeekMiles,
+  calculateDailyProgress,
 } from "./utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { marathonMajors } from "./constants";
@@ -13,9 +15,14 @@ import Loading from "../../components/Loading/Loading";
 import "leaflet/dist/leaflet.css";
 
 // Weekly Tracker Component
-const WeeklyTracker = () => {
-  const currentWeekMiles = 5.19;
-  const weeklyGoal = 30;
+const WeeklyTracker = ({
+  currentWeekMiles,
+  dayProgress,
+}: {
+  currentWeekMiles: number;
+  dayProgress: number[];
+}) => {
+  const weeklyGoal = 20;
   const progressPercentage = (currentWeekMiles / weeklyGoal) * 100;
   const circumference = 2 * Math.PI * 45; // radius of 45
   const strokeDasharray = circumference;
@@ -23,7 +30,6 @@ const WeeklyTracker = () => {
     circumference - (progressPercentage / 100) * circumference;
 
   const daysOfWeek = ["M", "T", "W", "T", "F", "S", "S"];
-  const dayProgress = [1, 0, 0, 0, 0, 0, 0]; // Example: Monday completed
 
   return (
     <Card className="border-orange-500 bg-white/80 dark:bg-slate-800 border-2 p-6 backdrop-blur-sm">
@@ -64,7 +70,7 @@ const WeeklyTracker = () => {
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <span className="text-slate-900 dark:text-white text-2xl font-bold">
-              {currentWeekMiles}
+              {currentWeekMiles.toFixed(1)}
             </span>
             <span className="text-slate-600 dark:text-slate-400 text-sm">
               mi
@@ -107,6 +113,9 @@ export default function Runs() {
     monthMiles: 0,
     weekMiles: 0,
   });
+  const [dailyProgress, setDailyProgress] = useState<number[]>([
+    0, 0, 0, 0, 0, 0, 0,
+  ]);
 
   useEffect(() => {
     const getStravaData = async () => {
@@ -121,6 +130,12 @@ export default function Runs() {
 
         result.map((data: ActivityTypes, index: number) => {
           console.log(data);
+
+          // Only process Run activities
+          if (data.type !== "Run") {
+            return;
+          }
+
           totalDistance += data.distance;
 
           geoArr.push({
@@ -146,11 +161,19 @@ export default function Runs() {
 
         setGeoData(geoArr);
         setRecentActivity(activityArr);
+
+        // Calculate actual current week miles from Strava data
+        const currentWeekMiles = calculateCurrentWeekMiles(result);
+
+        // Calculate daily progress for current week
+        const weeklyDayProgress = calculateDailyProgress(result);
+        setDailyProgress(weeklyDayProgress);
+
         // Mock data for now - in real app you'd calculate these from actual dates
         setTotalStats({
           yearMiles: convertMetersToMiles(totalDistance),
           monthMiles: convertMetersToMiles(totalDistance * 0.3),
-          weekMiles: 5.19,
+          weekMiles: currentWeekMiles,
         });
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -269,7 +292,10 @@ export default function Runs() {
           {/* Right Column - Weekly Tracker and Marathon Majors Stacked */}
           <div className="lg:col-span-2 flex flex-col gap-6">
             {/* Weekly Tracker */}
-            <WeeklyTracker />
+            <WeeklyTracker
+              currentWeekMiles={totalStats.weekMiles}
+              dayProgress={dailyProgress}
+            />
 
             {/* World Marathon Majors */}
             <Card className="border-orange-500 bg-white/80 dark:bg-slate-800/50 border-2 flex-1 backdrop-blur-sm">
