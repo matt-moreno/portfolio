@@ -108,14 +108,17 @@ export default function Runs() {
   const [recentActivity, setRecentActivity] = useState<RecentActivityTypes[]>(
     []
   );
-  const [totalStats, setTotalStats] = useState({
-    yearMiles: 0,
-    monthMiles: 0,
-    weekMiles: 0,
-  });
+  const [weekMiles, setWeekMiles] = useState(0);
   const [dailyProgress, setDailyProgress] = useState<number[]>([
     0, 0, 0, 0, 0, 0, 0,
   ]);
+  const [athleteStats, setAthleteStats] = useState({
+    totalRuns: 0,
+    totalMiles: 0,
+    ytdRuns: 0,
+    ytdMiles: 0,
+  });
+  const [gear, setGear] = useState<{ name: string }>();
 
   useEffect(() => {
     const getStravaData = async () => {
@@ -126,17 +129,12 @@ export default function Runs() {
         const result = await response.json();
         const geoArr: GeoTypes[] = [];
         const activityArr: RecentActivityTypes[] = [];
-        let totalDistance = 0;
 
         result.map((data: ActivityTypes, index: number) => {
-          console.log(data);
-
           // Only process Run activities
           if (data.type !== "Run") {
             return;
           }
-
-          totalDistance += data.distance;
 
           geoArr.push({
             id: data.id,
@@ -170,11 +168,7 @@ export default function Runs() {
         setDailyProgress(weeklyDayProgress);
 
         // Mock data for now - in real app you'd calculate these from actual dates
-        setTotalStats({
-          yearMiles: convertMetersToMiles(totalDistance),
-          monthMiles: convertMetersToMiles(totalDistance * 0.3),
-          weekMiles: currentWeekMiles,
-        });
+        setWeekMiles(currentWeekMiles);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -182,7 +176,45 @@ export default function Runs() {
       }
     };
 
+    // Get Athlete Stats
+    const getAthleteStats = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API_BASE_URL}/api/athlete-stats`
+        );
+        const result = await response.json();
+        setAthleteStats({
+          totalRuns: result.all_run_totals.count,
+          totalMiles: convertMetersToMiles(result.all_run_totals.distance),
+          ytdRuns: result.ytd_run_totals.count,
+          ytdMiles: convertMetersToMiles(result.ytd_run_totals.distance),
+        });
+      } catch (error) {
+        console.error("Error fetching athlete stats:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    // Get Gear
+    const getGear = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API_BASE_URL}/api/gear`
+        );
+        const result = await response.json();
+        console.log(result);
+        setGear(result);
+      } catch (error) {
+        console.error("Error fetching gear:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     getStravaData();
+    getAthleteStats();
+    getGear();
   }, []);
 
   const marathonStars = marathonMajors.map((marathon, index) => {
@@ -293,7 +325,7 @@ export default function Runs() {
           <div className="lg:col-span-2 flex flex-col gap-6">
             {/* Weekly Tracker */}
             <WeeklyTracker
-              currentWeekMiles={totalStats.weekMiles}
+              currentWeekMiles={weekMiles}
               dayProgress={dailyProgress}
             />
 
@@ -324,26 +356,42 @@ export default function Runs() {
               <div className="space-y-4">
                 <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
                   <span className="text-slate-700 dark:text-slate-300">
-                    Total Miles (Year)
+                    Total Miles (All Time):
                   </span>
                   <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
-                    {totalStats.yearMiles.toFixed(1)} mi
+                    {athleteStats.totalMiles} mi
                   </span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
                   <span className="text-slate-700 dark:text-slate-300">
-                    Total Miles (Month)
+                    Total Runs (All Time):
                   </span>
                   <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
-                    {totalStats.monthMiles.toFixed(1)} mi
+                    {athleteStats.totalRuns}
                   </span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
                   <span className="text-slate-700 dark:text-slate-300">
-                    Total Miles (Week)
+                    Year to Date Miles:
                   </span>
                   <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
-                    {totalStats.weekMiles} mi
+                    {athleteStats.ytdMiles} mi
+                  </span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
+                  <span className="text-slate-700 dark:text-slate-300">
+                    Year to Date Runs:
+                  </span>
+                  <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
+                    {athleteStats.ytdRuns}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
+                  <span className="text-slate-700 dark:text-slate-300">
+                    Gear:
+                  </span>
+                  <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
+                    {gear?.name}
                   </span>
                 </div>
               </div>
