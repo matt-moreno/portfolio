@@ -173,7 +173,6 @@ export default function Runs() {
         const weeklyDayProgress = calculateDailyProgress(result);
         setDailyProgress(weeklyDayProgress);
 
-        // Mock data for now - in real app you'd calculate these from actual dates
         setWeekMiles(currentWeekMiles);
       } catch (error) {
         console.error("Error fetching data:", error);
