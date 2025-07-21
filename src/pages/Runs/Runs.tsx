@@ -22,7 +22,7 @@ const WeeklyTracker = ({
   currentWeekMiles: number;
   dayProgress: number[];
 }) => {
-  const weeklyGoal = 20;
+  const weeklyGoal = 30;
   const progressPercentage = (currentWeekMiles / weeklyGoal) * 100;
   const circumference = 2 * Math.PI * 45; // radius of 45
   const strokeDasharray = circumference;
@@ -41,10 +41,13 @@ const WeeklyTracker = ({
         <span className="text-orange-400 text-sm">🔥</span>
       </div>
 
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 xl:gap-12">
         {/* Circular Progress */}
-        <div className="relative w-32 h-32">
-          <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 100 100">
+        <div className="relative w-32 h-32 md:w-36 md:h-36 xl:w-40 xl:h-40">
+          <svg
+            className="w-32 h-32 md:w-36 md:h-36 xl:w-40 xl:h-40 transform -rotate-90"
+            viewBox="0 0 100 100"
+          >
             {/* Background circle */}
             <circle
               cx="50"
@@ -69,28 +72,31 @@ const WeeklyTracker = ({
             />
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-slate-900 dark:text-white text-2xl font-bold">
+            <span className="text-slate-900 dark:text-white text-2xl md:text-3xl font-bold">
               {currentWeekMiles.toFixed(1)}
             </span>
-            <span className="text-slate-600 dark:text-slate-400 text-sm">
+            <span className="text-slate-600 dark:text-slate-400 text-sm md:text-base">
               mi
             </span>
           </div>
         </div>
 
         {/* Daily Progress */}
-        <div className="flex flex-col items-end">
-          <div className="flex gap-2 mb-2">
+        <div className="flex flex-col items-center">
+          <div className="flex gap-2 md:gap-3">
             {daysOfWeek.map((day, index) => (
-              <div key={index} className="flex flex-col items-center gap-1">
+              <div
+                key={index}
+                className="flex flex-col items-center gap-1 md:gap-2"
+              >
                 <div
-                  className={`w-2 h-8 rounded-full ${
+                  className={`w-2.5 h-10 md:w-3 md:h-12 rounded-full ${
                     dayProgress[index]
                       ? "bg-green-500"
                       : "bg-slate-300 dark:bg-slate-600"
                   }`}
                 />
-                <span className="text-slate-600 dark:text-slate-400 text-xs">
+                <span className="text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium">
                   {day}
                 </span>
               </div>
@@ -108,14 +114,17 @@ export default function Runs() {
   const [recentActivity, setRecentActivity] = useState<RecentActivityTypes[]>(
     []
   );
-  const [totalStats, setTotalStats] = useState({
-    yearMiles: 0,
-    monthMiles: 0,
-    weekMiles: 0,
-  });
+  const [weekMiles, setWeekMiles] = useState(0);
   const [dailyProgress, setDailyProgress] = useState<number[]>([
     0, 0, 0, 0, 0, 0, 0,
   ]);
+  const [athleteStats, setAthleteStats] = useState({
+    totalRuns: 0,
+    totalMiles: 0,
+    ytdRuns: 0,
+    ytdMiles: 0,
+  });
+  const [gear, setGear] = useState<{ name: string }>();
 
   useEffect(() => {
     const getStravaData = async () => {
@@ -126,17 +135,12 @@ export default function Runs() {
         const result = await response.json();
         const geoArr: GeoTypes[] = [];
         const activityArr: RecentActivityTypes[] = [];
-        let totalDistance = 0;
 
         result.map((data: ActivityTypes, index: number) => {
-          console.log(data);
-
           // Only process Run activities
           if (data.type !== "Run") {
             return;
           }
-
-          totalDistance += data.distance;
 
           geoArr.push({
             id: data.id,
@@ -169,12 +173,7 @@ export default function Runs() {
         const weeklyDayProgress = calculateDailyProgress(result);
         setDailyProgress(weeklyDayProgress);
 
-        // Mock data for now - in real app you'd calculate these from actual dates
-        setTotalStats({
-          yearMiles: convertMetersToMiles(totalDistance),
-          monthMiles: convertMetersToMiles(totalDistance * 0.3),
-          weekMiles: currentWeekMiles,
-        });
+        setWeekMiles(currentWeekMiles);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -182,7 +181,45 @@ export default function Runs() {
       }
     };
 
+    // Get Athlete Stats
+    const getAthleteStats = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API_BASE_URL}/api/athlete-stats`
+        );
+        const result = await response.json();
+        setAthleteStats({
+          totalRuns: result.all_run_totals.count,
+          totalMiles: convertMetersToMiles(result.all_run_totals.distance),
+          ytdRuns: result.ytd_run_totals.count,
+          ytdMiles: convertMetersToMiles(result.ytd_run_totals.distance),
+        });
+      } catch (error) {
+        console.error("Error fetching athlete stats:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    // Get Gear
+    const getGear = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API_BASE_URL}/api/gear`
+        );
+        const result = await response.json();
+        console.log(result);
+        setGear(result);
+      } catch (error) {
+        console.error("Error fetching gear:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     getStravaData();
+    getAthleteStats();
+    getGear();
   }, []);
 
   const marathonStars = marathonMajors.map((marathon, index) => {
@@ -241,12 +278,12 @@ export default function Runs() {
         </div>
 
         {/* Main Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 xl:grid-cols-5 gap-6 mb-8 max-w-7xl mx-auto">
           {/* Map - Takes up 3 columns */}
-          <div className="lg:col-span-3">
+          <div className="xl:col-span-3">
             <Card className="border-orange-500 bg-white/80 dark:bg-slate-800/50 border-2 h-full backdrop-blur-sm">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-slate-900 dark:text-white text-xl flex items-center gap-2">
+              <CardHeader className="pb-2 flex items-center justify-center">
+                <CardTitle className="text-slate-900 dark:text-white text-xl">
                   🗺️ Route Map
                 </CardTitle>
               </CardHeader>
@@ -290,10 +327,10 @@ export default function Runs() {
           </div>
 
           {/* Right Column - Weekly Tracker and Marathon Majors Stacked */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
+          <div className="xl:col-span-2 flex flex-col gap-6">
             {/* Weekly Tracker */}
             <WeeklyTracker
-              currentWeekMiles={totalStats.weekMiles}
+              currentWeekMiles={weekMiles}
               dayProgress={dailyProgress}
             />
 
@@ -324,26 +361,42 @@ export default function Runs() {
               <div className="space-y-4">
                 <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
                   <span className="text-slate-700 dark:text-slate-300">
-                    Total Miles (Year)
+                    Total Miles (All Time):
                   </span>
                   <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
-                    {totalStats.yearMiles.toFixed(1)} mi
+                    {athleteStats.totalMiles} mi
                   </span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
                   <span className="text-slate-700 dark:text-slate-300">
-                    Total Miles (Month)
+                    Total Runs (All Time):
                   </span>
                   <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
-                    {totalStats.monthMiles.toFixed(1)} mi
+                    {athleteStats.totalRuns}
                   </span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
                   <span className="text-slate-700 dark:text-slate-300">
-                    Total Miles (Week)
+                    Year to Date Miles:
                   </span>
                   <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
-                    {totalStats.weekMiles} mi
+                    {athleteStats.ytdMiles} mi
+                  </span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
+                  <span className="text-slate-700 dark:text-slate-300">
+                    Year to Date Runs:
+                  </span>
+                  <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
+                    {athleteStats.ytdRuns}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
+                  <span className="text-slate-700 dark:text-slate-300">
+                    Shoes:
+                  </span>
+                  <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
+                    {gear?.name}
                   </span>
                 </div>
               </div>
@@ -362,24 +415,96 @@ export default function Runs() {
                 {recentActivity.map((activity, index) => (
                   <div
                     key={index}
-                    className="flex flex-wrap gap-4 justify-between items-center bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg py-3 px-4 shadow-lg"
+                    // Color Option 1: Vibrant Orange Glow
+                    // className="group bg-gradient-to-r from-orange-400/20 to-orange-500/20 dark:from-orange-600/20 dark:to-orange-700/20 rounded-xl p-1.5 border border-orange-400/30 dark:border-orange-700/30 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
+                    className="group bg-gradient-to-r from-orange-300/30 to-orange-500/30 dark:from-orange-700/30 dark:to-orange-800/30 rounded-xl p-1.5 border border-orange-400/50 dark:border-orange-800/50 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
                   >
-                    <div className="flex gap-4">
-                      <span className="text-slate-900 font-semibold text-sm bg-white/20 px-2 py-1 rounded">
-                        📏 {activity.distance}mi
-                      </span>
-                      <span className="text-slate-900 font-semibold text-sm bg-white/20 px-2 py-1 rounded">
-                        ⏱️ {activity.pace}/mi
-                      </span>
-                      <span className="text-slate-900 font-semibold text-sm bg-white/20 px-2 py-1 rounded">
-                        🕐 {activity.time}
-                      </span>
+                    <div className="grid grid-cols-2 md:flex md:flex-wrap md:gap-2 md:justify-around gap-2 items-center">
+                      {/* Distance */}
+                      <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-lg shadow-sm border border-orange-200/50 dark:border-orange-800/30">
+                        <span className="text-orange-500 text-sm">📏</span>
+                        <div className="flex flex-col">
+                          <span className="text-slate-900 dark:text-white font-bold text-base leading-none">
+                            {activity.distance}
+                          </span>
+                          <span className="text-slate-500 dark:text-slate-400 text-xs">
+                            miles
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Pace */}
+                      <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-lg shadow-sm border border-orange-200/50 dark:border-orange-800/30">
+                        <span className="text-orange-500 text-sm">⏱️</span>
+                        <div className="flex flex-col">
+                          <span className="text-slate-900 dark:text-white font-bold text-base leading-none">
+                            {activity.pace}
+                          </span>
+                          <span className="text-slate-500 dark:text-slate-400 text-xs">
+                            /mi
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Time */}
+                      <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-lg shadow-sm border border-orange-200/50 dark:border-orange-800/30">
+                        <span className="text-orange-500 text-sm">🕐</span>
+                        <div className="flex flex-col">
+                          <span className="text-slate-900 dark:text-white font-bold text-base leading-none">
+                            {activity.time}
+                          </span>
+                          <span className="text-slate-500 dark:text-slate-400 text-xs">
+                            total
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Heart rate - Always present on mobile, conditional on desktop */}
+                      <div
+                        className={`flex items-center gap-2 px-2 py-0.5 rounded-lg shadow-sm md:hidden ${
+                          activity.heartRate
+                            ? "bg-gradient-to-r from-red-500 to-red-600 text-white"
+                            : "bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600"
+                        }`}
+                      >
+                        <span className="text-base">
+                          {activity.heartRate ? "❤️" : "💤"}
+                        </span>
+                        <div className="flex flex-col">
+                          <span
+                            className={`font-bold text-base leading-none ${
+                              activity.heartRate
+                                ? "text-white"
+                                : "text-slate-400 dark:text-slate-500"
+                            }`}
+                          >
+                            {activity.heartRate || "--"}
+                          </span>
+                          <span
+                            className={`text-xs ${
+                              activity.heartRate
+                                ? "text-red-100"
+                                : "text-slate-400 dark:text-slate-500"
+                            }`}
+                          >
+                            bpm
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Heart rate - Desktop version (conditional) */}
+                      {activity.heartRate && (
+                        <div className="hidden md:flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-600 text-white px-2 py-0.5 rounded-lg shadow-sm">
+                          <span className="text-base">❤️</span>
+                          <div className="flex flex-col">
+                            <span className="font-bold text-base leading-none">
+                              {activity.heartRate}
+                            </span>
+                            <span className="text-red-100 text-xs">bpm</span>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                    {activity.heartRate && (
-                      <span className="text-slate-900 font-semibold text-sm bg-white/20 px-2 py-1 rounded">
-                        ❤️ {activity.heartRate} bpm
-                      </span>
-                    )}
                   </div>
                 ))}
               </div>
