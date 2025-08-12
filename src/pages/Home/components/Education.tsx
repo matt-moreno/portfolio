@@ -39,18 +39,31 @@ export default function Education() {
     },
     {
       id: 4,
+      institution: "Google Coursera",
+      program: "Google Data Analytics Professional Certificate",
+      period: "Issued: December 3rd 2023",
+      image: "/assets/google-data.png",
+      imageAlt: "Google data certificate logo",
+      certificateUrl:
+        "https://www.credly.com/badges/025029a9-ece9-41e6-beba-8a88a7277501/porfolio",
+      type: "Certification",
+      description:
+        "Completed an online data analytics course covering data analysis, data visualization, and data storytelling. Focused on building better data-driven decisions.",
+    },
+    {
+      id: 5,
       institution: "Scrimba",
       program: "The Frontend Developer Bootcamp",
       period: "Issued: December 3rd 2023",
       image: "/assets/scrimba.png",
       imageAlt: "Scrimba logo",
       certificateUrl: "https://scrimba.com/certificate/uZRRZxHv/gfrontend",
-      type: "Bootcamp",
+      type: "Certification",
       description:
         "Completed a project-based frontend development bootcamp covering HTML, CSS, JavaScript, React, and version control. Focused on building interactive user interfaces.",
     },
     {
-      id: 5,
+      id: 6,
       institution: "University of California, Irvine",
       program: "Cybersecurity Bootcamp",
       department: "Division of Continuing Education",
