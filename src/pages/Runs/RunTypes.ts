@@ -20,6 +20,7 @@ export interface RecentActivityTypes {
   pace: string;
   time: string;
   heartRate?: number;
+  date: string;
 }
 
 export interface ActivityTypes {
