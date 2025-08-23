@@ -159,14 +159,16 @@ export default function Runs() {
               pace: convertMetersPerSecondToMilesPerHour(data.average_speed),
               time: convertSecondsToFormattedTime(data.moving_time),
               heartRate: data.average_heartrate,
-              date: new Date(data.start_date_local).toLocaleDateString(
-                "en-US",
-                {
+              date: (() => {
+                // Parse the date string manually to avoid timezone conversion issues
+                const dateStr = data.start_date_local as string;
+                const date = new Date(dateStr.replace("Z", ""));
+                return date.toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
                   year: "numeric",
-                }
-              ),
+                });
+              })(),
             });
           }
         });
