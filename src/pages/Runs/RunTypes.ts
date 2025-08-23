@@ -20,6 +20,7 @@ export interface RecentActivityTypes {
   pace: string;
   time: string;
   heartRate?: number;
+  date: string;
 }
 
 export interface ActivityTypes {
@@ -35,8 +36,8 @@ export interface ActivityTypes {
   elev_high: number;
   elev_low: number;
   type: string;
-  start_date: Date;
-  start_date_local: Date;
+  start_date: string;
+  start_date_local: string;
   timezone: string;
   start_latlng: number[];
   end_latlng: number[];

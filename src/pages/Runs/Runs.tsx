@@ -159,6 +159,16 @@ export default function Runs() {
               pace: convertMetersPerSecondToMilesPerHour(data.average_speed),
               time: convertSecondsToFormattedTime(data.moving_time),
               heartRate: data.average_heartrate,
+              date: (() => {
+                // Parse the date string manually to avoid timezone conversion issues
+                const dateStr = data.start_date_local as string;
+                const date = new Date(dateStr.replace("Z", ""));
+                return date.toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                });
+              })(),
             });
           }
         });
@@ -455,6 +465,19 @@ export default function Runs() {
                           </span>
                           <span className="text-slate-500 dark:text-slate-400 text-xs">
                             total
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Date */}
+                      <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-lg shadow-sm border border-orange-200/50 dark:border-orange-800/30">
+                        <span className="text-orange-500 text-sm">📅</span>
+                        <div className="flex flex-col">
+                          <span className="text-slate-900 dark:text-white font-bold text-base leading-none">
+                            {activity.date}
+                          </span>
+                          <span className="text-slate-500 dark:text-slate-400 text-xs">
+                            date
                           </span>
                         </div>
                       </div>

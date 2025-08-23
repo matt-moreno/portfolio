@@ -38,14 +38,14 @@ const marathonMajors = [
     completed: true,
   },
   {
-    city: "NY",
-    year: null,
+    city: "CHI",
+    year: 2025,
     time: "",
     flag: "🇺🇸",
     completed: false,
   },
   {
-    city: "CHI",
+    city: "NY",
     year: null,
     time: "",
     flag: "🇺🇸",
@@ -66,10 +66,10 @@ const marathonMajors = [
     completed: false,
   },
   {
-    city: "SYD",
+    city: "BOS",
     year: null,
     time: "",
-    flag: "🇦🇺",
+    flag: "🇺🇸",
     completed: false,
   },
 ];
