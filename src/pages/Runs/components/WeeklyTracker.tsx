@@ -7,7 +7,7 @@ const WeeklyTracker = ({
   currentWeekMiles: number;
   dayProgress: number[];
 }) => {
-  const weeklyGoal = 30;
+  const weeklyGoal = 20;
   const progressPercentage = (currentWeekMiles / weeklyGoal) * 100;
   const circumference = 2 * Math.PI * 45;
   const strokeDasharray = circumference;
@@ -90,4 +90,3 @@ const WeeklyTracker = ({
 };
 
 export default WeeklyTracker;
-
