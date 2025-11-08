@@ -5,9 +5,18 @@ type DynamicCardProps = {
   title: string;
   year: string;
   link: string;
+  pace: string;
+  time: string;
 };
 
-const DynamicCard = ({ image, title, year, link }: DynamicCardProps) => {
+const DynamicCard = ({
+  image,
+  title,
+  year,
+  link,
+  pace,
+  time,
+}: DynamicCardProps) => {
   return (
     <a
       href={link}
@@ -31,7 +40,27 @@ const DynamicCard = ({ image, title, year, link }: DynamicCardProps) => {
             {title}
           </CardTitle>
         </CardHeader>
-        <CardContent className="px-4">
+        <CardContent className="px-4 pb-4">
+          {/* Race Stats - Attribute Style */}
+          <div className="space-y-2 mb-4">
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-slate-500 dark:text-slate-400">
+                Avg Pace
+              </span>
+              <span className="font-semibold text-slate-900 dark:text-white">
+                {pace}
+              </span>
+            </div>
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-slate-500 dark:text-slate-400">
+                Finish Time
+              </span>
+              <span className="font-semibold text-slate-900 dark:text-white">
+                {time}
+              </span>
+            </div>
+          </div>
+
           <div className="flex items-center gap-2 text-orange-500 dark:text-orange-400 font-semibold text-sm">
             <span>View Details</span>
             <span className="group-hover:translate-x-1 transition-transform duration-300">
