@@ -15,6 +15,7 @@ import WeeklyTracker from "./components/WeeklyTracker";
 import MarathonMajorsCard from "./components/MarathonMajorsCard";
 import RunningRecapCard from "./components/RunningRecapCard";
 import RecentActivityCard from "./components/RecentActivityCard";
+import RacesCardCarousel from "./components/RacesCardCarousel";
 
 export default function Runs() {
   const [loading, setLoading] = useState(true);
@@ -187,10 +188,15 @@ export default function Runs() {
           </div>
         </div>
 
-        {/* Bottom Section */}
+        {/* Recap and Recent Activity Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           <RunningRecapCard athleteStats={athleteStats} gearName={gear?.name} />
           <RecentActivityCard recentActivity={recentActivity} />
+        </div>
+
+        {/* Races Card Carousel */}
+        <div className="max-w-7xl mx-auto">
+          <RacesCardCarousel />
         </div>
       </section>
     </div>
