@@ -35,8 +35,8 @@ const RaceCard = ({ image, title, year, link, pace, time }: RaceCardProps) => {
         </CardHeader>
         <CardContent className="px-4 pb-4">
           {/* Race Stats - Attribute Style */}
-          <div className="space-y-2 mb-4">
-            <div className="flex items-center justify-between text-sm">
+          <div className="flex flex-row gap-12 mb-4">
+            <div className="flex items-center gap-2 text-sm">
               <span className="text-slate-500 dark:text-slate-400">
                 Avg Pace
               </span>
@@ -44,7 +44,7 @@ const RaceCard = ({ image, title, year, link, pace, time }: RaceCardProps) => {
                 {pace}
               </span>
             </div>
-            <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center gap-2 text-sm">
               <span className="text-slate-500 dark:text-slate-400">
                 Finish Time
               </span>
