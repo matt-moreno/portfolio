@@ -154,23 +154,6 @@ export default function Runs() {
             Activity Dashboard
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto rounded-full mb-8"></div>
-          <div className="flex items-center justify-center gap-3">
-            <p className="text-slate-600 dark:text-slate-400">
-              Powered by the Strava API
-            </p>
-            <a
-              href="https://developers.strava.com/docs/reference/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
-            >
-              <img
-                src="/assets/strava-logo.png"
-                alt="Strava Logo"
-                className="h-6 w-auto"
-              />
-            </a>
-          </div>
         </div>
 
         {/* Main Grid Layout */}
@@ -199,6 +182,23 @@ export default function Runs() {
           <RacesCardCarousel />
         </div>
       </section>
+      <div className="flex items-center justify-center gap-3 pb-8">
+        <p className="text-slate-600 dark:text-slate-400">
+          Powered by the Strava API
+        </p>
+        <a
+          href="https://developers.strava.com/docs/reference/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:opacity-80 transition-opacity"
+        >
+          <img
+            src="/assets/strava-logo.png"
+            alt="Strava Logo"
+            className="h-6 w-auto"
+          />
+        </a>
+      </div>
     </div>
   );
 }
