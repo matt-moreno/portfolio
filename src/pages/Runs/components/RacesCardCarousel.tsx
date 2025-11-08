@@ -1,8 +1,8 @@
-import DynamicCard from "../../../components/DynamicCard/DynamicCard";
+import RaceCard from "../../../components/DynamicCard/RaceCard";
 import { races } from "../constants";
 export default function RacesCardCarousel() {
   const raceCards = races.map((race) => (
-    <DynamicCard key={race.title} {...race} />
+    <RaceCard key={race.title} {...race} />
   ));
 
   return (

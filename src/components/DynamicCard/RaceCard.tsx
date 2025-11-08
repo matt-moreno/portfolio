@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-type DynamicCardProps = {
+type RaceCardProps = {
   image: string;
   title: string;
   year: string;
@@ -9,14 +9,7 @@ type DynamicCardProps = {
   time: string;
 };
 
-const DynamicCard = ({
-  image,
-  title,
-  year,
-  link,
-  pace,
-  time,
-}: DynamicCardProps) => {
+const RaceCard = ({ image, title, year, link, pace, time }: RaceCardProps) => {
   return (
     <a
       href={link}
@@ -73,4 +66,4 @@ const DynamicCard = ({
   );
 };
 
-export default DynamicCard;
+export default RaceCard;
