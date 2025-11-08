@@ -40,9 +40,9 @@ const marathonMajors = [
   {
     city: "CHI",
     year: 2025,
-    time: "",
+    time: "4h 11min",
     flag: "🇺🇸",
-    completed: false,
+    completed: true,
   },
   {
     city: "NY",

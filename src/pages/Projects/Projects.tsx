@@ -107,44 +107,24 @@ export default function Projects() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
       <section className="container mx-auto px-6 py-8 lg:px-8">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-3">
-            Projects
-          </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
-        </div>
+        {!isOutletActive && (
+          <div className="text-center mb-8">
+            <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-3">
+              Projects
+            </h1>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
+          </div>
+        )}
 
         <div className="max-w-7xl mx-auto">
-          {isOutletActive ? (
-            <div className="mb-8">
-              <NavLink
-                to="/projects"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-xl hover:shadow-lg transition-all duration-300 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 font-medium"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                  />
-                </svg>
-                Back to projects
-              </NavLink>
-            </div>
-          ) : (
+          {!isOutletActive && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
               {projectCards}
             </div>
           )}
         </div>
 
-        <div className="mt-12">
+        <div className={!isOutletActive ? "mt-12" : ""}>
           <Outlet />
         </div>
       </section>
