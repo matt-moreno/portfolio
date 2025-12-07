@@ -15,6 +15,7 @@ import WeeklyTracker from "./components/WeeklyTracker";
 import MarathonMajorsCard from "./components/MarathonMajorsCard";
 import RunningRecapCard from "./components/RunningRecapCard";
 import RecentActivityCard from "./components/RecentActivityCard";
+import RacesCardCarousel from "./components/RacesCardCarousel";
 
 export default function Runs() {
   const [loading, setLoading] = useState(true);
@@ -153,23 +154,6 @@ export default function Runs() {
             Activity Dashboard
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto rounded-full mb-8"></div>
-          <div className="flex items-center justify-center gap-3">
-            <p className="text-slate-600 dark:text-slate-400">
-              Powered by the Strava API
-            </p>
-            <a
-              href="https://developers.strava.com/docs/reference/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-80 transition-opacity"
-            >
-              <img
-                src="/assets/strava-logo.png"
-                alt="Strava Logo"
-                className="h-6 w-auto"
-              />
-            </a>
-          </div>
         </div>
 
         {/* Main Grid Layout */}
@@ -187,12 +171,34 @@ export default function Runs() {
           </div>
         </div>
 
-        {/* Bottom Section */}
+        {/* Recap and Recent Activity Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           <RunningRecapCard athleteStats={athleteStats} gearName={gear?.name} />
           <RecentActivityCard recentActivity={recentActivity} />
         </div>
+
+        {/* Races Card Carousel */}
+        <div className="max-w-7xl mx-auto">
+          <RacesCardCarousel />
+        </div>
       </section>
+      <div className="flex items-center justify-center gap-3 pb-8">
+        <p className="text-slate-600 dark:text-slate-400">
+          Powered by the Strava API
+        </p>
+        <a
+          href="https://developers.strava.com/docs/reference/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:opacity-80 transition-opacity"
+        >
+          <img
+            src="/assets/strava-logo.png"
+            alt="Strava Logo"
+            className="h-6 w-auto"
+          />
+        </a>
+      </div>
     </div>
   );
 }
