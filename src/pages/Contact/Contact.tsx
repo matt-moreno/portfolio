@@ -45,29 +45,25 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Submit to Supabase backend
+    // Submit to FormSpree
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/contact`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            firstName: formData.firstName,
-            lastName: formData.lastName,
-            email: formData.email,
-            message: formData.message,
-          }),
-        }
-      );
+      const response = await fetch("https://formspree.io/f/xpqdedpb", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
 
-      const result = await response.json();
       setIsSubmitting(false);
 
-      if (!response.ok || result.error) {
-        throw new Error(result.error || "Failed to submit message");
+      if (!response.ok) {
+        throw new Error("Failed to submit message");
       }
     } catch (error) {
       console.error("API submission error:", error);
