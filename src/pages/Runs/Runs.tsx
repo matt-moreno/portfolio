@@ -9,7 +9,7 @@ import {
 import { GeoTypes, RecentActivityTypes, ActivityTypes } from "./RunTypes";
 import polyline from "@mapbox/polyline";
 import Loading from "../../components/Loading/Loading";
-import "leaflet/dist/leaflet.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 import RouteMapCard from "./components/RouteMapCard";
 import WeeklyTracker from "./components/WeeklyTracker";
 import MarathonMajorsCard from "./components/MarathonMajorsCard";
@@ -158,7 +158,7 @@ export default function Runs() {
 
         {/* Main Grid Layout */}
         <div className="grid grid-cols-1 xl:grid-cols-5 gap-6 mb-8 max-w-7xl mx-auto">
-          <div className="xl:col-span-3">
+          <div className="xl:col-span-3 h-full">
             <RouteMapCard geoData={geoData} />
           </div>
 
