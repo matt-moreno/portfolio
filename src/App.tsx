@@ -8,6 +8,7 @@ import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
 import Bellabeat from "./pages/Projects/views/Bellabeat";
 import Runs from "./pages/Runs/Runs";
+import MarathonDetail from "./pages/Runs/views/MarathonDetail";
 import Resources from "./pages/Resources/Resources";
 import Websites from "./pages/Resources/views/Websites";
 import Videos from "./pages/Resources/views/Videos";
@@ -32,6 +33,7 @@ export default function App() {
               />
             </Route>
             <Route path="/runs" element={<Runs />} />
+            <Route path="/runs/:stravaId" element={<MarathonDetail />} />
             <Route path="/resources" element={<Resources />}>
               <Route index element={<Websites />} />
               <Route path="/resources/videos" element={<Videos />} />

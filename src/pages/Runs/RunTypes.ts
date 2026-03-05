@@ -1,3 +1,11 @@
+export interface StravaPhoto {
+  unique_id: string;
+  caption: string;
+  urls: { "5000": string; [key: string]: string };
+  sizes: { "5000": [number, number]; [key: string]: [number, number] };
+  default_photo: boolean;
+}
+
 interface PolylineMap {
   id: string;
   polyline: string;
@@ -59,7 +67,16 @@ export interface ActivityTypes {
   has_kudoed: boolean;
   description: string;
   average_heartrate: number;
-  photos: object[];
+  photos: {
+    primary: {
+      unique_id: string;
+      urls: { "100": string; "600": string };
+      source: number;
+      media_type: number;
+    } | null;
+    use_primary_photo: boolean;
+    count: number;
+  };
   gear: string;
   segment_efforts: number[];
   device_name: string;
