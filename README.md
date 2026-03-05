@@ -1,151 +1,98 @@
 # Matt Moreno - Portfolio Website
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fwww.mattmoreno.tech)](https://www.mattmoreno.tech)
-[![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)](https://reactjs.org/)
+[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0.2-3178C6?logo=typescript)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-4.4.5-646CFF?logo=vite)](https://vitejs.dev/)
+[![Vite](https://img.shields.io/badge/Vite-7.3.1-646CFF?logo=vite)](https://vitejs.dev/)
 
-A modern, responsive portfolio website showcasing my work as a Product Manager, Web Developer, Data Analyst, and Marathon Runner. Built with React, TypeScript, Vite, and Tailwind.
+A modern, responsive portfolio website showcasing my work as a Product Manager, Web Developer, Data Analyst, and Marathon Runner. Built with React, TypeScript, Vite, and Tailwind CSS.
 
-🌐 **Live Site**: [www.mattmoreno.tech](https://www.mattmoreno.tech)
+**Live Site**: [www.mattmoreno.tech](https://www.mattmoreno.tech)
 
-## ✨ Features
+## Tech Stack
 
-- **Modern Tech Stack**: React 18, TypeScript, Vite for fast development and optimal performance
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Dark/Light Theme**: Toggle between themes with persistent preferences
-- **Interactive Elements**:
-  - Animated typing effect on homepage
-  - Interactive maps for running routes (Leaflet + React Leaflet)
-  - Data visualizations with Recharts
-  - Toast notifications
-- **Multi-section Portfolio**:
-  - **About**: Personal background and skills
-  - **Projects**: Featured work including Bellabeat case study
-  - **Photos**: Photography showcase
-  - **Runs**: Marathon training and running data with GPS route visualizations
-  - **Resources**: Curated collection of websites, videos, and books
-  - **Contact**: Get in touch form
+**Frontend**
+- React 18, TypeScript, Vite
+- React Router v6 — client-side routing
+- Tailwind CSS — utility-first styling
 
-## 🛠️ Tech Stack
+**UI Components**
+- Radix UI — accessible component primitives
+- shadcn/ui-style components (Button, Card, Toast, etc.)
+- Lucide React + React Icons
+- Class Variance Authority, clsx, Tailwind Merge
 
-### Frontend
+**Interactive Features**
+- Typed.js — animated typing effect on homepage
+- Mapbox GL + react-map-gl — interactive GPS route maps
+- Recharts — running data visualizations
+- @formspree/react — contact form submissions
 
-- **React 18** - UI library
-- **TypeScript** - Type safety and better developer experience
-- **Vite** - Build tool and dev server
-- **React Router Dom** - Client-side routing
-- **Tailwind CSS** - Utility-first CSS framework
+**Data & Backend**
+- Strava API — live running activity data
+- Railway.app — separate backend service handling Strava OAuth and API proxying
+- @mapbox/polyline — GPS route encoding/decoding
 
-### UI Components & Styling
-
-- **Radix UI** - Accessible component primitives
-- **Lucide React** - Beautiful icons
-- **React Icons** - Additional icon library
-- **Class Variance Authority** - Component variant management
-- **Tailwind Merge & clsx** - Conditional styling utilities
-
-### Interactive Features
-
-- **Typed.js** - Animated typing effects
-- **Leaflet & React Leaflet** - Interactive maps
-- **Recharts** - Data visualization charts
-- **React Loading** - Loading animations
-
-### Backend & Data
-
-- **Supabase** - Backend as a Service for data storage
-- **Mapbox Polyline** - GPS route encoding/decoding
-- **Strava API** - Running activity data integration
-- **Railway.app** - Separate backend service for Strava token management
-
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 src/
 ├── components/          # Reusable UI components
-│   └── ui/             # Radix UI components
-├── contexts/           # React contexts (Theme, etc.)
-├── layouts/            # Page layouts
-├── lib/               # Utility functions and configurations
-├── pages/             # Route components
-│   ├── About/         # About page
-│   ├── Contact/       # Contact form
-│   ├── Home/          # Landing page with experience/education
-│   ├── Photos/        # Photography showcase
-│   ├── Projects/      # Portfolio projects
-│   ├── Resources/     # Curated resources
-│   └── Runs/          # Running data and routes
-├── services/          # API services and data fetching
-├── App.tsx           # Main application component
-└── main.tsx          # Application entry point
+│   └── ui/             # Radix UI / shadcn-style primitives
+├── contexts/           # React contexts (ThemeContext)
+├── layouts/            # MainLayout (sidebar + outlet)
+├── lib/               # cn() utility helper
+├── pages/             # Route-level components
+│   ├── About/
+│   ├── Contact/        # Formspree-powered contact form
+│   ├── Home/           # Landing page with experience/education
+│   ├── Photos/
+│   ├── Projects/       # Project cards + Bellabeat case study
+│   ├── Resources/      # Websites, videos, books (tabbed)
+│   └── Runs/           # Strava dashboard with live data
+├── App.tsx
+└── main.tsx
 ```
 
-## 🎨 Key Features Explained
+## Pages
 
-### Running Tracker
+- **Home** — Animated typing intro, experience timeline, education
+- **About** — Personal background and skills
+- **Projects** — Bellabeat Google Coursera capstone + portfolio
+- **Photos** — Photography showcase
+- **Runs** — Live Strava dashboard: GPS route map, weekly tracker, race history, marathon majors progress, athlete stats
+- **Resources** — Curated websites, videos, and books
+- **Contact** — Contact form via Formspree
 
-The `/runs` section features:
+## Static Content
 
-- Interactive map visualization of running routes
-- GPS data integration with Supabase
-- Running statistics and progress tracking
-- Polyline encoding for efficient route storage
+Projects, races, marathon majors, and resources are defined as plain TypeScript constants — no CMS required:
 
-### Project Showcase
+- `src/pages/Projects/constants.ts` — project cards
+- `src/pages/Runs/constants.ts` — races, marathon majors, weekly mileage targets
+- `src/pages/Resources/constants.ts` — websites, videos, books
 
-- **Bellabeat Case Study**: Google Coursera Data Analytics Capstone
-- **Portfolio Website**: This very website
+## Environment Variables
 
-### Resource Library
+| Variable | Description |
+|---|---|
+| `VITE_API_BASE_URL` | Base URL for the Railway.app backend (Strava API proxy) |
 
-Curated collections of:
+## Development
 
-- Useful websites and tools
-- Educational videos and tutorials
-- Recommended books for professional development
+```bash
+npm run dev       # Start dev server
+npm run build     # Type-check and build for production
+npm run lint      # ESLint (zero warnings allowed)
+npm run preview   # Preview production build
+```
 
-## 🌟 Customization
+## Deployment
 
-The website is built with customization in mind:
+**Frontend** — Vercel with automatic Git integration. `vercel.json` rewrites all routes to `/` for client-side routing.
 
-- **Theme System**: Easy to extend with new color schemes
-- **Component Library**: Reusable components with consistent styling
-- **Content Management**: Projects and resources can be easily added via constants files
-
-## 📱 Responsive Design
-
-Fully responsive design that works seamlessly across:
-
-- Desktop computers
-- Tablets
-- Mobile phones
-- All modern browsers
-
-## 🚀 Deployment
-
-### Frontend (Vercel)
-
-The frontend is deployed on Vercel:
-
-- **Domain**: www.mattmoreno.tech
-- **Deployment**: Automatic via Vercel Git integration
-- **CDN**: Global edge network for optimal performance
-
-### Backend (Railway.app)
-
-The backend service for Strava API integration is hosted separately:
-
-- **Platform**: Railway.app
-- **Purpose**: Handles Strava OAuth tokens and API requests
-- **Repository**: Separate backend repository
-
-## 📧 Contact
-
-Matt Moreno - [www.mattmoreno.tech/contact](https://www.mattmoreno.tech/contact)
-
-Project Link: [https://github.com/matt-moreno/portfolio](https://github.com/matt-moreno/portfolio)
+**Backend** — Separate Railway.app service that manages Strava OAuth tokens and proxies API requests.
 
 ---
 
-⭐ If you like this portfolio, please consider giving it a star!
+Project Link: [https://github.com/matt-moreno/portfolio](https://github.com/matt-moreno/portfolio)
