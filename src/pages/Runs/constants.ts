@@ -164,7 +164,7 @@ const races = [
     stravaId: 14377853766,
     blogContent: [
       "The Newport Back Bay is my favorite place on Earth to run. It's a nice ten mile loop along the water that goes through some of the nicest neighborhoods in Southern California. I'm sure there are technically prettier places to run, but growing up spending time in Newport and Huntington Beach makes this one feel a little closer to home.",
-      "During my LA marathon training cycle when I was putting in over 35 miles a week, my ego told me to sign up for the OC Marathon in 2024. I was still riding the high from training, but I had to reel myself back to reality. I didn't want take a toll on my body and jump straight into another marathon after LA. Instead, I made the smarter decision and deferred my entry to 2025.",
+      "During my LA marathon training cycle when I was putting in over 35 miles a week, my ego told me to sign up for the OC Marathon. I was still riding the high from training, but I had to reel myself back to reality. I didn't want take a toll on my body and jump straight into another marathon after LA. Instead, I made the smarter decision and deferred my entry to 2025.",
       "When race day finally came around, my mindset was completely different from my previous marathons. My only real goal was to enjoy it. Before every race you hear the same two pieces of advice: listen to your body and don't forget to have fun.",
       "I'm usually pretty disciplined about the first one, so this time I decided to fully lean into the second.",
       "I ran the entire race without headphones and without putting any pressure on myself to hit a certain time. No pace targets, no expectations. Just running and taking in the experience.",
@@ -181,7 +181,7 @@ const races = [
     stravaId: 16121187123,
     blogContent: [
       "Chicago marked the second stop on my journey toward completing the World Marathon Majors.",
-      "Anyone who has ever been deep in a job search knows the feeling of receiving rejection after rejection. Eventually you get used to it and the sting fades a bit. Unfortunately, that's not the case when it comes to marathon major lotteries. Every time that \"not selected\" email shows up, it still hurts.",
+      'Anyone who has ever been deep in a job search knows the feeling of receiving rejection after rejection. Eventually you get used to it and the sting fades a bit. Unfortunately, that\'s not the case when it comes to marathon major lotteries. Every time that "not selected" email shows up, it still hurts.',
       "After getting denied through the lottery, I knew I needed to try a different approach. That's when I decided to apply through the Ronald McDonald House Charities.",
       "The months leading up to Chicago were a little chaotic. I was commuting to work two days a week, which meant spending anywhere from an hour to an hour and a half in the car each time. I was also finishing my master's degree part time, trying to stay consistent with marathon training, and on top of all of that I needed to raise about $2,000 for the charity.",
       "Whenever I get involved with a nonprofit, it's important for me to understand the impact the organization is actually making. I'm always cautious about where donations end up going. With Ronald McDonald House Charities, that concern disappeared pretty quickly. Their mission is clear and the impact they have on families is incredibly tangible. Being able to run while supporting that cause made the experience feel much bigger than just another race.",
