@@ -41,7 +41,7 @@ export default function MarathonDetail() {
         setActivity(data);
       } catch (err) {
         setError(
-          err instanceof Error ? err.message : "Failed to load activity"
+          err instanceof Error ? err.message : "Failed to load activity",
         );
       } finally {
         setLoading(false);
@@ -50,9 +50,7 @@ export default function MarathonDetail() {
 
     const fetchPhotos = async () => {
       try {
-        const response = await fetch(
-          `${base}/api/strava/${stravaId}/photos`
-        );
+        const response = await fetch(`${base}/api/strava/${stravaId}/photos`);
         if (!response.ok) return;
         const data = await response.json();
         if (Array.isArray(data)) setPhotos(data);
@@ -174,6 +172,11 @@ export default function MarathonDetail() {
             <p className="text-slate-500 dark:text-slate-400 text-sm">
               {formattedDate}
             </p>
+            {activity.description && (
+              <p className="mt-3 border-l-2 border-orange-500/40 pl-3 text-slate-600 dark:text-slate-300 text-base italic leading-relaxed">
+                {activity.description}
+              </p>
+            )}
           </div>
         </div>
 
@@ -223,24 +226,36 @@ export default function MarathonDetail() {
             Race Report
           </h2>
 
+          {/*        
           <div className="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
             <p className="italic text-slate-400 dark:text-slate-500 text-sm border-l-2 border-orange-500/40 pl-3">
               ✏️ Race notes coming soon — check back after I've had time to
               write this up.
             </p>
+             */}
 
-            <p>
-              Every race tells a different story — the weeks of training that
-              led up to it, the morning of race day jitters, and the miles
-              themselves. This page will eventually have a full write-up of how{" "}
-              {race?.title ?? activity.name} went: what worked, what didn't,
-              and what I'd do differently next time.
-            </p>
+          <div className="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
+            {race?.blogContent ? (
+              <div className="bg-white/60 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-slate-700 dark:text-slate-300 not-italic space-y-4">
+                {race.blogContent.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+              </div>
+            ) : (
+              <>
+                <p className="italic text-slate-400 dark:text-slate-500 text-sm border-l-2 border-orange-500/40 pl-3">
+                  Race notes coming soon — check back after I've had time to
+                  write this up.
+                </p>
 
-            {activity.description && (
-              <p className="bg-white/60 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-slate-700 dark:text-slate-300 not-italic">
-                {activity.description}
-              </p>
+                <p>
+                  Every race tells a different story — the weeks of training
+                  that led up to it, the morning of race day jitters, and the
+                  miles themselves. This page will eventually have a full
+                  write-up of how {race?.title ?? activity.name} went: what
+                  worked, what didn't, and what I'd do differently next time.
+                </p>
+              </>
             )}
           </div>
         </article>
