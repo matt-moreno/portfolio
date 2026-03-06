@@ -189,7 +189,8 @@ export default function MarathonDetail() {
               style={{ height: "100%", width: "100%" }}
               mapStyle="mapbox://styles/mapbox/streets-v11"
               mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
-              scrollZoom={true}
+              scrollZoom={false}
+              cooperativeGestures={true}
             >
               <NavigationControl position="top-right" />
               <Source id="route-source" type="geojson" data={geojson}>

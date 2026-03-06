@@ -69,7 +69,8 @@ const RouteMapCard = ({ geoData }: RouteMapCardProps) => {
             style={{ height: "100%", width: "100%", minHeight: "480px" }}
             mapStyle="mapbox://styles/mapbox/streets-v11"
             mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
-            scrollZoom={true}
+            scrollZoom={false}
+            cooperativeGestures={true}
             interactiveLayerIds={[LAYER_ID]}
             onClick={handleClick}
           >
