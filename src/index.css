@@ -1,21 +1,101 @@
+@import "@fontsource/geist-sans/400.css";
+@import "@fontsource/geist-sans/500.css";
+@import "@fontsource/geist-sans/600.css";
+@import "@fontsource/geist-sans/700.css";
+@import "@fontsource/geist-sans/800.css";
+@import "@fontsource/geist-mono/400.css";
+@import "@fontsource/geist-mono/500.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #202020;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 8%;
 
-body {
-  margin: 0;
-  background-color: #202020;
-  color: rgba(255, 255, 255, 0.87);
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 8%;
+
+    /* Terracotta accent — the site's single brand color */
+    --primary: 16 62% 45%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 40%;
+
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 6% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 16 62% 45%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar chrome gets its own subtle plane, distinct from page canvas */
+    --sidebar-background: 240 6% 96%;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 96%;
+
+    --card: 240 8% 7%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 240 8% 7%;
+    --popover-foreground: 0 0% 96%;
+
+    /* Terracotta lightens slightly for contrast on dark backgrounds */
+    --primary: 16 68% 58%;
+    --primary-foreground: 20 30% 10%;
+
+    --secondary: 240 5% 14%;
+    --secondary-foreground: 0 0% 96%;
+
+    --muted: 240 5% 14%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 240 5% 14%;
+    --accent-foreground: 0 0% 96%;
+
+    --destructive: 0 63% 42%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5% 16%;
+    --input: 240 5% 16%;
+    --ring: 16 68% 58%;
+
+    /* Slightly lighter than the page canvas so the chrome reads as a raised panel */
+    --sidebar-background: 240 9% 7%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
 }
 
 /* Main wrapper responsive styles */

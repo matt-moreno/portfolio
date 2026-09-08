@@ -26,22 +26,23 @@ const navItems: NavItem[] = [
 
 export default function Nav({ toggleSidebar }: SidebarTypes) {
   return (
-    <nav className="flex flex-col gap-2 px-4 w-full max-w-[240px]">
+    <nav className="flex flex-col gap-1 px-4 w-full max-w-[240px]">
       {navItems.map(({ path, icon: Icon, label }) => (
         <NavLink
           key={path}
           to={path}
+          end={path === "/"}
           onClick={toggleSidebar}
           className={({ isActive }) =>
-            `flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-300 relative ${
+            `flex items-center gap-4 px-4 py-2.5 rounded-lg transition-colors ${
               isActive
-                ? "bg-white text-slate-900 shadow-lg border-l-4 border-l-blue-600 font-semibold"
-                : "text-slate-200 hover:text-white hover:bg-slate-700 hover:border-l-4 hover:border-l-slate-400 border-l-4 border-l-transparent"
+                ? "bg-primary/10 text-primary font-medium"
+                : "text-muted-foreground hover:text-foreground hover:bg-secondary"
             }`
           }
         >
-          <Icon className="text-xl flex-shrink-0" />
-          <span className="text-lg">{label}</span>
+          <Icon className="text-lg flex-shrink-0" />
+          <span className="text-[15px]">{label}</span>
         </NavLink>
       ))}
     </nav>

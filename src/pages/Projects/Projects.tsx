@@ -18,29 +18,24 @@ export default function Projects() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-      <section className="container mx-auto px-6 py-8 lg:px-8">
+    <div className="min-h-screen px-6 md:px-12 lg:px-16 py-16 md:py-24">
+      {!isOutletActive && (
+        <div className="max-w-6xl mx-auto mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+            Projects
+          </h1>
+        </div>
+      )}
+
+      <div className="max-w-6xl mx-auto">
         {!isOutletActive && (
-          <div className="text-center mb-8">
-            <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-3">
-              Projects
-            </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {projectCards}
           </div>
         )}
 
-        <div className="max-w-7xl mx-auto">
-          {!isOutletActive && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-              {projectCards}
-            </div>
-          )}
-        </div>
-
-        <div className={!isOutletActive ? "mt-12" : ""}>
-          <Outlet />
-        </div>
-      </section>
+        <Outlet />
+      </div>
     </div>
   );
 }

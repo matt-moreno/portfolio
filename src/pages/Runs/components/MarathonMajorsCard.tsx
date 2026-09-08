@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BsTrophy } from "react-icons/bs";
 import { marathonMajors } from "../constants";
 
 const MarathonMajorsCard = () => {
@@ -12,15 +13,13 @@ const MarathonMajorsCard = () => {
   ) => (
     <div key={index} className="flex flex-col items-center gap-1">
       <span
-        className={
-          marathon.completed
-            ? "text-2xl text-orange-500"
-            : "text-2xl text-slate-500"
-        }
+        className={`text-2xl ${
+          marathon.completed ? "text-primary" : "text-muted-foreground/40"
+        }`}
       >
         ★
       </span>
-      <p className="text-xs text-center text-slate-600 dark:text-slate-300">
+      <p className="text-xs text-center text-muted-foreground">
         {marathon.city}
       </p>
       <p className="text-xs text-center">{marathon.flag}</p>
@@ -28,10 +27,11 @@ const MarathonMajorsCard = () => {
   );
 
   return (
-    <Card className="border-orange-500 bg-white/80 dark:bg-slate-800/50 border-2 flex-1 backdrop-blur-sm">
+    <Card className="flex-1">
       <CardHeader className="pb-3">
-        <CardTitle className="text-slate-900 dark:text-white text-lg flex items-center gap-2 justify-center">
-          🏃‍♂️ Marathon Majors
+        <CardTitle className="text-lg flex items-center gap-2 justify-center">
+          <BsTrophy className="text-primary" />
+          Marathon Majors
         </CardTitle>
       </CardHeader>
       <CardContent className="px-4">

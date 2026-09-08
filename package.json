@@ -11,6 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/geist-mono": "^5.3.0",
+    "@fontsource/geist-sans": "^5.3.0",
     "@formspree/react": "^3.0.0",
     "@mapbox/polyline": "^1.2.1",
     "@radix-ui/react-label": "^2.1.7",
@@ -20,6 +22,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.513.0",
     "mapbox-gl": "^3.18.1",
+    "motion": "^13.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^4.11.0",

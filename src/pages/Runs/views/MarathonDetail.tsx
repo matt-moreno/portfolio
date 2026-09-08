@@ -18,7 +18,7 @@ const routeLayer: LayerProps = {
   id: "route-layer",
   type: "line",
   layout: { "line-join": "round", "line-cap": "round" },
-  paint: { "line-color": "#f97316", "line-width": 4, "line-opacity": 0.9 },
+  paint: { "line-color": "#ba522c", "line-width": 4, "line-opacity": 0.9 },
 };
 
 export default function MarathonDetail() {
@@ -67,8 +67,8 @@ export default function MarathonDetail() {
 
   if (error || !activity) {
     return (
-      <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center">
-        <p className="text-slate-600 dark:text-slate-400">
+      <div className="w-full min-h-screen flex items-center justify-center">
+        <p className="text-muted-foreground">
           {error ?? "Activity not found"}
         </p>
       </div>
@@ -136,13 +136,13 @@ export default function MarathonDetail() {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 py-8">
-      <div className="container mx-auto px-6 max-w-4xl">
+    <div className="w-full min-h-screen px-6 md:px-12 lg:px-16 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto">
         {/* Back button + header */}
         <div className="mb-6 relative">
           <NavLink
             to="/runs"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-xl hover:shadow-lg transition-all duration-300 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 font-medium text-sm mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-xl hover:border-primary/40 transition-colors text-muted-foreground hover:text-foreground font-medium text-sm mb-6"
           >
             <svg
               className="w-4 h-4"
@@ -162,18 +162,16 @@ export default function MarathonDetail() {
 
           <div className="mt-4">
             {race && (
-              <span className="text-xs font-semibold uppercase tracking-widest text-orange-500 dark:text-orange-400">
+              <span className="text-xs font-semibold uppercase tracking-widest text-primary">
                 Race Recap
               </span>
             )}
-            <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mt-1 mb-1">
+            <h1 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mt-1 mb-1">
               {race?.title ?? activity.name}
             </h1>
-            <p className="text-slate-500 dark:text-slate-400 text-sm">
-              {formattedDate}
-            </p>
+            <p className="text-muted-foreground text-sm">{formattedDate}</p>
             {activity.description && (
-              <p className="mt-3 border-l-2 border-orange-500/40 pl-3 text-slate-600 dark:text-slate-300 text-base italic leading-relaxed">
+              <p className="mt-3 border-l-2 border-primary/40 pl-3 text-muted-foreground text-base italic leading-relaxed">
                 {activity.description}
               </p>
             )}
@@ -182,7 +180,7 @@ export default function MarathonDetail() {
 
         {/* Hero map */}
         {decodedPolyline.length > 0 && (
-          <div className="border-2 border-orange-500 rounded-2xl overflow-hidden shadow-xl mb-6 h-[420px]">
+          <div className="border border-border rounded-2xl overflow-hidden mb-6 h-[420px]">
             <Map
               initialViewState={{
                 longitude: startLng,
@@ -208,12 +206,12 @@ export default function MarathonDetail() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="bg-white/80 dark:bg-slate-800/50 border border-orange-500/30 rounded-xl p-4 text-center backdrop-blur-sm"
+              className="bg-card border border-border rounded-xl p-4 text-center"
             >
-              <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">
+              <p className="text-xs text-muted-foreground mb-1">
                 {stat.label}
               </p>
-              <p className="text-lg font-bold text-slate-900 dark:text-white">
+              <p className="text-lg font-bold text-foreground">
                 {stat.value}
               </p>
             </div>
@@ -221,29 +219,21 @@ export default function MarathonDetail() {
         </div>
 
         {/* Blog body */}
-        <article className="prose prose-slate dark:prose-invert max-w-none mb-10">
-          <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
+        <article className="prose dark:prose-invert max-w-none mb-10">
+          <h2 className="text-xl font-bold text-foreground mb-4">
             Race Report
           </h2>
 
-          {/*        
-          <div className="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
-            <p className="italic text-slate-400 dark:text-slate-500 text-sm border-l-2 border-orange-500/40 pl-3">
-              ✏️ Race notes coming soon — check back after I've had time to
-              write this up.
-            </p>
-             */}
-
-          <div className="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
+          <div className="space-y-4 text-muted-foreground leading-relaxed">
             {race?.blogContent ? (
-              <div className="bg-white/60 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-slate-700 dark:text-slate-300 not-italic space-y-4">
+              <div className="bg-card border border-border rounded-xl p-4 text-foreground not-italic space-y-4">
                 {race.blogContent.map((paragraph, i) => (
                   <p key={i}>{paragraph}</p>
                 ))}
               </div>
             ) : (
               <>
-                <p className="italic text-slate-400 dark:text-slate-500 text-sm border-l-2 border-orange-500/40 pl-3">
+                <p className="italic text-muted-foreground text-sm border-l-2 border-primary/40 pl-3">
                   Race notes coming soon — check back after I've had time to
                   write this up.
                 </p>
@@ -263,9 +253,9 @@ export default function MarathonDetail() {
         {/* Strava photos */}
         {photos.length > 0 && (
           <div className="mb-10">
-            <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-xl font-bold text-foreground mb-4">
               Photos
-              <span className="text-sm font-normal text-slate-500 dark:text-slate-400 ml-2">
+              <span className="text-sm font-normal text-muted-foreground ml-2">
                 ({photos.length})
               </span>
             </h2>
@@ -273,7 +263,7 @@ export default function MarathonDetail() {
               {photos.map((photo) => (
                 <div
                   key={photo.unique_id}
-                  className="break-inside-avoid mb-3 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg"
+                  className="break-inside-avoid mb-3 rounded-xl overflow-hidden border border-border"
                 >
                   <img
                     src={photo.urls["5000"]}

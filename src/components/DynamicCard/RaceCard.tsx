@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BsArrowRight } from "react-icons/bs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type RaceCardProps = {
@@ -13,48 +14,37 @@ type RaceCardProps = {
 
 const RaceCard = ({ image, title, year, link, pace, time, stravaId }: RaceCardProps) => {
   const cardContent = (
-    <Card className="border-orange-500 bg-white/80 dark:bg-slate-800/50 border-2 backdrop-blur-sm hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-[1.02] overflow-hidden h-full">
+    <Card className="overflow-hidden h-full hover:border-primary/40 transition-colors">
       <div className="relative overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+          className="w-full h-48 object-cover"
         />
-        <div className="absolute top-0 right-0 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1 rounded-bl-lg font-bold shadow-lg">
+        <div className="absolute top-3 right-3 bg-background/90 border border-border text-foreground px-2.5 py-1 rounded-full text-xs font-semibold">
           {year}
         </div>
       </div>
       <CardHeader className="pb-3">
-        <CardTitle className="text-slate-900 dark:text-white text-lg group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors duration-300">
+        <CardTitle className="text-lg group-hover:text-primary transition-colors">
           {title}
         </CardTitle>
       </CardHeader>
       <CardContent className="px-4 pb-4">
-        {/* Race Stats - Attribute Style */}
-        <div className="flex flex-row gap-12 mb-4">
+        <div className="flex flex-row gap-8 mb-4">
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-slate-500 dark:text-slate-400">
-              Avg Pace
-            </span>
-            <span className="font-semibold text-slate-900 dark:text-white">
-              {pace}
-            </span>
+            <span className="text-muted-foreground">Avg Pace</span>
+            <span className="font-semibold text-foreground">{pace}</span>
           </div>
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-slate-500 dark:text-slate-400">
-              Finish Time
-            </span>
-            <span className="font-semibold text-slate-900 dark:text-white">
-              {time}
-            </span>
+            <span className="text-muted-foreground">Finish Time</span>
+            <span className="font-semibold text-foreground">{time}</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 text-orange-500 dark:text-orange-400 font-semibold text-sm">
+        <div className="flex items-center gap-2 text-primary font-medium text-sm">
           <span>View Details</span>
-          <span className="group-hover:translate-x-1 transition-transform duration-300">
-            →
-          </span>
+          <BsArrowRight className="transition-transform group-hover:translate-x-1" />
         </div>
       </CardContent>
     </Card>
@@ -69,12 +59,7 @@ const RaceCard = ({ image, title, year, link, pace, time, stravaId }: RaceCardPr
   }
 
   return (
-    <a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block group"
-    >
+    <a href={link} target="_blank" rel="noopener noreferrer" className="block group">
       {cardContent}
     </a>
   );
