@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BsGraphUpArrow } from "react-icons/bs";
+import AnimatedNumber from "@/components/AnimatedNumber/AnimatedNumber";
 
 type RunningRecapCardProps = {
   athleteStats: {
@@ -12,10 +13,10 @@ type RunningRecapCardProps = {
 };
 
 const stats = (athleteStats: RunningRecapCardProps["athleteStats"], gearName?: string) => [
-  { label: "Total Miles (All Time)", value: `${athleteStats.totalMiles} mi` },
-  { label: "Total Runs (All Time)", value: athleteStats.totalRuns },
-  { label: "Year to Date Miles", value: `${athleteStats.ytdMiles} mi` },
-  { label: "Year to Date Runs", value: athleteStats.ytdRuns },
+  { label: "Total Miles (All Time)", value: athleteStats.totalMiles, suffix: " mi", decimals: 1 },
+  { label: "Total Runs (All Time)", value: athleteStats.totalRuns, suffix: "", decimals: 0 },
+  { label: "Year to Date Miles", value: athleteStats.ytdMiles, suffix: " mi", decimals: 1 },
+  { label: "Year to Date Runs", value: athleteStats.ytdRuns, suffix: "", decimals: 0 },
   { label: "Shoes", value: gearName },
 ];
 
@@ -32,13 +33,19 @@ const RunningRecapCard = ({
     </CardHeader>
     <CardContent>
       <div className="space-y-3">
-        {stats(athleteStats, gearName).map(({ label, value }) => (
+        {stats(athleteStats, gearName).map(({ label, value, suffix, decimals }) => (
           <div
             key={label}
             className="flex justify-between items-center p-3 bg-secondary rounded-lg"
           >
             <span className="text-secondary-foreground">{label}:</span>
-            <span className="text-primary font-bold text-lg">{value}</span>
+            <span className="text-primary font-bold text-lg">
+              {typeof value === "number" ? (
+                <AnimatedNumber value={value} suffix={suffix} decimals={decimals} />
+              ) : (
+                value
+              )}
+            </span>
           </div>
         ))}
       </div>

@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import { CardLinkTypes } from "../../components/Card/CardLink";
 import ProjectCard from "../../components/DynamicCard/ProjectCard";
 import projectData from "./constants";
@@ -7,15 +8,24 @@ import projectData from "./constants";
 export default function Projects() {
   const [isOutletActive, setIsOutletActive] = useState(false);
   const location = useLocation();
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     // Check if the current path is not the root path to determine if Outlet is active
     setIsOutletActive(location.pathname !== "/projects");
   }, [location]);
 
-  const projectCards = projectData.map((project: CardLinkTypes, index) => {
-    return <ProjectCard key={index} {...project} />;
-  });
+  const projectCards = projectData.map((project: CardLinkTypes, index) => (
+    <motion.div
+      key={index}
+      initial={reduce ? false : { opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+    >
+      <ProjectCard {...project} />
+    </motion.div>
+  ));
 
   return (
     <div className="min-h-screen px-6 md:px-12 lg:px-16 py-16 md:py-24">

@@ -11,7 +11,7 @@ export default function ProjectCard({
   tag,
 }: CardLinkTypes) {
   const CardContent = (
-    <div className="group h-full flex flex-col overflow-hidden rounded-xl bg-card border border-border hover:border-primary/40 transition-colors">
+    <div className="group h-full flex flex-col overflow-hidden rounded-xl bg-card border border-border hover:border-primary/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
       <div className="relative h-44 overflow-hidden bg-secondary">
         <img
           src={image}
