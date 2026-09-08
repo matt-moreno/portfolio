@@ -65,7 +65,7 @@ const RouteMapCard = ({ geoData }: RouteMapCardProps) => {
   return (
     <div className="border border-border h-full rounded-lg overflow-hidden">
           <Map
-            initialViewState={{ longitude: -117.9623, latitude: 33.8775, zoom: 12 }}
+            initialViewState={{ longitude: -117.8628, latitude: 33.7758, zoom: 12 }}
             style={{ height: "100%", width: "100%", minHeight: "480px" }}
             mapStyle="mapbox://styles/mapbox/streets-v11"
             mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}

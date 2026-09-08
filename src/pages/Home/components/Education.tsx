@@ -9,11 +9,11 @@ export default function Education() {
       id: 1,
       institution: "University of Arizona",
       program: "Master of Management Information Systems",
-      period: "2024 - December 2025",
+      period: "August 2025 - December 2025",
       image: "/assets/arizona.png",
       imageAlt: "University of Arizona logo",
       type: "Master's Degree",
-      inProgress: true,
+      inProgress: false,
       description:
         "Earned a Master's in MIS to strengthen my foundation in systems analysis, data-driven decision making, and IT strategy. Focused on real-world applications through team-based projects.",
     },
