@@ -21,7 +21,7 @@ export default function Runs() {
   const [loading, setLoading] = useState(true);
   const [geoData, setGeoData] = useState<GeoTypes[]>([]);
   const [recentActivity, setRecentActivity] = useState<RecentActivityTypes[]>(
-    []
+    [],
   );
   const [weekMiles, setWeekMiles] = useState(0);
   const [dailyProgress, setDailyProgress] = useState<number[]>([
@@ -39,7 +39,7 @@ export default function Runs() {
     const getStravaData = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_BASE_URL}/api/strava`
+          `${import.meta.env.VITE_API_BASE_URL}/api/strava`,
         );
         const result = await response.json();
         const geoArr: GeoTypes[] = [];
@@ -104,7 +104,7 @@ export default function Runs() {
     const getAthleteStats = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_BASE_URL}/api/athlete-stats`
+          `${import.meta.env.VITE_API_BASE_URL}/api/athlete-stats`,
         );
         const result = await response.json();
         setAthleteStats({
@@ -124,7 +124,7 @@ export default function Runs() {
     const getGear = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_BASE_URL}/api/gear`
+          `${import.meta.env.VITE_API_BASE_URL}/api/gear`,
         );
         const result = await response.json();
         console.log(result);
@@ -150,7 +150,7 @@ export default function Runs() {
       <section className="max-w-7xl mx-auto">
         <div className="mb-10">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
-            Activity Dashboard
+            Running Dashboard
           </h1>
         </div>
 
