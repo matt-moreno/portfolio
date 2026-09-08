@@ -146,14 +146,12 @@ export default function Runs() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      <section className="container mx-auto px-6 py-8 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-3">
+    <div className="min-h-screen px-6 md:px-12 lg:px-16 py-16 md:py-24">
+      <section className="max-w-7xl mx-auto">
+        <div className="mb-10">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
             Activity Dashboard
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto rounded-full mb-8"></div>
         </div>
 
         {/* Main Grid Layout */}
@@ -182,8 +180,8 @@ export default function Runs() {
           <RacesCardCarousel />
         </div>
       </section>
-      <div className="flex items-center justify-center gap-3 pb-8">
-        <p className="text-slate-600 dark:text-slate-400">
+      <div className="flex items-center justify-center gap-3 pt-8">
+        <p className="text-muted-foreground text-sm">
           Powered by the Strava API
         </p>
         <a

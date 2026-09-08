@@ -22,9 +22,7 @@ export default function MainLayout() {
       <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
       {/* Main content area - add left margin to account for fixed sidebar and conditional top padding for sticky banner */}
-      <main
-        className={`flex-1 ml-0 md:ml-[300px] transition-all duration-300 text-gray-900 dark:text-gray-100 pt-0`}
-      >
+      <main className="flex-1 ml-0 md:ml-[300px] min-h-screen bg-background text-foreground transition-all duration-300">
         <Outlet />
       </main>
     </div>

@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { BsGraphUp } from "react-icons/bs";
 
 const WeeklyTracker = ({
   currentWeekMiles,
@@ -17,13 +18,12 @@ const WeeklyTracker = ({
   const daysOfWeek = ["M", "T", "W", "T", "F", "S", "S"];
 
   return (
-    <Card className="border-orange-500 bg-white/80 dark:bg-slate-800 border-2 p-6 backdrop-blur-sm">
+    <Card className="p-6">
       <div className="flex items-center justify-center gap-2 mb-6">
-        <span className="text-orange-500 text-lg font-semibold">📊</span>
-        <h3 className="text-slate-900 dark:text-white text-lg font-semibold">
+        <BsGraphUp className="text-primary" />
+        <h3 className="text-foreground text-lg font-semibold">
           Weekly goal: {weeklyGoal} mi
         </h3>
-        <span className="text-orange-400 text-sm">🔥</span>
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 xl:gap-12">
@@ -36,7 +36,7 @@ const WeeklyTracker = ({
               cx="50"
               cy="50"
               r="45"
-              stroke="rgb(51, 65, 85)"
+              stroke="hsl(var(--secondary))"
               strokeWidth="8"
               fill="none"
             />
@@ -44,7 +44,7 @@ const WeeklyTracker = ({
               cx="50"
               cy="50"
               r="45"
-              stroke="rgb(34, 197, 94)"
+              stroke="hsl(var(--primary))"
               strokeWidth="8"
               fill="none"
               strokeLinecap="round"
@@ -54,10 +54,10 @@ const WeeklyTracker = ({
             />
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-slate-900 dark:text-white text-2xl md:text-3xl font-bold">
+            <span className="text-foreground text-2xl md:text-3xl font-bold">
               {currentWeekMiles.toFixed(1)}
             </span>
-            <span className="text-slate-600 dark:text-slate-400 text-sm md:text-base">
+            <span className="text-muted-foreground text-sm md:text-base">
               mi
             </span>
           </div>
@@ -72,12 +72,10 @@ const WeeklyTracker = ({
               >
                 <div
                   className={`w-2.5 h-10 md:w-3 md:h-12 rounded-full ${
-                    dayProgress[index]
-                      ? "bg-green-500"
-                      : "bg-slate-300 dark:bg-slate-600"
+                    dayProgress[index] ? "bg-primary" : "bg-secondary"
                   }`}
                 />
-                <span className="text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium">
+                <span className="text-muted-foreground text-xs md:text-sm font-medium">
                   {day}
                 </span>
               </div>

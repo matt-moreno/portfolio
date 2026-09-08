@@ -2,13 +2,13 @@ import { NavLink } from "react-router-dom";
 
 export default function Bellabeat() {
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 py-8">
-      <div className="container mx-auto px-6">
+    <div className="w-full min-h-screen px-6 md:px-12 lg:px-16 py-16 md:py-24">
+      <div className="max-w-5xl mx-auto">
         <div className="mb-8 relative">
           <div className="flex items-center justify-center">
             <NavLink
               to="/projects"
-              className="absolute left-0 inline-flex items-center gap-2 px-6 py-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-xl hover:shadow-lg transition-all duration-300 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 font-medium"
+              className="absolute left-0 inline-flex items-center gap-2 px-5 py-2.5 bg-card border border-border rounded-xl hover:border-primary/40 transition-colors text-muted-foreground hover:text-foreground font-medium text-sm"
             >
               <svg
                 className="w-5 h-5"
@@ -26,17 +26,17 @@ export default function Bellabeat() {
               Back to projects
             </NavLink>
             <div className="text-center">
-              <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+              <h1 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-2">
                 Bellabeat Case Study
               </h1>
-              <p className="text-slate-600 dark:text-slate-400 text-sm">
+              <p className="text-muted-foreground text-sm">
                 Google Coursera Data Analytics Capstone Project
               </p>
             </div>
           </div>
         </div>
 
-        <div className="relative w-full bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700">
+        <div className="relative w-full bg-card rounded-2xl overflow-hidden border border-border">
           <iframe
             src="https://www.kaggle.com/embed/morenomatt/bellabeat-case-study-r?kernelSessionId=180358905"
             className="w-full h-[80vh] lg:h-[85vh] border-0"

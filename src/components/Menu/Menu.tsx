@@ -12,7 +12,7 @@ export default function Menu({
 }: MenuProps) {
   return (
     <button
-      className={`flex md:hidden fixed right-5 z-[10000] text-2xl cursor-pointer text-white bg-slate-800/90 p-2 rounded border border-slate-400/30 transition-all duration-300 ${
+      className={`flex md:hidden fixed right-5 z-[10000] text-2xl cursor-pointer text-foreground bg-background/90 backdrop-blur-sm p-2 rounded-lg border border-border shadow-sm transition-all duration-300 ${
         isBannerVisible ? "top-20" : "top-5"
       }`}
       onClick={toggleSidebar}

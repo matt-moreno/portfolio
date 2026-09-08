@@ -1,21 +1,102 @@
+@import "@fontsource/geist-sans/400.css";
+@import "@fontsource/geist-sans/500.css";
+@import "@fontsource/geist-sans/600.css";
+@import "@fontsource/geist-sans/700.css";
+@import "@fontsource/geist-sans/800.css";
+@import "@fontsource/geist-mono/400.css";
+@import "@fontsource/geist-mono/500.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #202020;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+@layer base {
+  :root {
+    --background: 150 20% 99%;
+    --foreground: 160 15% 10%;
 
-body {
-  margin: 0;
-  background-color: #202020;
-  color: rgba(255, 255, 255, 0.87);
+    --card: 150 20% 99%;
+    --card-foreground: 160 15% 10%;
+
+    --popover: 150 20% 99%;
+    --popover-foreground: 160 15% 10%;
+
+    /* Forest green accent — the site's single brand color */
+    --primary: 150 35% 28%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 150 12% 95%;
+    --secondary-foreground: 160 10% 15%;
+
+    --muted: 150 12% 95%;
+    --muted-foreground: 160 6% 40%;
+
+    --accent: 150 12% 95%;
+    --accent-foreground: 160 10% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 150 10% 89%;
+    --input: 150 10% 89%;
+    --ring: 150 35% 28%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar chrome gets its own subtle plane, distinct from page canvas */
+    --sidebar-background: 150 14% 95%;
+  }
+
+  .dark {
+    /* Dark jungle green base — the site's dark-mode canvas */
+    --background: 162 16% 7%;
+    --foreground: 150 10% 94%;
+
+    --card: 160 14% 10%;
+    --card-foreground: 150 10% 94%;
+
+    --popover: 160 14% 10%;
+    --popover-foreground: 150 10% 94%;
+
+    /* Forest green lightens to sage for contrast on the dark canvas */
+    --primary: 150 30% 58%;
+    --primary-foreground: 160 30% 10%;
+
+    --secondary: 160 10% 15%;
+    --secondary-foreground: 150 10% 94%;
+
+    --muted: 160 10% 15%;
+    --muted-foreground: 150 6% 65%;
+
+    --accent: 160 10% 15%;
+    --accent-foreground: 150 10% 94%;
+
+    --destructive: 0 63% 42%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 160 10% 16%;
+    --input: 160 10% 16%;
+    --ring: 150 30% 58%;
+
+    /* Slightly lighter than the page canvas so the chrome reads as a raised panel */
+    --sidebar-background: 162 15% 9%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
 }
 
 /* Main wrapper responsive styles */

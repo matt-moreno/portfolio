@@ -4,46 +4,43 @@ import { SidebarTypes } from "../../../layouts/MainLayout";
 
 export default function Profile({ toggleSidebar }: SidebarTypes) {
   return (
-    <div className="flex flex-col items-center pt-8 px-6">
-      {/* Profile Photo */}
-      <Link to="/" onClick={toggleSidebar} className="mb-6 group">
+    <div className="flex flex-col items-center pt-10 px-6">
+      <Link to="/" onClick={toggleSidebar} className="mb-5 group">
         <img
-          className="w-36 h-36 rounded-full border-4 border-slate-600 shadow-xl transition-all duration-300 group-hover:border-white group-hover:shadow-2xl group-hover:scale-105"
+          className="w-28 h-28 rounded-full object-cover ring-1 ring-border transition-all group-hover:ring-primary/50"
           src="/assets/matt-profile.jpg"
           alt="Matt Moreno Profile"
         />
       </Link>
 
-      {/* Name */}
-      <h2 className="text-3xl font-bold text-white mb-6 text-center transition-all duration-300 hover:text-white hover:bg-slate-700 cursor-default py-2 px-4 rounded-lg">
+      <h2 className="text-lg font-semibold text-foreground mb-5 text-center">
         Matt Moreno
       </h2>
 
-      {/* Social Icons */}
-      <div className="flex gap-4 mb-8">
+      <div className="flex gap-2 mb-8">
         <Link
           to="https://www.linkedin.com/in/matthew-moreno-76b58880/"
           target="_blank"
-          className="text-slate-300 hover:text-blue-400 transition-all duration-300 transform hover:scale-125 hover:bg-slate-700 p-3 rounded-full border-2 border-slate-600 hover:border-blue-400 shadow-lg hover:shadow-xl"
+          className="text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors p-2.5 rounded-full"
           aria-label="LinkedIn Profile"
         >
-          <BsLinkedin className="text-xl" />
+          <BsLinkedin className="text-lg" />
         </Link>
         <Link
           to="https://github.com/matt-moreno"
           target="_blank"
-          className="text-slate-300 hover:text-white transition-all duration-300 transform hover:scale-125 hover:bg-slate-700 p-3 rounded-full border-2 border-slate-600 hover:border-white shadow-lg hover:shadow-xl"
+          className="text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors p-2.5 rounded-full"
           aria-label="GitHub Profile"
         >
-          <BsGithub className="text-xl" />
+          <BsGithub className="text-lg" />
         </Link>
         <Link
           to="https://www.instagram.com/matt_moreno64/"
           target="_blank"
-          className="text-slate-300 hover:text-pink-400 transition-all duration-300 transform hover:scale-125 hover:bg-slate-700 p-3 rounded-full border-2 border-slate-600 hover:border-pink-400 shadow-lg hover:shadow-xl"
+          className="text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors p-2.5 rounded-full"
           aria-label="Instagram Profile"
         >
-          <BsInstagram className="text-xl" />
+          <BsInstagram className="text-lg" />
         </Link>
       </div>
     </div>

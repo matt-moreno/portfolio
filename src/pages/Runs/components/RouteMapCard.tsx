@@ -23,7 +23,7 @@ const routeLayer: LayerProps = {
   id: LAYER_ID,
   type: "line",
   layout: { "line-join": "round", "line-cap": "round" },
-  paint: { "line-color": "#f97316", "line-width": 3, "line-opacity": 0.8 },
+  paint: { "line-color": "#ba522c", "line-width": 3, "line-opacity": 0.8 },
 };
 
 const RouteMapCard = ({ geoData }: RouteMapCardProps) => {
@@ -63,9 +63,9 @@ const RouteMapCard = ({ geoData }: RouteMapCardProps) => {
   }, []);
 
   return (
-    <div className="border-orange-500 border-2 h-full rounded-lg overflow-hidden">
+    <div className="border border-border h-full rounded-lg overflow-hidden">
           <Map
-            initialViewState={{ longitude: -117.9623, latitude: 33.8775, zoom: 12 }}
+            initialViewState={{ longitude: -117.8628, latitude: 33.7758, zoom: 12 }}
             style={{ height: "100%", width: "100%", minHeight: "480px" }}
             mapStyle="mapbox://styles/mapbox/streets-v11"
             mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}

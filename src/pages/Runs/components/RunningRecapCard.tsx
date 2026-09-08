@@ -1,4 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BsGraphUpArrow } from "react-icons/bs";
+import AnimatedNumber from "@/components/AnimatedNumber/AnimatedNumber";
 
 type RunningRecapCardProps = {
   athleteStats: {
@@ -10,60 +12,45 @@ type RunningRecapCardProps = {
   gearName?: string;
 };
 
+const stats = (athleteStats: RunningRecapCardProps["athleteStats"], gearName?: string) => [
+  { label: "Total Miles (All Time)", value: athleteStats.totalMiles, suffix: " mi", decimals: 1 },
+  { label: "Total Runs (All Time)", value: athleteStats.totalRuns, suffix: "", decimals: 0 },
+  { label: "Year to Date Miles", value: athleteStats.ytdMiles, suffix: " mi", decimals: 1 },
+  { label: "Year to Date Runs", value: athleteStats.ytdRuns, suffix: "", decimals: 0 },
+  { label: "Shoes", value: gearName },
+];
+
 const RunningRecapCard = ({
   athleteStats,
   gearName,
 }: RunningRecapCardProps) => (
-  <Card className="border-orange-500 bg-white/80 dark:bg-slate-800/50 border-2 backdrop-blur-sm">
+  <Card>
     <CardHeader className="pb-3">
-      <CardTitle className="text-slate-900 dark:text-white text-xl flex items-center gap-2">
-        📈 Running Recap
+      <CardTitle className="text-xl flex items-center gap-2">
+        <BsGraphUpArrow className="text-primary" />
+        Running Recap
       </CardTitle>
     </CardHeader>
     <CardContent>
-      <div className="space-y-4">
-        <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
-          <span className="text-slate-700 dark:text-slate-300">
-            Total Miles (All Time):
-          </span>
-          <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
-            {athleteStats.totalMiles} mi
-          </span>
-        </div>
-        <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
-          <span className="text-slate-700 dark:text-slate-300">
-            Total Runs (All Time):
-          </span>
-          <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
-            {athleteStats.totalRuns}
-          </span>
-        </div>
-        <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
-          <span className="text-slate-700 dark:text-slate-300">
-            Year to Date Miles:
-          </span>
-          <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
-            {athleteStats.ytdMiles} mi
-          </span>
-        </div>
-        <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
-          <span className="text-slate-700 dark:text-slate-300">
-            Year to Date Runs:
-          </span>
-          <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
-            {athleteStats.ytdRuns}
-          </span>
-        </div>
-        <div className="flex justify-between items-center p-3 bg-slate-100 dark:bg-slate-700/50 rounded-lg">
-          <span className="text-slate-700 dark:text-slate-300">Shoes:</span>
-          <span className="text-orange-500 dark:text-orange-400 font-bold text-lg">
-            {gearName}
-          </span>
-        </div>
+      <div className="space-y-3">
+        {stats(athleteStats, gearName).map(({ label, value, suffix, decimals }) => (
+          <div
+            key={label}
+            className="flex justify-between items-center p-3 bg-secondary rounded-lg"
+          >
+            <span className="text-secondary-foreground">{label}:</span>
+            <span className="text-primary font-bold text-lg">
+              {typeof value === "number" ? (
+                <AnimatedNumber value={value} suffix={suffix} decimals={decimals} />
+              ) : (
+                value
+              )}
+            </span>
+          </div>
+        ))}
       </div>
     </CardContent>
   </Card>
 );
 
 export default RunningRecapCard;
-

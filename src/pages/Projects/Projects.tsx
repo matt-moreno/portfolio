@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import { CardLinkTypes } from "../../components/Card/CardLink";
 import ProjectCard from "../../components/DynamicCard/ProjectCard";
 import projectData from "./constants";
@@ -7,40 +8,44 @@ import projectData from "./constants";
 export default function Projects() {
   const [isOutletActive, setIsOutletActive] = useState(false);
   const location = useLocation();
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     // Check if the current path is not the root path to determine if Outlet is active
     setIsOutletActive(location.pathname !== "/projects");
   }, [location]);
 
-  const projectCards = projectData.map((project: CardLinkTypes, index) => {
-    return <ProjectCard key={index} {...project} />;
-  });
+  const projectCards = projectData.map((project: CardLinkTypes, index) => (
+    <motion.div
+      key={index}
+      initial={reduce ? false : { opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+    >
+      <ProjectCard {...project} />
+    </motion.div>
+  ));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-      <section className="container mx-auto px-6 py-8 lg:px-8">
+    <div className="min-h-screen px-6 md:px-12 lg:px-16 py-16 md:py-24">
+      {!isOutletActive && (
+        <div className="max-w-6xl mx-auto mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+            Projects
+          </h1>
+        </div>
+      )}
+
+      <div className="max-w-6xl mx-auto">
         {!isOutletActive && (
-          <div className="text-center mb-8">
-            <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-3">
-              Projects
-            </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {projectCards}
           </div>
         )}
 
-        <div className="max-w-7xl mx-auto">
-          {!isOutletActive && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-              {projectCards}
-            </div>
-          )}
-        </div>
-
-        <div className={!isOutletActive ? "mt-12" : ""}>
-          <Outlet />
-        </div>
-      </section>
+        <Outlet />
+      </div>
     </div>
   );
 }
