@@ -76,7 +76,7 @@ const marathonMajors = [
 
 const races = [
   {
-    image: "/assets/SFHalf.png",
+    image: "/assets/SFHalf.jpg",
     title: "San Francisco Half Marathon",
     year: "2023",
     link: "https://www.thesfmarathon.com/",
@@ -95,7 +95,7 @@ const races = [
     ],
   },
   {
-    image: "/assets/LA.png",
+    image: "/assets/LA.jpg",
     title: "Los Angeles Marathon",
     year: "2024",
     link: "https://www.lamarathon.com/",
@@ -117,7 +117,7 @@ const races = [
     ],
   },
   {
-    image: "/assets/Berlin.png",
+    image: "/assets/Berlin.jpg",
     title: "Berlin Marathon",
     year: "2024",
     link: "https://www.bmw-berlin-marathon.com/",
@@ -137,7 +137,7 @@ const races = [
     ],
   },
   {
-    image: "/assets/RoseBowl.png",
+    image: "/assets/RoseBowl.jpg",
     title: "Rose Bowl Half Marathon",
     year: "2025",
     link: "https://www.conqur.com/",
@@ -155,7 +155,7 @@ const races = [
     ],
   },
   {
-    image: "/assets/OC.png",
+    image: "/assets/OC.jpg",
     title: "OC Marathon",
     year: "2025",
     link: "https://www.ocmarathon.com/",
@@ -172,7 +172,7 @@ const races = [
     ],
   },
   {
-    image: "/assets/Chicago.png",
+    image: "/assets/Chicago.jpg",
     title: "Chicago Marathon",
     year: "2025",
     link: "https://www.chicagomarathon.com/",
