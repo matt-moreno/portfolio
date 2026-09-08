@@ -37,20 +37,20 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen px-6 md:px-12 lg:px-16 py-16 md:py-24">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-12">
+    <div className="min-h-[100dvh] flex items-center px-6 md:px-12 lg:px-16 py-6 md:py-8">
+      <div className="max-w-6xl mx-auto w-full">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 md:mb-5">
           About Me
         </h1>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 lg:gap-12 items-start">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:w-2/5 lg:flex-shrink-0"
+            className="w-56 sm:w-64 lg:w-full mx-auto lg:mx-0"
           >
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-border sticky top-8">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-border">
               <img
                 src="/assets/MattPortrait.jpeg"
                 alt="Matt Portrait"
@@ -59,8 +59,8 @@ export default function About() {
             </div>
           </motion.div>
 
-          <div className="flex-1 space-y-10">
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-[65ch]">
+          <div className="space-y-5 md:space-y-6">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Hey there! I'm Matt, a Southern California native, marathon
               runner, and tech enthusiast with a passion for building great
               products. I currently work as a Product Manager at Dubsado,
@@ -77,10 +77,10 @@ export default function About() {
             </p>
 
             <div>
-              <h2 className="text-xl font-bold tracking-tight text-foreground mb-6">
+              <h2 className="text-lg font-bold tracking-tight text-foreground mb-3">
                 Skills &amp; Expertise
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border rounded-xl overflow-hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-border rounded-xl overflow-hidden">
                 {skills.map((skill, i) => (
                   <motion.div
                     key={skill.title}
@@ -88,12 +88,12 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 0.4, delay: i * 0.05 }}
-                    className="bg-card p-5"
+                    className="bg-card p-3.5"
                   >
-                    <h3 className="text-sm font-semibold text-foreground mb-1.5">
+                    <h3 className="text-sm font-semibold text-foreground mb-1">
                       {skill.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-xs leading-relaxed">
                       {skill.description}
                     </p>
                   </motion.div>

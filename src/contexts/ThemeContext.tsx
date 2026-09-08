@@ -10,7 +10,12 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [isDark, setIsDark] = useState(true); // Always start in dark mode
+  // Defaults to dark for everyone; a blocking script in index.html already
+  // set the "dark" class on <html> before paint, so read that instead of
+  // localStorage directly to stay in sync and avoid a flash on load.
+  const [isDark, setIsDark] = useState(
+    () => document.documentElement.classList.contains("dark"),
+  );
 
   const toggleTheme = () => {
     setIsDark(!isDark);
@@ -25,19 +30,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
       document.documentElement.classList.remove("dark");
     }
   }, [isDark]);
-
-  // Listen for system theme changes
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem("theme")) {
-        setIsDark(e.matches);
-      }
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>

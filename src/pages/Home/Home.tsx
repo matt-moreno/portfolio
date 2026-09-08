@@ -31,12 +31,23 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <section className="min-h-[100dvh] flex items-center px-6 md:px-12 lg:px-16 pt-24 pb-16">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center w-full">
+      <section className="relative min-h-[100dvh] flex items-center px-6 md:px-12 lg:px-16 pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/assets/LAbyMatt-hero.jpeg"
+            alt="Los Angeles skyline, photographed by Matt"
+            className="w-full h-full object-cover object-[50%_38%]"
+          />
+        </div>
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/85 to-background/35" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
+
+        <div className="relative z-20 max-w-7xl mx-auto w-full">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-xl"
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground">
               Matt Moreno
@@ -67,21 +78,6 @@ export default function Home() {
               >
                 Get in Touch
               </Link>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={reduce ? false : { opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="relative"
-          >
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-border">
-              <img
-                src="/assets/LAbyMatt.jpeg"
-                alt="Los Angeles skyline, photographed by Matt"
-                className="w-full h-full object-cover"
-              />
             </div>
           </motion.div>
         </div>
