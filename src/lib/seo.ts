@@ -6,9 +6,9 @@ export const SITE_URL = "https://www.mattmoreno.tech";
 type PageMeta = { title: string; description: string };
 
 const DEFAULT_META: PageMeta = {
-  title: "Matt Moreno · Product Manager & Developer",
+  title: "Matt Moreno · Product Manager",
   description:
-    "Matt Moreno is a Southern California product manager, web developer, and marathon runner building at the intersection of UX and business strategy.",
+    "Matt Moreno is a Southern California product manager with a Master's in Information Systems, building at the intersection of UX and business strategy.",
 };
 
 // Keyed by pathname. Dynamic routes (e.g. /runs/:stravaId) fall back to their parent.
@@ -17,7 +17,7 @@ const PAGE_META: Record<string, PageMeta> = {
   "/about": {
     title: "About · Matt Moreno",
     description:
-      "About Matt Moreno: Southern California native, product manager, developer, and marathon runner.",
+      "About Matt Moreno: Southern California native, product manager, and marathon runner.",
   },
   "/projects": {
     title: "Projects · Matt Moreno",
