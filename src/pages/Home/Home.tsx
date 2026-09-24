@@ -14,7 +14,7 @@ export default function Home() {
     const typedText = new Typed(textSpan.current, {
       strings: [
         "Product Manager",
-        "Web Developer",
+        "Systems Thinker",
         "Data Analyst",
         "Marathon Runner",
         "Life Long Learner",
@@ -62,8 +62,8 @@ export default function Home() {
               ></span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-[46ch] leading-relaxed">
-              Product manager, developer, and marathon runner building at the
-              intersection of UX and business strategy.
+              Product manager with a Master's in Information Systems, building
+              at the intersection of UX and business strategy.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
