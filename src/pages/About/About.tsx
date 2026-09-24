@@ -1,106 +1,93 @@
+import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "motion/react";
+import { BsArrowRight } from "react-icons/bs";
+
+const facts = [
+  { label: "Currently", value: "Product Manager at Dubsado" },
+  { label: "Focus", value: "Product strategy, frontend, and data" },
+  {
+    label: "Off the clock",
+    value: "Marathons",
+    link: { to: "/runs", text: "See my runs" },
+  },
+];
 
 export default function About() {
   const reduce = useReducedMotion();
 
-  const skills = [
-    {
-      title: "Frontend Development",
-      description:
-        "Building modern, responsive web applications with React, TypeScript, and cutting-edge technologies.",
-    },
-    {
-      title: "Product Strategy",
-      description:
-        "Bridging the gap between user needs and technical implementation through data-driven decisions.",
-    },
-    {
-      title: "Data Analytics",
-      description:
-        "Transforming raw data into actionable insights to drive product innovation and growth.",
-    },
-    {
-      title: "User Experience",
-      description:
-        "Designing intuitive interfaces that prioritize user needs and create meaningful interactions.",
-    },
-    {
-      title: "Team Leadership",
-      description:
-        "Leading cross-functional teams to deliver exceptional products that exceed user expectations.",
-    },
-    {
-      title: "Innovation",
-      description:
-        "Constantly exploring new technologies and methodologies to push the boundaries of what's possible.",
-    },
-  ];
+  const enter = (delay: number) => ({
+    initial: reduce ? false : { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] as const },
+  });
 
   return (
-    <div className="min-h-[100dvh] flex items-center px-6 md:px-12 lg:px-16 pt-24 pb-12 md:pt-28 md:pb-16">
-      <div className="max-w-6xl mx-auto w-full">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 md:mb-5">
-          About Me
-        </h1>
+    <div className="flex-1 flex items-center px-6 md:px-12 lg:px-16 pt-24 pb-16">
+      {/* Portrait left, story right; collapses to a single column under lg */}
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[minmax(260px,340px)_1fr] gap-10 lg:gap-16 items-center">
+        <motion.div {...enter(0)} className="w-48 sm:w-60 lg:w-full">
+          <img
+            src="/assets/MattPortrait.jpeg"
+            alt="Portrait of Matt Moreno"
+            width={768}
+            height={1024}
+            className="w-full aspect-[3/4] object-cover rounded-2xl ring-1 ring-border"
+          />
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 lg:gap-12 items-start">
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="w-56 sm:w-64 lg:w-full mx-auto lg:mx-0"
+        <div>
+          <motion.h1
+            {...enter(0.05)}
+            className="text-4xl md:text-5xl font-bold tracking-tight text-foreground"
           >
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-border">
-              <img
-                src="/assets/MattPortrait.jpeg"
-                alt="Matt Portrait"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </motion.div>
+            About me
+          </motion.h1>
 
-          <div className="space-y-5 md:space-y-6">
-            <p className="text-base text-muted-foreground leading-relaxed">
+          <motion.div
+            {...enter(0.1)}
+            className="mt-6 space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-[62ch]"
+          >
+            <p>
               Hey there! I'm Matt, a Southern California native, marathon
               runner, and tech enthusiast with a passion for building great
-              products. I currently work as a Product Manager at Dubsado,
-              where I've grown from Customer Success to leading
-              cross-functional initiatives, including the full redesign of
-              our platform. I'm also pursuing a Master's in Management
-              Information Systems at the University of Arizona, continuously
-              leveling up through hands-on learning and group projects. My
-              background blends frontend development, data analytics, and
-              product strategy, and I'm especially interested in solving
-              complex problems at the intersection of UX and business
-              operations. Outside of work, I'm usually out on a run, catching
-              up on tech trends, or planning my next trip.
+              products.
             </p>
+            <p>
+              I'm a Product Manager at Dubsado, where I've grown from Customer
+              Success to leading cross-functional initiatives, including the
+              full redesign of our platform. I recently finished a Master's in
+              Management Information Systems at the University of Arizona.
+            </p>
+            <p>
+              My background blends frontend development, data analytics, and
+              product strategy, and I'm most interested in problems where UX
+              and business operations meet. Outside of work, I'm usually out
+              on a run, catching up on tech trends, or planning my next trip.
+            </p>
+          </motion.div>
 
-            <div>
-              <h2 className="text-lg font-bold tracking-tight text-foreground mb-3">
-                Skills &amp; Expertise
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-border rounded-xl overflow-hidden">
-                {skills.map((skill, i) => (
-                  <motion.div
-                    key={skill.title}
-                    initial={reduce ? false : { opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    transition={{ duration: 0.4, delay: i * 0.05 }}
-                    className="bg-card p-3.5"
+          <motion.dl
+            {...enter(0.15)}
+            className="mt-10 pt-8 border-t border-border grid grid-cols-1 sm:grid-cols-3 gap-6"
+          >
+            {facts.map((fact) => (
+              <div key={fact.label}>
+                <dt className="text-sm text-muted-foreground">{fact.label}</dt>
+                <dd className="mt-1 font-medium text-foreground">
+                  {fact.value}
+                </dd>
+                {fact.link && (
+                  <Link
+                    to={fact.link.to}
+                    className="group mt-1 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                   >
-                    <h3 className="text-sm font-semibold text-foreground mb-1">
-                      {skill.title}
-                    </h3>
-                    <p className="text-muted-foreground text-xs leading-relaxed">
-                      {skill.description}
-                    </p>
-                  </motion.div>
-                ))}
+                    {fact.link.text}
+                    <BsArrowRight className="text-xs transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                )}
               </div>
-            </div>
-          </div>
+            ))}
+          </motion.dl>
         </div>
       </div>
     </div>

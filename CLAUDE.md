@@ -18,7 +18,7 @@ No test suite is configured.
 
 This is a React 18 + TypeScript + Vite single-page application deployed on Vercel. `vercel.json` rewrites all routes to `/` for client-side routing.
 
-**Layout**: `MainLayout` wraps all routes with a floating glass pill `Header` (hamburger dropdown on mobile) and a `Footer` with email and social links. Pages render full-width in the `<Outlet />` and scroll under the nav, so each page pads its own top (`pt-28 md:pt-32`) to clear it.
+**Layout**: `MainLayout` wraps all routes with a floating glass pill `Header` (hamburger dropdown on mobile) and a `Footer` with email and social links. Pages render full-width in the `<Outlet />` and scroll under the nav, so each page pads its own top (`pt-28 md:pt-32`) to clear it. `<main>` is a flex column: short pages (About, Contact) use `flex-1` to fill the space above the footer so they never scroll when the content fits.
 
 **Liquid glass**: `.glass` in `src/index.css` is the frosted fallback for every browser. `GlassSurface` adds real edge refraction (an SVG displacement map inside `backdrop-filter`) on Chromium only; Safari and Firefox render that as blank, so it is gated on `navigator.userAgentData`. `.glass-thick` is the frostier variant for menus.
 
