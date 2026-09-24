@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
@@ -9,9 +9,6 @@ import Bellabeat from "./pages/Projects/views/Bellabeat";
 import Runs from "./pages/Runs/Runs";
 import MarathonDetail from "./pages/Runs/views/MarathonDetail";
 import Resources from "./pages/Resources/Resources";
-import Websites from "./pages/Resources/views/Websites";
-import Videos from "./pages/Resources/views/Videos";
-import Books from "./pages/Resources/views/Books";
 import NotFound from "./pages/NotFound/NotFound";
 import { Toaster } from "@/components/ui/toaster";
 import "./App.css";
@@ -32,11 +29,12 @@ export default function App() {
             </Route>
             <Route path="/runs" element={<Runs />} />
             <Route path="/runs/:stravaId" element={<MarathonDetail />} />
-            <Route path="/resources" element={<Resources />}>
-              <Route index element={<Websites />} />
-              <Route path="/resources/videos" element={<Videos />} />
-              <Route path="/resources/books" element={<Books />} />
-            </Route>
+            <Route path="/resources" element={<Resources />} />
+            {/* Old tab URLs now land on the single reading list */}
+            <Route
+              path="/resources/*"
+              element={<Navigate to="/resources" replace />}
+            />
             <Route path="/contact" element={<Contact />} />
           </Route>
           <Route path="*" element={<NotFound />} />
