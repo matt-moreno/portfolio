@@ -14,7 +14,7 @@ const MarathonMajorsCard = () => {
     <div key={index} className="flex flex-col items-center gap-1">
       <span
         className={`text-2xl ${
-          marathon.completed ? "text-primary" : "text-muted-foreground/40"
+          marathon.completed ? "text-primary" : "text-muted-foreground/60"
         }`}
       >
         ★

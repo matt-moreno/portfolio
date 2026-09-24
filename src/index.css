@@ -53,37 +53,37 @@
   }
 
   .dark {
-    /* Dark jungle green base — the site's dark-mode canvas */
-    --background: 162 16% 7%;
+    /* Dark jungle green base. Lifted from 7% so surfaces and borders separate clearly */
+    --background: 162 14% 10%;
     --foreground: 150 10% 94%;
 
-    --card: 160 14% 10%;
+    --card: 160 12% 13%;
     --card-foreground: 150 10% 94%;
 
-    --popover: 160 14% 10%;
+    --popover: 160 12% 13%;
     --popover-foreground: 150 10% 94%;
 
     /* Forest green lightens to sage for contrast on the dark canvas */
-    --primary: 150 30% 58%;
+    --primary: 150 32% 62%;
     --primary-foreground: 160 30% 10%;
 
-    --secondary: 160 10% 15%;
+    --secondary: 160 9% 18%;
     --secondary-foreground: 150 10% 94%;
 
-    --muted: 160 10% 15%;
-    --muted-foreground: 150 6% 65%;
+    --muted: 160 9% 18%;
+    --muted-foreground: 150 8% 72%;
 
-    --accent: 160 10% 15%;
+    --accent: 160 9% 18%;
     --accent-foreground: 150 10% 94%;
 
     --destructive: 0 63% 42%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 160 10% 16%;
-    --input: 160 10% 16%;
+    --border: 160 8% 22%;
+    --input: 160 8% 43%;
     --ring: 150 30% 58%;
 
-    --glass-tint: 162 16% 9%;
+    --glass-tint: 162 14% 12%;
     --glass-alpha: 0.1;
     --glass-alpha-scrolled: 0.3;
     --glass-rim: 0 0% 100% / 0.14;
@@ -97,6 +97,12 @@
 
   html {
     color-scheme: dark;
+  }
+
+  /* One visible focus ring for keyboard users everywhere; components that draw their own ring opt out with outline-none */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
   }
 
   body {
@@ -163,6 +169,16 @@
     box-shadow:
       inset 0 1px 0 0 hsl(var(--glass-rim)),
       0 1px 3px 0 hsl(var(--glass-shadow));
+  }
+
+  /* Solid glass for people who ask the OS to reduce transparency */
+  @media (prefers-reduced-transparency: reduce) {
+    .glass,
+    .glass.glass-thick {
+      background: hsl(var(--card));
+      -webkit-backdrop-filter: none !important;
+      backdrop-filter: none !important;
+    }
   }
 
   /* Browsers without backdrop-filter get a mostly opaque bar so text stays legible */

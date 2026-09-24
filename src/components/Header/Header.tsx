@@ -39,7 +39,7 @@ export default function Header() {
     >
       <div className="relative pointer-events-auto">
         <GlassSurface className="rounded-full flex items-center gap-1 p-1.5">
-          <nav className="relative z-10 hidden md:flex items-center gap-0.5">
+          <nav aria-label="Primary" className="relative z-10 hidden md:flex items-center gap-0.5">
             {navItems.map(({ path, label }) => (
               <NavLink
                 key={path}
@@ -49,7 +49,7 @@ export default function Header() {
                   `relative px-3.5 h-9 flex items-center rounded-full text-sm transition-colors ${
                     isActive
                       ? "text-foreground font-medium"
-                      : "text-foreground/70 hover:text-foreground"
+                      : "text-foreground/80 hover:text-foreground"
                   }`
                 }
               >
@@ -99,7 +99,7 @@ export default function Header() {
                 blur={10}
                 className="glass-thick rounded-3xl"
               >
-                <nav className="relative z-10 p-2 flex flex-col">
+                <nav aria-label="Primary" className="relative z-10 p-2 flex flex-col">
                   {navItems.map(({ path, label }) => (
                     <NavLink
                       key={path}
@@ -109,7 +109,7 @@ export default function Header() {
                         `px-4 py-3 rounded-2xl text-base transition-colors ${
                           isActive
                             ? "glass-pill text-foreground font-medium"
-                            : "text-foreground/70 hover:text-foreground"
+                            : "text-foreground/80 hover:text-foreground"
                         }`
                       }
                     >
