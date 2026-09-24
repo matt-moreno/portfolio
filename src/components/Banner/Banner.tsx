@@ -37,8 +37,7 @@ export default function Banner({
 
   return (
     <div className="fixed top-0 left-0 right-0 bg-gradient-to-r from-slate-700 to-slate-800 dark:from-slate-800 dark:to-slate-900 text-white shadow-lg z-50 border-b border-slate-600/30">
-      {/* Desktop: Account for sidebar width */}
-      <div className="ml-0 md:ml-[300px] transition-all duration-300">
+      <div className="transition-all duration-300">
         <div className="px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 flex-1">

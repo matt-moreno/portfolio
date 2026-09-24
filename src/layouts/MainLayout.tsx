@@ -1,30 +1,18 @@
-import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import Menu from "../components/Menu/Menu";
-import Sidebar from "../components/Sidebar/Sidebar";
-
-export interface SidebarTypes {
-  isSidebarOpen?: boolean;
-  toggleSidebar: () => void;
-}
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 export default function MainLayout() {
-  // Start with sidebar closed on mobile, but responsive CSS will handle desktop visibility
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
-  };
-
   return (
-    <div>
-      <Menu isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+    <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Header />
 
-      {/* Main content area - add left margin to account for fixed sidebar and conditional top padding for sticky banner */}
-      <main className="flex-1 ml-0 md:ml-[300px] min-h-screen bg-background text-foreground transition-all duration-300">
+      {/* No top offset: pages scroll under the floating glass nav and pad themselves */}
+      <main className="relative flex-1">
         <Outlet />
       </main>
+
+      <Footer />
     </div>
   );
 }

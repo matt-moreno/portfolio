@@ -136,7 +136,7 @@ export default function MarathonDetail() {
   ];
 
   return (
-    <div className="w-full min-h-screen px-6 md:px-12 lg:px-16 py-16 md:py-24">
+    <div className="w-full min-h-screen px-6 md:px-12 lg:px-16 pt-28 pb-16 md:pt-32 md:pb-24">
       <div className="max-w-4xl mx-auto">
         {/* Back button + header */}
         <div className="mb-6 relative">

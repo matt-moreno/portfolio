@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Bellabeat() {
   return (
-    <div className="w-full min-h-screen px-6 md:px-12 lg:px-16 py-16 md:py-24">
+    <div className="w-full min-h-screen px-6 md:px-12 lg:px-16 pt-28 pb-16 md:pt-32 md:pb-24">
       <div className="max-w-5xl mx-auto">
         <div className="mb-8 relative">
           <div className="flex items-center justify-center">
