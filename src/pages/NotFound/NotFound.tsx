@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useNoIndex } from "@/lib/seo";
 
 export default function NotFound() {
+  useNoIndex();
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
       <p className="text-sm font-medium text-primary mb-3">404</p>
