@@ -23,7 +23,7 @@ const routeLayer: LayerProps = {
   id: LAYER_ID,
   type: "line",
   layout: { "line-join": "round", "line-cap": "round" },
-  paint: { "line-color": "#ba522c", "line-width": 3, "line-opacity": 0.8 },
+  paint: { "line-color": "#7fbd9e" /* --primary sage, reads on the dark basemap */, "line-width": 3, "line-opacity": 0.8 },
 };
 
 const RouteMapCard = ({ geoData }: RouteMapCardProps) => {
@@ -67,7 +67,7 @@ const RouteMapCard = ({ geoData }: RouteMapCardProps) => {
           <Map
             initialViewState={{ longitude: -117.8628, latitude: 33.7758, zoom: 12 }}
             style={{ height: "100%", width: "100%", minHeight: "480px" }}
-            mapStyle="mapbox://styles/mapbox/streets-v11"
+            mapStyle="mapbox://styles/mapbox/dark-v11"
             mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
             scrollZoom={false}
             cooperativeGestures={true}
@@ -86,7 +86,7 @@ const RouteMapCard = ({ geoData }: RouteMapCardProps) => {
                 onClose={() => setPopupInfo(null)}
                 closeOnClick={false}
               >
-                <div className="text-slate-900">
+                <div className="text-foreground">
                   <h3 className="font-semibold">
                     {popupInfo.exercise}: {popupInfo.title}
                   </h3>

@@ -5,6 +5,7 @@ import type { LayerProps } from "react-map-gl/mapbox";
 import type { FeatureCollection } from "geojson";
 import polyline from "@mapbox/polyline";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { BsArrowLeft } from "react-icons/bs";
 import Loading from "../../../components/Loading/Loading";
 import { ActivityTypes, StravaPhoto } from "../RunTypes";
 import { races } from "../constants";
@@ -18,7 +19,7 @@ const routeLayer: LayerProps = {
   id: "route-layer",
   type: "line",
   layout: { "line-join": "round", "line-cap": "round" },
-  paint: { "line-color": "#ba522c", "line-width": 4, "line-opacity": 0.9 },
+  paint: { "line-color": "#7fbd9e" /* --primary sage, reads on the dark basemap */, "line-width": 4, "line-opacity": 0.9 },
 };
 
 export default function MarathonDetail() {
@@ -142,22 +143,10 @@ export default function MarathonDetail() {
         <div className="mb-6 relative">
           <NavLink
             to="/runs"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-xl hover:border-primary/40 transition-colors text-muted-foreground hover:text-foreground font-medium text-sm mb-6"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-6"
           >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-              />
-            </svg>
-            Back to runs
+            <BsArrowLeft className="transition-transform group-hover:-translate-x-0.5" />
+            All runs
           </NavLink>
 
           <div className="mt-4">
@@ -188,7 +177,7 @@ export default function MarathonDetail() {
                 zoom: 12,
               }}
               style={{ height: "100%", width: "100%" }}
-              mapStyle="mapbox://styles/mapbox/streets-v11"
+              mapStyle="mapbox://styles/mapbox/dark-v11"
               mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
               scrollZoom={false}
               cooperativeGestures={true}
