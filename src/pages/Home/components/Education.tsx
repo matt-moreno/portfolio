@@ -23,7 +23,7 @@ const degrees: Degree[] = [
   {
     institution: "University of Arizona",
     program: "Master of Management Information Systems",
-    years: "2025",
+    years: "2024-2025",
     image: "/assets/arizona.png",
     imageAlt: "University of Arizona logo",
     description:
@@ -43,6 +43,13 @@ const degrees: Degree[] = [
 
 const credentials: Credential[] = [
   {
+    issuer: "Scrimba",
+    program: "Frontend Developer Bootcamp",
+    year: "2026",
+    image: "/assets/scrimba.png",
+    url: "https://scrimba.com/certificate/uZRRZxHv/gfrontend",
+  },
+  {
     issuer: "Google on Coursera",
     program: "Data Analytics Professional Certificate",
     year: "2023",
@@ -55,13 +62,6 @@ const credentials: Credential[] = [
     year: "2023",
     image: "/assets/CSPO.webp",
     url: "https://bcert.me/sfxwtxody",
-  },
-  {
-    issuer: "Scrimba",
-    program: "Frontend Developer Bootcamp",
-    year: "2023",
-    image: "/assets/scrimba.png",
-    url: "https://scrimba.com/certificate/uZRRZxHv/gfrontend",
   },
   {
     issuer: "UC Irvine Continuing Education",
