@@ -1,181 +1,171 @@
 import { motion, useReducedMotion } from "motion/react";
-import { BsArrowRight } from "react-icons/bs";
+import { BsArrowUpRight } from "react-icons/bs";
+
+interface Degree {
+  institution: string;
+  program: string;
+  minor?: string;
+  years: string;
+  image: string;
+  imageAlt: string;
+  description: string;
+}
+
+interface Credential {
+  issuer: string;
+  program: string;
+  year: string;
+  image: string;
+  url: string;
+}
+
+const degrees: Degree[] = [
+  {
+    institution: "University of Arizona",
+    program: "Master of Management Information Systems",
+    years: "2024-2025",
+    image: "/assets/arizona.png",
+    imageAlt: "University of Arizona logo",
+    description:
+      "Earned a Master's in MIS to strengthen my foundation in systems analysis, data-driven decision making, and IT strategy. Focused on real-world applications through team-based projects.",
+  },
+  {
+    institution: "University of California, Riverside",
+    program: "B.A. Political Science, Administrative Studies",
+    minor: "Management Information Systems",
+    years: "2016-2020",
+    image: "/assets/UCR.seal.png",
+    imageAlt: "UCR seal",
+    description:
+      "Studied Political Science with a focus on Administrative Studies and a minor in MIS. Built an interdisciplinary base combining business, technology, and organizational operations.",
+  },
+];
+
+const credentials: Credential[] = [
+  {
+    issuer: "Scrimba",
+    program: "Frontend Developer Bootcamp",
+    year: "2026",
+    image: "/assets/scrimba.png",
+    url: "https://scrimba.com/certificate/uZRRZxHv/gfrontend",
+  },
+  {
+    issuer: "Google on Coursera",
+    program: "Data Analytics Professional Certificate",
+    year: "2023",
+    image: "/assets/google-data.png",
+    url: "https://www.credly.com/badges/025029a9-ece9-41e6-beba-8a88a7277501/porfolio",
+  },
+  {
+    issuer: "Scrum Alliance",
+    program: "Certified Scrum Product Owner",
+    year: "2023",
+    image: "/assets/CSPO.webp",
+    url: "https://bcert.me/sfxwtxody",
+  },
+  {
+    issuer: "UC Irvine Continuing Education",
+    program: "Cybersecurity Bootcamp",
+    year: "2021",
+    image: "/assets/UCI.svg.png",
+    url: "https://www.parchment.com/u/award/d65a9b98572dcc7d4471f624b70cc265",
+  },
+];
 
 export default function Education() {
   const reduce = useReducedMotion();
 
-  const educationItems = [
-    {
-      id: 1,
-      institution: "University of Arizona",
-      program: "Master of Management Information Systems",
-      period: "August 2025 - December 2025",
-      image: "/assets/arizona.png",
-      imageAlt: "University of Arizona logo",
-      type: "Master's Degree",
-      inProgress: false,
-      description:
-        "Earned a Master's in MIS to strengthen my foundation in systems analysis, data-driven decision making, and IT strategy. Focused on real-world applications through team-based projects.",
+  const reveal = (i: number) => ({
+    initial: reduce ? false : { opacity: 0, y: 16 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.3 },
+    transition: {
+      duration: 0.5,
+      delay: i * 0.08,
+      ease: [0.16, 1, 0.3, 1] as const,
     },
-    {
-      id: 2,
-      institution: "University of California, Riverside",
-      program: "B.A. Political Science Administrative Studies",
-      minor: "Management Information Systems",
-      period: "September 2016 - June 2020",
-      image: "/assets/UCR.seal.png",
-      imageAlt: "UCR seal",
-      type: "Degree",
-      inProgress: false,
-      description:
-        "Studied Political Science with a focus on Administrative Studies and a minor in MIS. Built an interdisciplinary base combining business, technology, and organizational operations.",
-    },
-    {
-      id: 3,
-      institution: "Scrum Alliance",
-      program: "Certified Scrum Product Owner",
-      period: "Issued: May 8th 2023",
-      expires: "Expires: May 8th 2025",
-      image: "/assets/CSPO.webp",
-      imageAlt: "CSPO badge",
-      certificateUrl: "https://bcert.me/sfxwtxody",
-      type: "Certification",
-      inProgress: false,
-      description:
-        "Earned certification as a Scrum Product Owner, validating my ability to drive agile product development and manage stakeholder priorities effectively.",
-    },
-    {
-      id: 4,
-      institution: "Google Coursera",
-      program: "Google Data Analytics Professional Certificate",
-      period: "Issued: December 3rd 2023",
-      image: "/assets/google-data.png",
-      imageAlt: "Google data certificate logo",
-      certificateUrl:
-        "https://www.credly.com/badges/025029a9-ece9-41e6-beba-8a88a7277501/porfolio",
-      type: "Certification",
-      inProgress: false,
-      description:
-        "Completed an online data analytics course covering data analysis, data visualization, and data storytelling. Focused on building better data-driven decisions.",
-    },
-    {
-      id: 5,
-      institution: "Scrimba",
-      program: "The Frontend Developer Bootcamp",
-      period: "Issued: December 3rd 2023",
-      image: "/assets/scrimba.png",
-      imageAlt: "Scrimba logo",
-      certificateUrl: "https://scrimba.com/certificate/uZRRZxHv/gfrontend",
-      type: "Certification",
-      inProgress: false,
-      description:
-        "Completed a project-based frontend development bootcamp covering HTML, CSS, JavaScript, React, and version control. Focused on building interactive user interfaces.",
-    },
-    {
-      id: 6,
-      institution: "University of California, Irvine",
-      program: "Cybersecurity Bootcamp",
-      department: "Division of Continuing Education",
-      period: "May 2021 - November 2021",
-      image: "/assets/UCI.svg.png",
-      imageAlt: "UCI seal",
-      certificateUrl:
-        "https://www.parchment.com/u/award/d65a9b98572dcc7d4471f624b70cc265",
-      type: "Bootcamp",
-      inProgress: false,
-      description:
-        "Attended an intensive Cybersecurity bootcamp to gain hands-on experience in network security, ethical hacking, and cybersecurity frameworks.",
-    },
-  ];
+  });
 
   return (
     <section className="py-20 md:py-28 px-6 md:px-12 lg:px-16 bg-secondary/40">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-14">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-12 md:mb-16">
           Education
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {educationItems.map((item, i) => (
-            <motion.div
-              key={item.id}
-              initial={reduce ? false : { opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
-              className={`rounded-xl border p-6 bg-card ${
-                item.inProgress ? "border-primary/40" : "border-border"
-              }`}
+        {/* Two degrees as equal columns: stacked with a rule on mobile, split by a hairline on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-border">
+          {degrees.map((degree, i) => (
+            <motion.article
+              key={degree.program}
+              {...reveal(i)}
+              className="py-10 first:pt-0 last:pb-0 md:py-0 md:first:pr-12 md:last:pl-12"
             >
-              {item.inProgress && (
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-primary mb-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Currently Studying
+              <img
+                src={degree.image}
+                alt={degree.imageAlt}
+                className="w-12 h-12 object-contain rounded-lg bg-white p-1.5"
+              />
+
+              <h3 className="mt-6 text-xl md:text-2xl font-semibold tracking-tight text-foreground leading-snug">
+                {degree.program}
+              </h3>
+
+              <p className="mt-2 font-medium text-primary">
+                {degree.institution}
+                <span className="font-normal text-muted-foreground">
+                  , {degree.years}
                 </span>
+              </p>
+
+              {degree.minor && (
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Minor in {degree.minor}
+                </p>
               )}
 
-              <div className="flex items-start gap-4 mb-4">
-                <img
-                  src={item.image}
-                  alt={item.imageAlt}
-                  className="w-14 h-14 object-contain rounded-lg bg-white p-1.5 border border-border flex-shrink-0"
-                />
-                <div className="flex-grow min-w-0">
-                  <div className="flex items-start justify-between gap-2">
-                    <h3 className="text-base font-semibold text-foreground leading-tight">
-                      {item.institution}
-                    </h3>
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-secondary text-secondary-foreground flex-shrink-0">
-                      {item.type}
-                    </span>
-                  </div>
-                  {item.department && (
-                    <p className="text-sm text-muted-foreground mt-0.5">
-                      {item.department}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="font-medium text-foreground">{item.program}</h4>
-
-                {item.minor && (
-                  <p className="text-sm text-muted-foreground">
-                    <span className="font-medium text-foreground">Minor:</span>{" "}
-                    {item.minor}
-                  </p>
-                )}
-
-                <p
-                  className={`text-sm ${
-                    item.inProgress
-                      ? "text-primary font-medium"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {item.period}
-                  {item.expires ? ` · ${item.expires}` : ""}
-                </p>
-
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
-
-                {item.certificateUrl && (
-                  <a
-                    href={item.certificateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 pt-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors group"
-                  >
-                    View Certificate
-                    <BsArrowRight className="text-xs transition-transform group-hover:translate-x-1" />
-                  </a>
-                )}
-              </div>
-            </motion.div>
+              <p className="mt-5 text-muted-foreground leading-relaxed max-w-[52ch]">
+                {degree.description}
+              </p>
+            </motion.article>
           ))}
+        </div>
+
+        <div className="mt-16 md:mt-20 pt-12 border-t border-border">
+          <h3 className="text-lg font-semibold text-foreground mb-6">
+            Certifications
+          </h3>
+
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 -mx-3">
+            {credentials.map((credential, i) => (
+              <motion.li key={credential.program} {...reveal(i)}>
+                <a
+                  href={credential.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 rounded-lg p-3 hover:bg-secondary/80 active:scale-[0.99] transition-[background-color,transform]"
+                >
+                  <img
+                    src={credential.image}
+                    alt=""
+                    className="w-10 h-10 object-contain rounded-lg bg-white p-1 flex-shrink-0"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <p className="font-medium text-foreground leading-snug">
+                      {credential.program}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {credential.issuer}, {credential.year}
+                    </p>
+                  </div>
+                  <BsArrowUpRight
+                    aria-hidden="true"
+                    className="text-sm text-muted-foreground flex-shrink-0 transition-transform group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </a>
+              </motion.li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
