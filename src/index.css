@@ -114,6 +114,24 @@
   }
 }
 
+/* Mapbox popups and controls default to white; match the dark basemap */
+.mapboxgl-popup-content {
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px -8px hsl(0 0% 0% / 0.5);
+}
+.mapboxgl-popup-close-button {
+  color: hsl(var(--muted-foreground));
+}
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+  border-top-color: hsl(var(--card));
+}
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+  border-bottom-color: hsl(var(--card));
+}
+
 /* Liquid glass: frosted, saturated backdrop with a lit top rim and a soft
    specular sheen. Content must scroll behind it for the effect to read. */
 @layer components {
