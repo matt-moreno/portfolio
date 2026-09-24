@@ -28,7 +28,7 @@ export default function Projects() {
   ));
 
   return (
-    <div className="min-h-screen px-6 md:px-12 lg:px-16 py-16 md:py-24">
+    <div className="min-h-screen px-6 md:px-12 lg:px-16 pt-28 pb-16 md:pt-32 md:pb-24">
       {!isOutletActive && (
         <div className="max-w-6xl mx-auto mb-12">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">

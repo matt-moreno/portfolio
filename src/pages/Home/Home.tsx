@@ -35,12 +35,14 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <img
             src="/assets/LAbyMatt-hero.jpeg"
+            srcSet="/assets/LAbyMatt-hero.jpeg 1400w, /assets/LAbyMatt-hero-2000.jpeg 2000w"
+            sizes="100vw"
             alt="Los Angeles skyline, photographed by Matt"
             className="w-full h-full object-cover object-[50%_38%]"
           />
         </div>
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/85 to-background/35" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
+        {/* Even tint, no directional fade: mutes the photo just enough for the copy */}
+        <div className="absolute inset-0 z-10 bg-background/65" />
 
         <div className="relative z-20 max-w-7xl mx-auto w-full">
           <motion.div
@@ -74,7 +76,7 @@ export default function Home() {
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 text-foreground font-medium px-6 py-3 rounded-lg border border-border hover:bg-secondary transition-colors"
+                className="inline-flex items-center gap-2 glass text-foreground font-medium px-6 py-3 rounded-lg hover:bg-white/10 transition-colors"
               >
                 Get in Touch
               </Link>

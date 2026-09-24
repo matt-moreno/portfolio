@@ -43,8 +43,13 @@
 
     --radius: 0.75rem;
 
-    /* Sidebar chrome gets its own subtle plane, distinct from page canvas */
-    --sidebar-background: 150 14% 95%;
+    /* Liquid glass nav: tint, rim highlight, and drop shadow */
+    --glass-tint: 150 20% 99%;
+    --glass-alpha: 0.08;
+    --glass-alpha-scrolled: 0.3;
+    --glass-rim: 0 0% 100% / 0.7;
+    --glass-edge: 160 15% 10% / 0.08;
+    --glass-shadow: 160 30% 8% / 0.12;
   }
 
   .dark {
@@ -78,8 +83,12 @@
     --input: 160 10% 16%;
     --ring: 150 30% 58%;
 
-    /* Slightly lighter than the page canvas so the chrome reads as a raised panel */
-    --sidebar-background: 162 15% 9%;
+    --glass-tint: 162 16% 9%;
+    --glass-alpha: 0.1;
+    --glass-alpha-scrolled: 0.3;
+    --glass-rim: 0 0% 100% / 0.14;
+    --glass-edge: 0 0% 100% / 0.06;
+    --glass-shadow: 0 0% 0% / 0.4;
   }
 
   * {
@@ -87,7 +96,7 @@
   }
 
   html {
-    color-scheme: light dark;
+    color-scheme: dark;
   }
 
   body {
@@ -99,15 +108,67 @@
   }
 }
 
-/* Main wrapper responsive styles */
-.main-wrapper {
-  width: 100%;
-  min-height: 100vh;
-  padding-top: 20px;
-}
+/* Liquid glass: frosted, saturated backdrop with a lit top rim and a soft
+   specular sheen. Content must scroll behind it for the effect to read. */
+@layer components {
+  .glass {
+    position: relative;
+    isolation: isolate;
+    background: hsl(var(--glass-tint) / var(--glass-alpha));
+    transition: background-color 300ms ease;
+    /* No refraction outside Chromium, so a touch more blur keeps it reading as glass */
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
+    backdrop-filter: blur(8px) saturate(180%);
+    /* Clear glass means busy content right behind labels; a soft halo keeps them legible */
+    text-shadow: 0 0 8px hsl(var(--background) / 0.6);
+    border: 1px solid hsl(var(--glass-edge));
+    box-shadow:
+      inset 0 1px 0 0 hsl(var(--glass-rim)),
+      inset 0 -1px 0 0 hsl(var(--glass-edge)),
+      inset 0 0 18px -6px hsl(var(--glass-rim)),
+      0 8px 32px -4px hsl(var(--glass-shadow)),
+      0 2px 6px -2px hsl(var(--glass-shadow));
+  }
 
-@media (max-width: 768px) {
-  .main-wrapper {
-    padding-top: 60px; /* Account for mobile menu button */
+  .glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      hsl(var(--glass-rim)) 0%,
+      transparent 45%
+    );
+    opacity: 0.4;
+  }
+
+  /* Clear over the hero, thicker once body text is scrolling underneath */
+  [data-scrolled="true"] .glass {
+    --glass-alpha: var(--glass-alpha-scrolled);
+  }
+
+  /* Surfaces you read from (menus) need frostier glass than the nav bar */
+  .glass.glass-thick {
+    --glass-alpha: 0.55;
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
+  }
+
+  /* Active item: a smaller droplet of glass sitting on the bar */
+  .glass-pill {
+    background: hsl(var(--foreground) / 0.07);
+    box-shadow:
+      inset 0 1px 0 0 hsl(var(--glass-rim)),
+      0 1px 3px 0 hsl(var(--glass-shadow));
+  }
+
+  /* Browsers without backdrop-filter get a mostly opaque bar so text stays legible */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass {
+      background: hsl(var(--background) / 0.95);
+    }
   }
 }

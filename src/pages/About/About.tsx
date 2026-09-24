@@ -37,7 +37,7 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-[100dvh] flex items-center px-6 md:px-12 lg:px-16 py-6 md:py-8">
+    <div className="min-h-[100dvh] flex items-center px-6 md:px-12 lg:px-16 pt-24 pb-12 md:pt-28 md:pb-16">
       <div className="max-w-6xl mx-auto w-full">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 md:mb-5">
           About Me

@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "./contexts/ThemeContext";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
@@ -19,8 +18,7 @@ import "./App.css";
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <BrowserRouter>
+    <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
@@ -44,7 +42,6 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Toaster />
-      </BrowserRouter>
-    </ThemeProvider>
+    </BrowserRouter>
   );
 }
