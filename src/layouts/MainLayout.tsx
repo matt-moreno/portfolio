@@ -13,8 +13,9 @@ export default function MainLayout() {
       </a>
       <Header />
 
-      {/* No top offset: pages scroll under the floating glass nav and pad themselves */}
-      <main id="main" tabIndex={-1} className="relative flex-1 focus:outline-none">
+      {/* No top offset: pages scroll under the floating glass nav and pad themselves.
+          Flex column so short pages can use flex-1 to fill the space above the footer. */}
+      <main id="main" tabIndex={-1} className="relative flex-1 flex flex-col focus:outline-none">
         <Outlet />
       </main>
 
