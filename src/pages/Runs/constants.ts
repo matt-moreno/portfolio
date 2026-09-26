@@ -72,6 +72,12 @@ const marathonMajors = [
     flag: "🇦🇺",
     completed: false,
   },
+  {
+    city: "CPT",
+    year: null,
+    flag: "🇿🇦",
+    completed: false,
+  },
 ];
 
 const races = [
