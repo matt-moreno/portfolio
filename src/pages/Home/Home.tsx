@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const typedText = new Typed(textSpan.current, {
       strings: [
-        "Product Manager",
+        "Builder",
         "Systems Thinker",
         "Data Analyst",
         "Marathon Runner",
@@ -53,14 +53,17 @@ export default function Home() {
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground">
               Matt Moreno
+              <span className="block mt-4 text-xl md:text-2xl font-semibold tracking-normal text-foreground/90">
+                Product Manager | Software &amp; Technology
+              </span>
             </h1>
-            <h2 className="mt-4 text-xl md:text-2xl text-muted-foreground font-medium">
+            <p className="mt-3 text-xl md:text-2xl text-muted-foreground font-medium">
               I am a{" "}
               <span
                 ref={textSpan}
                 className="text-primary border-b-2 border-primary/40"
               ></span>
-            </h2>
+            </p>
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-[46ch] leading-relaxed">
               Product manager with a Master's in Information Systems, building
               at the intersection of UX and business strategy.

@@ -5,10 +5,14 @@ export const SITE_URL = "https://www.mattmoreno.tech";
 
 type PageMeta = { title: string; description: string };
 
+// The home page's title and description live in index.html (what crawlers and link previews
+// read before JS runs). Captured once at load so there is a single source of truth.
 const DEFAULT_META: PageMeta = {
-  title: "Matt Moreno · Product Manager",
+  title: document.title,
   description:
-    "Matt Moreno is a Southern California product manager with a Master's in Information Systems, building at the intersection of UX and business strategy.",
+    document
+      .querySelector('meta[name="description"]')
+      ?.getAttribute("content") ?? "",
 };
 
 // Keyed by pathname. Dynamic routes (e.g. /runs/:stravaId) fall back to their parent.
@@ -53,7 +57,7 @@ function setMeta(selector: string, attr: string, value: string) {
   document.querySelector(selector)?.setAttribute(attr, value);
 }
 
-/** Keeps the title, description, canonical and Open Graph tags in sync with the current route. */
+/** Keeps the title, description, canonical, Open Graph and Twitter tags in sync with the current route. */
 export function usePageMeta() {
   const { pathname } = useLocation();
 
@@ -68,6 +72,8 @@ export function usePageMeta() {
     setMeta('meta[property="og:title"]', "content", meta.title);
     setMeta('meta[property="og:description"]', "content", meta.description);
     setMeta('meta[property="og:url"]', "content", url);
+    setMeta('meta[name="twitter:title"]', "content", meta.title);
+    setMeta('meta[name="twitter:description"]', "content", meta.description);
     setMeta('link[rel="canonical"]', "href", url);
   }, [pathname]);
 }
