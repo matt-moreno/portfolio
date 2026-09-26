@@ -33,6 +33,36 @@ const PAGE_META: Record<string, PageMeta> = {
     description:
       "A data analysis case study of Bellabeat smart device usage, written in R by Matt Moreno.",
   },
+  "/projects/simplihealth": {
+    title: "SimpliHealth Telehealth Platform · Matt Moreno",
+    description:
+      "A team case study: a telehealth platform for seniors, from a prioritized Jira backlog and user stories to Figma wireframes.",
+  },
+  "/projects/google-merch-store": {
+    title: "Google Merchandise Store Funnel Analysis · Matt Moreno",
+    description:
+      "A Google Analytics study of acquisition, engagement, and checkout drop-off on the Google Merchandise Store, with recommendations.",
+  },
+  "/projects/faa-bird-strikes": {
+    title: "FAA Bird Strike Analysis Dashboard · Matt Moreno",
+    description:
+      "An interactive Tableau dashboard of 99,404 FAA bird strike reports from 2000 to 2011, with data quality caveats and recommendations.",
+  },
+  "/projects/bank-term-deposit": {
+    title: "Bank Term-Deposit Prediction · Matt Moreno",
+    description:
+      "A team machine learning project in R comparing logistic regression, kNN, Naive Bayes, and decision trees on bank marketing data.",
+  },
+  "/projects/local-llm-rag": {
+    title: "Local LLM with RAG · Matt Moreno",
+    description:
+      "A lab note on running Llama 3.2 locally in Docker with Open WebUI and a retrieval-augmented knowledge base.",
+  },
+  "/projects/portfolio-website": {
+    title: "Portfolio Website · Matt Moreno",
+    description:
+      "How Matt Moreno's portfolio site evolved over three versions, built with React, TypeScript, Vite, and live Strava data.",
+  },
   "/runs": {
     title: "Runs · Matt Moreno",
     description:
