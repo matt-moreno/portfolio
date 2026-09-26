@@ -48,9 +48,11 @@ export default function About() {
             className="mt-6 space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-[62ch]"
           >
             <p>
-              Hey there! I'm Matt, a Southern California native, marathon
-              runner, and tech enthusiast with a passion for building great
-              products.
+              I'm Matt, a Product Manager and builder based in Southern
+              California. I love turning ideas into products — whether that's
+              shipping software, experimenting with hardware, or building
+              something from scratch. Outside of work, you'll usually find me
+              running, traveling, or learning a new technical skill.
             </p>
             <p>
               I'm a Product Manager at Dubsado, where I've grown from Customer
@@ -61,8 +63,7 @@ export default function About() {
             <p>
               My background blends frontend development, data analytics, and
               product strategy, and I'm most interested in problems where UX
-              and business operations meet. Outside of work, I'm usually out
-              on a run, catching up on tech trends, or planning my next trip.
+              and business operations meet.
             </p>
           </motion.div>
 
