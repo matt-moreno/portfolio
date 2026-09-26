@@ -3,9 +3,9 @@ import { BsTrophy } from "react-icons/bs";
 import { marathonMajors } from "../constants";
 
 const MarathonMajorsCard = () => {
-  // Split into top 4 and bottom 3
+  // Split into top 4 and bottom 4
   const topRowMarathons = marathonMajors.slice(0, 4);
-  const bottomRowMarathons = marathonMajors.slice(4, 7);
+  const bottomRowMarathons = marathonMajors.slice(4, 8);
 
   const renderMarathon = (
     marathon: (typeof marathonMajors)[0],
@@ -42,17 +42,11 @@ const MarathonMajorsCard = () => {
               renderMarathon(marathon, index)
             )}
           </div>
-          {/* Bottom row - 3 marathons centered */}
-          <div className="grid grid-cols-12 gap-3">
-            <div className="col-start-2 col-span-3">
-              {renderMarathon(bottomRowMarathons[0], 4)}
-            </div>
-            <div className="col-span-3">
-              {renderMarathon(bottomRowMarathons[1], 5)}
-            </div>
-            <div className="col-span-3">
-              {renderMarathon(bottomRowMarathons[2], 6)}
-            </div>
+          {/* Bottom row - 4 marathons */}
+          <div className="grid grid-cols-4 gap-3">
+            {bottomRowMarathons.map((marathon, index) =>
+              renderMarathon(marathon, index + 4)
+            )}
           </div>
         </div>
       </CardContent>
