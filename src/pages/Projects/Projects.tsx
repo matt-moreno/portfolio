@@ -1,7 +1,13 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { motion, useReducedMotion } from "motion/react";
 import { BsArrowRight, BsArrowUpRight } from "react-icons/bs";
-import projectData, { Project } from "./constants";
+import { cn } from "@/lib/utils";
+import projectData, { mastersProjects, Project } from "./constants";
+
+const sections = [
+  { heading: "Master's projects", projects: mastersProjects },
+  { heading: "Other projects", projects: projectData },
+];
 
 function ProjectRow({ project, index }: { project: Project; index: number }) {
   const reduce = useReducedMotion();
@@ -14,15 +20,20 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
           src={project.image}
           alt={project.imageAlt}
           loading={index === 0 ? "eager" : "lazy"}
-          className="w-full aspect-[16/10] object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+          className={cn(
+            "w-full aspect-[16/10] transition-transform duration-500 ease-out group-hover:scale-[1.03]",
+            project.imageFit === "contain"
+              ? "object-contain bg-white p-4 md:p-6"
+              : "object-cover object-top"
+          )}
         />
       </div>
 
       <div>
         <p className="text-sm text-muted-foreground">{project.kind}</p>
-        <h2 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight text-foreground">
+        <h3 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight text-foreground">
           {project.title}
-        </h2>
+        </h3>
         <p className="mt-3 text-muted-foreground leading-relaxed max-w-[48ch]">
           {project.summary}
         </p>
@@ -79,14 +90,25 @@ export default function Projects() {
           Projects
         </h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-[60ch]">
-          Case studies and things I've built.
+          Case studies from my Master's in MIS and things I've built.
         </p>
 
-        <ul className="mt-14 md:mt-20 space-y-16 md:space-y-24">
-          {projectData.map((project, i) => (
-            <ProjectRow key={project.title} project={project} index={i} />
-          ))}
-        </ul>
+        {sections.map((section, s) => (
+          <section key={section.heading} className="mt-14 md:mt-20">
+            <h2 className="pb-4 border-b border-border text-sm font-medium text-muted-foreground">
+              {section.heading}
+            </h2>
+            <ul className="mt-10 md:mt-14 space-y-16 md:space-y-24">
+              {section.projects.map((project, i) => (
+                <ProjectRow
+                  key={project.title}
+                  project={project}
+                  index={s === 0 ? i : i + 1}
+                />
+              ))}
+            </ul>
+          </section>
+        ))}
       </div>
     </div>
   );

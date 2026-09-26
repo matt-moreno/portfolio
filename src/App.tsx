@@ -5,7 +5,7 @@ import About from "./pages/About/About";
 import Photos from "./pages/Photos/Photos";
 import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
-import Bellabeat from "./pages/Projects/views/Bellabeat";
+import CaseStudy from "./pages/Projects/views/CaseStudy";
 import Runs from "./pages/Runs/Runs";
 import MarathonDetail from "./pages/Runs/views/MarathonDetail";
 import Resources from "./pages/Resources/Resources";
@@ -22,10 +22,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/photos" element={<Photos />} />
             <Route path="/projects" element={<Projects />}>
-              <Route
-                path="/projects/bellabeat-case-study"
-                element={<Bellabeat />}
-              />
+              <Route path="/projects/:slug" element={<CaseStudy />} />
             </Route>
             <Route path="/runs" element={<Runs />} />
             <Route path="/runs/:stravaId" element={<MarathonDetail />} />
