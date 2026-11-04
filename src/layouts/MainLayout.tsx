@@ -1,10 +1,25 @@
-import { Outlet } from "react-router-dom";
+import { useLayoutEffect } from "react";
+import { Outlet, useLocation, useNavigationType } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { usePageMeta } from "@/lib/seo";
 
+// The SPA keeps the old scroll position between routes, so a link clicked in the
+// footer would open the next page at its bottom. Start each new page at the top.
+function useScrollToTopOnNavigate() {
+  const { pathname, hash } = useLocation();
+  const navigationType = useNavigationType();
+
+  useLayoutEffect(() => {
+    // Back/forward keeps the browser's position; #anchors are scrolled by their page
+    if (navigationType === "POP" || hash) return;
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname, hash, navigationType]);
+}
+
 export default function MainLayout() {
   usePageMeta();
+  useScrollToTopOnNavigate();
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">

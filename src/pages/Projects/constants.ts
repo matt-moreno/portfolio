@@ -31,8 +31,12 @@ export interface CaseStudy {
   figures: Figure[];
 }
 
+export type ProjectCategory = "Product" | "Data" | "Hobby";
+
 export interface Project {
   title: string;
+  /** Drives the filter on the Projects page */
+  category: ProjectCategory;
   kind: string;
   summary: string;
   tools: string[];
@@ -49,10 +53,120 @@ export interface Project {
 }
 
 const ASSETS = "/assets/projects";
+const DUBSADO = `${ASSETS}/dubsado`;
+
+/** Launches I worked on as a product manager at Dubsado. Each links to its public launch post */
+export const dubsadoProjects: Project[] = [
+  {
+    title: "Dubsado 3.0",
+    category: "Product",
+    kind: "Platform rebuild · Nov 2025",
+    summary:
+      "Dubsado rebuilt from the ground up after years of research and development: faster loading, table and Kanban project views, a streamlined messages inbox, and reorganized navigation.",
+    tools: ["Platform & UI", "Redesign", "Beta program"],
+    image: `${DUBSADO}/3-0-beta.jpg`,
+    imageAlt: "Dubsado 3.0 beta announcement graphic with the new app on a laptop",
+    href: "https://updates.dubsado.com/116824-dubsado-3-0-beta-is-here",
+    external: true,
+    cta: "Read the launch post",
+  },
+  {
+    title: "Easy Form Creation",
+    category: "Product",
+    kind: "AI feature · Jun 2026",
+    summary:
+      "An AI form builder that turns a text description or an uploaded PDF into a working Dubsado form, then refines it through chat. Fields come pre-mapped to client and project data.",
+    tools: ["Forms", "AI", "New feature"],
+    image: `${DUBSADO}/easy-form-creation.jpg`,
+    imageAlt: "Easy form creation announcement graphic",
+    href: "https://updates.dubsado.com/145255-easy-form-creation-is-here",
+    external: true,
+    cta: "Read the launch post",
+  },
+  {
+    title: "Public Checkout Page",
+    category: "Product",
+    kind: "Payments · Jun 2026",
+    summary:
+      "A shareable payment link that collects deposits, retainers, or add-ons without building an invoice, and creates the transaction and client record automatically. Launched through Dubsado Labs.",
+    tools: ["Invoices & Payments", "Dubsado Labs", "New feature"],
+    image: `${DUBSADO}/public-checkout.jpg`,
+    imageAlt: "Public checkout page announcement graphic",
+    href: "https://updates.dubsado.com/146168-public-checkout-page-how-to-use-it-and-where-it-s-going",
+    external: true,
+    cta: "Read the launch post",
+  },
+  {
+    title: "Cash Affiliate Program",
+    category: "Product",
+    kind: "Growth · Oct 2026",
+    summary:
+      "Moved referral rewards from subscription credit to cash, with three payout tiers and a new affiliate dashboard. Referred users get 20 to 30 percent off their first month or year.",
+    tools: ["Account & Billing", "Referrals", "Program launch"],
+    image: `${DUBSADO}/cash-affiliate.jpg`,
+    imageAlt: "Dubsado cash affiliate program announcement graphic",
+    href: "https://updates.dubsado.com/159817-earn-cash-when-you-refer-someone-to-dubsado-new-affiliate-program",
+    external: true,
+    cta: "Read the launch post",
+  },
+  {
+    title: "Tap to Pay",
+    category: "Product",
+    kind: "Payments · Mar 2025",
+    summary:
+      "Accept contactless cards, Apple Pay, and Google Pay in person with just a phone and Dubsado Payments, with surcharging and gratuity support.",
+    tools: ["Invoices & Payments", "Mobile", "New feature"],
+    image: `${DUBSADO}/tap-to-pay.jpg`,
+    imageAlt: "Tap to Pay announcement graphic",
+    href: "https://updates.dubsado.com/85192-seamlessly-accept-in-person-payments-with-tap-to-pay",
+    external: true,
+    cta: "Read the launch post",
+  },
+  {
+    title: "Prevent Client Rescheduling",
+    category: "Product",
+    kind: "Scheduler · Apr 2026",
+    summary:
+      "A scheduler setting that removes the reschedule link everywhere clients could find it. We built it in two hours after feedback from our ambassador community.",
+    tools: ["Scheduler", "Customer feedback", "New feature"],
+    image: `${DUBSADO}/prevent-rescheduling.jpg`,
+    imageAlt: "Prevent rescheduling announcement graphic",
+    href: "https://updates.dubsado.com/135911-lock-in-your-appointments-prevent-rescheduling",
+    external: true,
+    cta: "Read the launch post",
+  },
+  {
+    title: "Form Response Summary",
+    category: "Product",
+    kind: "Hackathon project · Feb 2026",
+    summary:
+      "A hackathon project I built around a common customer pain point: digging through a full form to find the answers. A new Responses tab shows only the answers in a clean table, with copy to clipboard, CSV export, and file previews.",
+    tools: ["Forms", "Hackathon", "New feature"],
+    image: `${DUBSADO}/form-response-summary.jpg`,
+    imageAlt: "Form response summary announcement graphic",
+    href: "https://updates.dubsado.com/130729-form-response-summary",
+    external: true,
+    cta: "Read the launch post",
+  },
+  {
+    title: "New Form Builder Experience",
+    category: "Product",
+    kind: "Redesign · Jul 2022",
+    summary:
+      "A full redesign of the form builder on a new foundation, with a new layout, preview mode, a sticky save button, containers, and code-free styling options.",
+    tools: ["Forms", "Redesign"],
+    image: `${DUBSADO}/form-builder.jpg`,
+    imageAlt: "Form Builder Experience announcement graphic",
+    href: "https://updates.dubsado.com/3837-the-new-form-builder-experience",
+    external: true,
+    cta: "Read the launch post",
+  },
+];
 
 export const mastersProjects: Project[] = [
   {
     title: "Google Merchandise Store Funnel Analysis",
+    category: "Data",
     kind: "Web analytics",
     summary:
       "A Google Analytics study of how shoppers find, browse, and buy on Google's merch store, and where they drop out of checkout.",
@@ -126,6 +240,7 @@ export const mastersProjects: Project[] = [
   },
   {
     title: "FAA Bird Strike Analysis Dashboard",
+    category: "Data",
     kind: "Business intelligence",
     summary:
       "Turned 99,404 FAA bird strike reports from 2000 to 2011 into an interactive Tableau dashboard that shows where strikes happen, who they affect, and what they cost.",
@@ -209,6 +324,7 @@ export const mastersProjects: Project[] = [
   },
   {
     title: "Bank Term-Deposit Prediction",
+    category: "Data",
     kind: "Machine learning · Team project",
     summary:
       "Compared four models that predict whether a bank client will subscribe to a term deposit, and learned why accuracy alone is the wrong measure.",
@@ -271,6 +387,7 @@ export const mastersProjects: Project[] = [
   },
   {
     title: "Local LLM with RAG",
+    category: "Hobby",
     kind: "Lab note",
     summary:
       "Ran Llama 3.2 locally in Docker with a web UI, then gave it a knowledge base of risk management readings to test retrieval-augmented generation.",
@@ -321,6 +438,7 @@ export const mastersProjects: Project[] = [
   },
   {
     title: "SimpliHealth: Simplified Telehealth Platform",
+    category: "Product",
     kind: "Product design · Team project",
     summary:
       "A telehealth concept for seniors and anyone who finds health apps hard to use. We turned a feature list into a prioritized Jira backlog, then designed Figma wireframes tied to each user story.",
@@ -375,14 +493,6 @@ export const mastersProjects: Project[] = [
           width: 1600,
           height: 1034,
         },
-        {
-          src: `${ASSETS}/simplihealth/ai-visit-summary.jpg`,
-          alt: "Wireframe of the AI After Visit Summary with a chat history list and a conversation with Dr. Simpli",
-          caption:
-            "AI After Visit Summary: a plain-language recap of each visit, delivered as a chat.",
-          width: 1600,
-          height: 1034,
-        },
       ],
     },
   },
@@ -391,6 +501,7 @@ export const mastersProjects: Project[] = [
 const projectData: Project[] = [
   {
     title: "Bellabeat Case Study",
+    category: "Data",
     kind: "Data analysis",
     summary:
       "Capstone for the Google Data Analytics certificate. I analyzed smart-device fitness data in R to recommend where Bellabeat should focus its marketing.",
@@ -469,6 +580,7 @@ const projectData: Project[] = [
   },
   {
     title: "Portfolio Website",
+    category: "Hobby",
     kind: "Web development",
     summary:
       "This site. Three versions since 2023, from a sidebar layout with placeholder copy to a dark, full-width design with live Strava data.",
