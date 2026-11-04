@@ -23,7 +23,11 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <header
+    // layoutScroll on a fixed element makes motion measure the active pill relative
+    // to the nav instead of the page. Without it, the scroll-to-top on navigation
+    // reads as the pill moving, and it flies in from far below.
+    <motion.header
+      layoutScroll
       className="fixed top-3 md:top-4 inset-x-0 z-[9999] flex justify-end md:justify-center px-4 pointer-events-none"
     >
       <div className="relative pointer-events-auto">
@@ -111,6 +115,6 @@ export default function Header() {
           )}
         </AnimatePresence>
       </div>
-    </header>
+    </motion.header>
   );
 }
