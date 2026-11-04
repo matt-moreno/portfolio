@@ -1,14 +1,22 @@
 import { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, useReducedMotion } from "motion/react";
 import { BsArrowRight } from "react-icons/bs";
 import Typed from "typed.js";
+import Intro from "./components/Intro";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
 
 export default function Home() {
   const textSpan = useRef(null);
   const reduce = useReducedMotion();
+  const { hash } = useLocation();
+
+  // Old /about links redirect to /#about; jump to that section once it has rendered
+  useEffect(() => {
+    if (!hash) return;
+    document.getElementById(hash.slice(1))?.scrollIntoView();
+  }, [hash]);
 
   useEffect(() => {
     const typedText = new Typed(textSpan.current, {
@@ -88,6 +96,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Intro />
       <Experience />
       <Education />
     </div>

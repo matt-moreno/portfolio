@@ -46,7 +46,7 @@
     /* Liquid glass nav: tint, rim highlight, and drop shadow */
     --glass-tint: 150 20% 99%;
     --glass-alpha: 0.08;
-    --glass-alpha-scrolled: 0.3;
+    --glass-alpha-nav: 0.3;
     --glass-rim: 0 0% 100% / 0.7;
     --glass-edge: 160 15% 10% / 0.08;
     --glass-shadow: 160 30% 8% / 0.12;
@@ -85,7 +85,7 @@
 
     --glass-tint: 162 14% 12%;
     --glass-alpha: 0.1;
-    --glass-alpha-scrolled: 0.62; /* bright content (screenshots, maps) passes under the nav once scrolled */
+    --glass-alpha-nav: 0.62; /* nav stays dark so labels read over bright content (screenshots, maps) */
     --glass-rim: 0 0% 100% / 0.14;
     --glass-edge: 0 0% 100% / 0.06;
     --glass-shadow: 0 0% 0% / 0.4;
@@ -169,9 +169,9 @@
     opacity: 0.4;
   }
 
-  /* Clear over the hero, thicker once body text is scrolling underneath */
-  [data-scrolled="true"] .glass {
-    --glass-alpha: var(--glass-alpha-scrolled);
+  /* The nav bar is always the darker glass, never the near-clear default */
+  .glass.glass-nav {
+    --glass-alpha: var(--glass-alpha-nav);
   }
 
   /* Surfaces you read from (menus) need frostier glass than the nav bar */

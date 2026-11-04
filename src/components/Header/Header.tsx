@@ -6,7 +6,6 @@ import GlassSurface from "../GlassSurface/GlassSurface";
 
 const navItems = [
   { path: "/", label: "Home" },
-  { path: "/about", label: "About" },
   { path: "/runs", label: "Runs" },
   { path: "/projects", label: "Projects" },
   { path: "/resources", label: "Resources" },
@@ -17,28 +16,18 @@ export default function Header() {
   const reduce = useReducedMotion();
   const { pathname } = useLocation();
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setScrolled] = useState(false);
 
   // Close the mobile menu whenever the route changes
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
 
-  // Once content starts passing under the nav, thicken the glass for legibility
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <header
-      data-scrolled={isScrolled}
       className="fixed top-3 md:top-4 inset-x-0 z-[9999] flex justify-end md:justify-center px-4 pointer-events-none"
     >
       <div className="relative pointer-events-auto">
-        <GlassSurface className="rounded-full flex items-center gap-1 p-1.5">
+        <GlassSurface className="glass-nav rounded-full flex items-center gap-1 p-1.5">
           <nav aria-label="Primary" className="relative z-10 hidden md:flex items-center gap-0.5">
             {navItems.map(({ path, label }) => (
               <NavLink
