@@ -18,11 +18,6 @@ const DEFAULT_META: PageMeta = {
 // Keyed by pathname. Dynamic routes (e.g. /runs/:stravaId) fall back to their parent.
 const PAGE_META: Record<string, PageMeta> = {
   "/": DEFAULT_META,
-  "/about": {
-    title: "About · Matt Moreno",
-    description:
-      "About Matt Moreno: Southern California native, product manager, and marathon runner.",
-  },
   "/projects": {
     title: "Projects · Matt Moreno",
     description:

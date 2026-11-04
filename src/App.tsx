@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
 import Photos from "./pages/Photos/Photos";
 import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
@@ -19,7 +18,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
-            <Route path="/about" element={<About />} />
+            {/* About was folded into Home */}
+            <Route path="/about" element={<Navigate to="/#about" replace />} />
             <Route path="/photos" element={<Photos />} />
             <Route path="/projects" element={<Projects />}>
               <Route path="/projects/:slug" element={<CaseStudy />} />

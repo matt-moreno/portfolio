@@ -6,7 +6,6 @@ import GlassSurface from "../GlassSurface/GlassSurface";
 
 const navItems = [
   { path: "/", label: "Home" },
-  { path: "/about", label: "About" },
   { path: "/runs", label: "Runs" },
   { path: "/projects", label: "Projects" },
   { path: "/resources", label: "Resources" },
