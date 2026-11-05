@@ -36,7 +36,7 @@ export default function Resources() {
   };
 
   return (
-    <div className="px-6 md:px-12 lg:px-16 pt-28 pb-20 md:pt-32 md:pb-28">
+    <div className="px-6 md:px-12 lg:px-16 pt-20 pb-20 md:pt-32 md:pb-28">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
           Resources

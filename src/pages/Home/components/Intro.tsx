@@ -18,7 +18,7 @@ export default function Intro() {
       {/* Same width and 220px left column as Experience below, so the two read as one flow.
           No bottom padding: Experience's top padding provides the gap. */}
       <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-8 items-center">
-        <motion.div {...reveal(0)} className="w-48 sm:w-full">
+        <motion.div {...reveal(0)} className="w-48 justify-self-center sm:w-full sm:justify-self-stretch">
           <img
             src="/assets/MattPortrait.jpeg"
             alt="Portrait of Matt Moreno"

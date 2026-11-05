@@ -84,7 +84,7 @@ export default function CaseStudy() {
   const [hero, ...figures] = study.figures;
 
   return (
-    <div className="w-full px-6 md:px-12 lg:px-16 pt-28 pb-16 md:pt-32 md:pb-24">
+    <div className="w-full px-6 md:px-12 lg:px-16 pt-20 pb-16 md:pt-32 md:pb-24">
       <article className="max-w-4xl mx-auto">
         <NavLink
           to="/projects"

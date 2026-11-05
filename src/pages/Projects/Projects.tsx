@@ -29,7 +29,7 @@ function FilterBar({
     <div
       role="group"
       aria-label="Filter projects"
-      className="mt-10 inline-flex flex-wrap gap-1 rounded-full p-1 ring-1 ring-border bg-secondary/40"
+      className="mt-8 md:mt-10 inline-flex flex-wrap gap-1 rounded-full p-1 ring-1 ring-border bg-secondary/40"
     >
       {filters.map((f) => (
         <button
@@ -148,7 +148,7 @@ export default function Projects() {
     .filter((section) => section.projects.length > 0);
 
   return (
-    <div className="px-6 md:px-12 lg:px-16 pt-28 pb-20 md:pt-32 md:pb-28">
+    <div className="px-6 md:px-12 lg:px-16 pt-20 pb-20 md:pt-32 md:pb-28">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
           Projects
@@ -161,11 +161,11 @@ export default function Projects() {
         <FilterBar value={filter} onChange={setFilter} />
 
         {visible.map((section, s) => (
-          <section key={section.heading} className="mt-14 md:mt-20">
+          <section key={section.heading} className="mt-10 md:mt-20">
             <h2 className="pb-4 border-b border-border text-sm font-medium text-muted-foreground">
               {section.heading}
             </h2>
-            <ul className="mt-10 md:mt-14 space-y-16 md:space-y-24">
+            <ul className="mt-8 md:mt-14 space-y-16 md:space-y-24">
               {section.projects.map((project, i) => (
                 <ProjectRow
                   key={project.title}
