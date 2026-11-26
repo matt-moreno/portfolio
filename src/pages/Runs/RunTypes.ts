@@ -16,11 +16,21 @@ export interface GeoTypes {
   id: number;
   title: string;
   exercise: string;
+  date: string;
   elevHigh: number;
   elevLow: number;
-  startLat: number[];
-  endLat: number[];
   polyline: [number, number][];
+}
+
+// Shape returned by the backend's GET /api/races
+export interface RaceRouteTypes {
+  id: number;
+  name: string;
+  type: string;
+  start_date_local: string;
+  elev_high: number;
+  elev_low: number;
+  summary_polyline: string;
 }
 
 export interface RecentActivityTypes {

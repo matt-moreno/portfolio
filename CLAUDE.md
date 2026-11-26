@@ -26,7 +26,7 @@ This is a React 18 + TypeScript + Vite single-page application deployed on Verce
 
 **Theme**: Dark mode only. `<html class="dark">` is hardcoded in `index.html`; there is no toggle. The light tokens in `:root` are unused.
 
-**Runs page** (`src/pages/Runs/`): Fetches live data from a separate Railway.app backend (`VITE_API_BASE_URL` env var) which proxies the Strava API. Three endpoints: `/api/strava` (activities), `/api/athlete-stats`, `/api/gear`. GPS polylines from Strava are decoded via `@mapbox/polyline` and rendered with `react-map-gl` + Mapbox GL JS.
+**Runs page** (`src/pages/Runs/`): Fetches live data from a separate Railway.app backend (`VITE_API_BASE_URL` env var) which proxies the Strava API. Endpoints: `/api/strava` (activities), `/api/races` (race route polylines), `/api/strava/:id` and `/api/strava/:id/photos` (race detail), `/api/athlete-stats`, `/api/gear`. The backend strips location from all activities except races, so the route map only shows races: polylines are decoded via `@mapbox/polyline` and rendered with `react-map-gl` + Mapbox GL JS. Adding a race means adding it to `races` in `constants.ts` and its Strava ID to `raceActivityIds` in the backend.
 
 **Static content**: Projects (`src/pages/Projects/constants.ts`), races/marathon majors/weekly tracker targets (`src/pages/Runs/constants.ts`), and resources (`src/pages/Resources/constants.ts`) are all defined as plain TypeScript constants — edit these files to add/update content.
 
