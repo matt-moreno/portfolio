@@ -6,7 +6,12 @@ import {
   calculateCurrentWeekMiles,
   calculateDailyProgress,
 } from "./utils";
-import { GeoTypes, RecentActivityTypes, ActivityTypes } from "./RunTypes";
+import {
+  GeoTypes,
+  RecentActivityTypes,
+  ActivityTypes,
+  RaceRouteTypes,
+} from "./RunTypes";
 import polyline from "@mapbox/polyline";
 import Loading from "../../components/Loading/Loading";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -16,6 +21,7 @@ import MarathonMajorsCard from "./components/MarathonMajorsCard";
 import RunningRecapCard from "./components/RunningRecapCard";
 import RecentActivityCard from "./components/RecentActivityCard";
 import RacesCardCarousel from "./components/RacesCardCarousel";
+import { races } from "./constants";
 
 export default function Runs() {
   const [loading, setLoading] = useState(true);
@@ -42,7 +48,6 @@ export default function Runs() {
           `${import.meta.env.VITE_API_BASE_URL}/api/strava`,
         );
         const result = await response.json();
-        const geoArr: GeoTypes[] = [];
         const activityArr: RecentActivityTypes[] = [];
 
         result.map((data: ActivityTypes, index: number) => {
@@ -50,17 +55,6 @@ export default function Runs() {
           if (data.type !== "Run") {
             return;
           }
-
-          geoArr.push({
-            id: data.id,
-            title: data.name,
-            exercise: data.type,
-            elevHigh: data.elev_high,
-            elevLow: data.elev_low,
-            startLat: data.start_latlng,
-            endLat: data.end_latlng,
-            polyline: polyline.decode(data.map.summary_polyline),
-          });
 
           if (index < 5) {
             activityArr.push({
@@ -82,7 +76,6 @@ export default function Runs() {
           }
         });
 
-        setGeoData(geoArr);
         setRecentActivity(activityArr);
 
         // Calculate actual current week miles from Strava data
@@ -97,6 +90,31 @@ export default function Runs() {
         console.error("Error fetching data:", error);
       } finally {
         setLoading(false);
+      }
+    };
+
+    // Get race routes for the map (the only routes the backend exposes)
+    const getRaceRoutes = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API_BASE_URL}/api/races`,
+        );
+        const result: RaceRouteTypes[] = await response.json();
+        setGeoData(
+          result.map((race) => ({
+            id: race.id,
+            // Prefer the portfolio's race title over the Strava activity name
+            title:
+              races.find((r) => r.stravaId === race.id)?.title ?? race.name,
+            exercise: race.type,
+            date: race.start_date_local,
+            elevHigh: race.elev_high,
+            elevLow: race.elev_low,
+            polyline: polyline.decode(race.summary_polyline),
+          })),
+        );
+      } catch (error) {
+        console.error("Error fetching race routes:", error);
       }
     };
 
@@ -137,6 +155,7 @@ export default function Runs() {
     };
 
     getStravaData();
+    getRaceRoutes();
     getAthleteStats();
     getGear();
   }, []);
